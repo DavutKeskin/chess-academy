@@ -1,0 +1,622 @@
+{
+  "@@locale": "de",
+  "appName": "Schach-Akademie",
+  "continueBtn": "Weiter",
+  "startBtn": "Start",
+  "nextBtn": "Weiter",
+  "backBtn": "Zurück",
+  "white": "Weiß",
+  "black": "Schwarz",
+  "whiteToMove": "Weiß am Zug",
+  "blackToMove": "Schwarz am Zug",
+  "streakDays": "{count}-Tage-Serie",
+  "streakEmpty": "Beende eine Lektion, um eine Serie zu starten",
+  "todaysLesson": "LEKTION DES TAGES",
+  "allLessonsDoneLabel": "ALLE LEKTIONEN GESCHAFFT",
+  "practiceWithPuzzles": "Mit Aufgaben üben",
+  "stepsApprox": "{count} Schritte · etwa 3 Minuten",
+  "mateInOneShort": "Matt in einem Zug",
+  "unlockedWithPack": "Wird mit dem Paket „Alle Lektionen“ freigeschaltet",
+  "dailyPuzzle": "Aufgabe des Tages",
+  "dailySolved": "Heute gelöst. Morgen gibt es eine neue.",
+  "dailySubtitle": "Matt in einem Zug · Schwierigkeit {rating}",
+  "dailySubtitleNoRating": "Matt in einem Zug",
+  "lessons": "Lektionen",
+  "puzzles": "Aufgaben",
+  "play": "Spielen",
+  "progress": "Mein Fortschritt",
+  "settings": "Einstellungen",
+  "lessonsDoneOf": "{done} / {total} abgeschlossen",
+  "puzzlesSolvedOf": "{done} / {total} gelöst",
+  "vsComputer": "Gegen den Computer",
+  "winsCount": "{count} Siege",
+  "badgesAndStreak": "Abzeichen und Serie",
+  "chessSchool": "Schachschule",
+  "allLessonsFinished": "Glückwunsch, du hast alle Lektionen geschafft!",
+  "lessonsSequentialHint": "Lektionen werden der Reihe nach freigeschaltet; jede dauert 2-4 Minuten.",
+  "completed": "Abgeschlossen",
+  "stepsCount": "{count} Schritte",
+  "unlockBadge": "Freischalten",
+  "groupBasics": "Grundlagen: Die Figuren",
+  "groupRules": "Regeln",
+  "groupTactics": "Taktik",
+  "groupMates": "Mattmuster",
+  "taskMoveHint": "Aufgabe: Ziehe die Figur auf das markierte Feld.",
+  "readyContinue": "Weiter, wenn du bereit bist.",
+  "finishLesson": "Lektion beenden",
+  "wrongTarget": "Nicht dieses Feld, versuch es noch einmal.",
+  "starterCategory": "Einstieg",
+  "starterSubtitle": "Klassische Mattbilder mit Namen",
+  "mateIn1Category": "Matt in einem Zug",
+  "mateIn1Subtitle": "{count} Aufgaben, von leicht bis schwer",
+  "mateIn2Category": "Matt in zwei Zügen",
+  "mateIn2Subtitle": "Der Gegner antwortet, du setzt Matt · {count} Aufgaben",
+  "lichessCredit": "Die Mattaufgaben stammen aus der offenen Datenbank von lichess.org (CC0).",
+  "continueFromPuzzle": "Dort weitermachen, wo du aufgehört hast (Aufgabe {n})",
+  "categoryAllSolved": "Du hast alle Aufgaben dieser Kategorie gelöst! 🎉",
+  "packTitle": "Set {n}",
+  "difficultyRange": "Schwierigkeit {range}",
+  "puzzleN": "Aufgabe {n}",
+  "puzzleMateIn1Prompt": "{side} am Zug. Matt in einem Zug!",
+  "puzzleMateInNPrompt": "{side} am Zug. Matt in {total} Zügen · Zug {move}",
+  "opponentReplying": "Richtig! Der Gegner antwortet...",
+  "notThisOne": "Das ist es nicht. Versuch es noch einmal.",
+  "solvedWithHint": "Schachmatt! Nächstes Mal ohne Tipp.",
+  "solvedGreat": "Schachmatt! Großartig 🎉",
+  "hintWhichPiece": "Tipp: Welche Figur?",
+  "hintWhere": "Tipp: Wohin?",
+  "hintShown": "Tipp angezeigt",
+  "nextPuzzle": "Nächste Aufgabe",
+  "doneGoBack": "Fertig, zurück",
+  "level1": "Anfänger",
+  "level2": "Schüler",
+  "level3": "Lehrling",
+  "level4": "Meister",
+  "level5": "Großmeister",
+  "levelHint1": "Zieht zufällig. Für die ersten Partien.",
+  "levelHint2": "Schlägt Figuren, tappt in Fallen.",
+  "levelHint3": "Sieht zwei Züge voraus.",
+  "levelHint4": "Starker Gegner. Mach dich bereit!",
+  "levelHint5": "Volle Engine-Stärke.",
+  "opponentLevel": "Gegnerstufe",
+  "whichColor": "Mit welcher Farbe spielst du?",
+  "youMoveFirst": "Du ziehst zuerst",
+  "computerStarts": "Der Computer beginnt",
+  "startGame": "Partie starten",
+  "restart": "Neu starten",
+  "levelTitle": "Stufe {level} · {name}",
+  "resultDraw": "Remis!",
+  "resultWin": "Du hast gewonnen! 🎉",
+  "resultLose": "Der Computer hat gewonnen. Versuch es noch einmal!",
+  "opponentPreparing": "Gegner wird vorbereitet...",
+  "computerThinking": "Der Computer denkt...",
+  "checkYourTurn": "Schach! Du bist am Zug.",
+  "yourTurn": "Du bist am Zug.",
+  "playAgain": "Noch einmal",
+  "reviewGame": "Partie ansehen",
+  "recentGames": "Letzte Partien",
+  "gameSummary": "Stufe {level} · {result}",
+  "resultWinShort": "Gewonnen",
+  "resultLoseShort": "Verloren",
+  "resultDrawShort": "Remis",
+  "movesCount": "{count} Züge",
+  "replayStart": "Ausgangsstellung",
+  "replayMove": "Zug {n}: {san}",
+  "replayHint": "Tippe auf einen Zug oder nutze die Pfeile.",
+  "statStreak": "Tage in Serie",
+  "statLessons": "Lektionen geschafft",
+  "statPuzzles": "Aufgaben gelöst",
+  "statGames": "Siege / Partien",
+  "badges": "Abzeichen",
+  "badgeFirstStep": "Erster Schritt",
+  "badgeFirstStepHint": "Beende die erste Lektion",
+  "badgePieceMaster": "Figurenmeister",
+  "badgePieceMasterHint": "Beende alle Lektionen",
+  "badgePuzzleHunter": "Aufgabenjäger",
+  "badgePuzzleHunterHint": "Löse 5 Aufgaben",
+  "badgeMateMachine": "Mattmaschine",
+  "badgeMateMachineHint": "Löse 100 Aufgaben",
+  "badgeFirstWin": "Erster Sieg",
+  "badgeFirstWinHint": "Besiege den Computer",
+  "badgeSteady": "Beständig",
+  "badgeSteadyHint": "3-Tage-Serie",
+  "boardSection": "Brett",
+  "piecesSection": "Figuren",
+  "piecesNote": "Der Satz „Halbmond“ ist exklusiv für diese App: ein Halbmond statt eines Kreuzes auf dem König. Die anderen sind Open-Source-Sätze von lichess.org.",
+  "boardAndPieces": "Brett {board} · Figuren {pieces}",
+  "feedbackSection": "Rückmeldung",
+  "sounds": "Töne",
+  "soundsSub": "Züge, richtig/falsch und Matt",
+  "vibration": "Vibration",
+  "vibrationSub": "Berührung und Ergebnis",
+  "allLessonsSection": "Alle Lektionen",
+  "allLessonsOpen": "Alle Lektionen freigeschaltet",
+  "purchasedThanks": "Gekauft, vielen Dank.",
+  "unlockTacticLessons": "Taktik- und Mattlektionen freischalten",
+  "oneTimePrice": "Einmalig · {price}",
+  "profileSection": "Profil",
+  "profileUnlocked": "Alle Lektionen offen; Gegner ab Stufe {level} empfohlen.",
+  "profileSequential": "Lektionen werden der Reihe nach freigeschaltet; der Gegner beginnt auf Stufe 1.",
+  "languageSection": "Sprache",
+  "languageSystem": "Systemsprache",
+  "boardKlasik": "Klassisch",
+  "boardTurnuva": "Turnier",
+  "boardOkyanus": "Ozean",
+  "boardAhsap": "Holz",
+  "boardAkcaagac": "Ahorn",
+  "boardMermer": "Marmor",
+  "boardMenekse": "Veilchen",
+  "boardZeytin": "Olive",
+  "boardGrafit": "Graphit",
+  "boardSeker": "Bonbon",
+  "pieceHilal": "Halbmond",
+  "pieceKlasik": "Klassisch",
+  "pieceMerida": "Merida",
+  "pieceStaunty": "Staunty",
+  "pieceFresca": "Fresca",
+  "pieceCardinal": "Kardinal",
+  "pieceGioco": "Gioco",
+  "pieceTatiana": "Tatiana",
+  "pieceHorsey": "Horsey",
+  "ageChild": "Kind",
+  "ageChildHint": "6-9 Jahre",
+  "ageTeen": "Jugendlich",
+  "ageTeenHint": "10-14 Jahre",
+  "ageAdult": "Erwachsen",
+  "ageAdultHint": "15+",
+  "skillBeginner": "Ich kann noch nichts",
+  "skillBeginnerHint": "Wir beginnen mit den Lektionen",
+  "skillKnowsRules": "Ich kenne die Regeln",
+  "skillKnowsRulesHint": "Lektionen offen, direkt zu den Aufgaben",
+  "skillPlays": "Ich spiele schon",
+  "skillPlaysHint": "Taktik und ein starker Gegner",
+  "welcomeTitle": "Willkommen in der Schach-Akademie",
+  "welcomeSub": "Zwei kurze Fragen, damit wir deinen Startpunkt festlegen. Du kannst das später in den Einstellungen ändern.",
+  "whoPlays": "Wer spielt?",
+  "howMuchChess": "Wie gut kennst du Schach?",
+  "letsStart": "Los geht's",
+  "whoPlaysShort": "Wer spielt?",
+  "skillLevel": "Stufe",
+  "paywallHeroTitle": "Die ganze Schachschule",
+  "paywallHeroSub": "Taktik, Eröffnung und Mattmuster. Einmal zahlen, unbegrenzt nutzen.",
+  "whatUnlocks": "Was wird freigeschaltet?",
+  "benefitFamily": "Einmal zahlen, auf allen Geräten mit demselben Google-Konto nutzen.",
+  "benefitNoAds": "Keine Werbung, kein Abo, keine versteckten Kosten.",
+  "benefitUpdates": "Auch künftig hinzugefügte Lektionen sind enthalten.",
+  "unlockAllLessonsBtn": "Alle Lektionen freischalten · {price}",
+  "restorePurchase": "Schon gekauft? Wiederherstellen",
+  "devUnlock": "(Entwicklung) Zum Testen freischalten",
+  "storeNote": "Die Zahlung läuft über Google Play; Erstattungen und Rechnungen folgen den Google-Play-Regeln.",
+  "ownedThanks": "Danke! Die ganze Schachschule gehört dir.",
+  "backToLessons": "Zurück zu den Lektionen",
+  "storeUnavailable": "Der Store ist gerade nicht erreichbar. Prüfe deine Internetverbindung und dein Google-Play-Konto.",
+  "storeUnavailableShort": "Der Store ist gerade nicht erreichbar.",
+  "purchaseNotStarted": "Kauf konnte nicht gestartet werden: {error}",
+  "purchaseFailed": "Der Kauf konnte nicht abgeschlossen werden.",
+  "lesson_board_title": "Brett und Figuren",
+  "lesson_board_s1": "Ein Schachbrett hat 64 Felder: 8 Reihen und 8 Linien. Die Linien heißen a bis h, die Reihen 1 bis 8.",
+  "lesson_board_s2": "Jeder Spieler hat 16 Figuren: 8 Bauern, 2 Türme, 2 Springer, 2 Läufer, 1 Dame und 1 König. Weiß zieht immer zuerst.",
+  "lesson_board_s3": "Kleine Erinnerung: Die Dame steht auf ihrer eigenen Farbe. Die weiße Dame auf einem hellen Feld (d1), die schwarze Dame auf einem dunklen Feld (d8).",
+  "lesson_rook_title": "Der Turm",
+  "lesson_rook_s1": "Der Turm zieht gerade: vorwärts, rückwärts, nach links oder rechts, so weit er will. Aber er kann nicht über andere Figuren springen.",
+  "lesson_rook_s2": "Jetzt du: Ziehe den Turm von a1 nach a8.",
+  "lesson_rook_s2_ok": "Super! Der Turm ist die ganze Linie hinaufgezogen.",
+  "lesson_rook_s3": "Der Turm kann schlagen: Steht eine gegnerische Figur auf seinem Weg, nimmt er sie vom Brett. Schlage den schwarzen Bauern auf a7 mit dem Turm.",
+  "lesson_rook_s3_ok": "Bauer geschlagen! Der Turm ist eine starke Figur.",
+  "lesson_bishop_title": "Der Läufer",
+  "lesson_bishop_s1": "Der Läufer zieht diagonal. Ein Läufer bleibt sein ganzes Leben auf Feldern derselben Farbe.",
+  "lesson_bishop_s2": "Ziehe den Läufer von c1 nach h6.",
+  "lesson_bishop_s2_ok": "Wunderbar! Der Läufer ist über die Diagonale geflogen.",
+  "lesson_queen_title": "Die Dame",
+  "lesson_queen_s1": "Die Dame ist die stärkste Figur: Sie zieht gerade wie ein Turm und diagonal wie ein Läufer.",
+  "lesson_queen_s2": "Ziehe die Dame von d1 nach h5.",
+  "lesson_queen_s2_ok": "Perfekt! Die Dame ist diagonal gezogen.",
+  "lesson_queen_s3": "Jetzt gerade: Ziehe die Dame von h5 nach h8.",
+  "lesson_queen_s3_ok": "Die Dame kann auch wie ein Turm ziehen!",
+  "lesson_knight_title": "Der Springer",
+  "lesson_knight_s1": "Der Springer springt in L-Form: zwei Felder gerade, eins zur Seite. Er ist die einzige Figur, die über andere springen kann.",
+  "lesson_knight_s2": "Lass den Springer von b1 nach c3 springen.",
+  "lesson_knight_s2_ok": "Ein perfektes L! Der Springer ist gesprungen.",
+  "lesson_knight_s3": "Der Springer kann über Bauern springen. Ziehe den Springer von b1 nach a3 oder c3.",
+  "lesson_knight_s3_ok": "Über die Bauern gesprungen!",
+  "lesson_pawn_title": "Der Bauer",
+  "lesson_pawn_s1": "Ein Bauer zieht nur vorwärts, ein Feld. Beim ersten Zug darf er zwei Felder gehen. Er schlägt schräg.",
+  "lesson_pawn_s2": "Ziehe den Bauern von e2 zwei Felder vor nach e4.",
+  "lesson_pawn_s2_ok": "Zwei Felder beim ersten Zug, richtig!",
+  "lesson_pawn_s3": "Bauern schlagen schräg. Schlage den schwarzen Bauern auf d5 mit dem Bauern auf e4.",
+  "lesson_pawn_s3_ok": "Schräg geschlagen!",
+  "lesson_pawn_s4": "Erreicht ein Bauer die letzte Reihe, wird er umgewandelt: Er kann eine Dame werden! Ziehe den Bauern von e7 nach e8.",
+  "lesson_pawn_s4_ok": "Der Bauer wurde zur Dame! Das nennt man Umwandlung.",
+  "lesson_king_title": "Der König",
+  "lesson_king_s1": "Der König ist die wichtigste Figur. Er zieht in jede Richtung, aber nur ein Feld. Ein König darf nie auf ein angegriffenes Feld ziehen.",
+  "lesson_king_s2": "Ziehe den König von e1 auf ein Nachbarfeld.",
+  "lesson_king_s2_ok": "Der König hat einen Schritt gemacht.",
+  "lesson_king_s3": "Rochade: König und Turm ziehen gleichzeitig, der König kommt in Sicherheit. Ziehe den König von e1 nach g1 (der Turm folgt automatisch).",
+  "lesson_king_s3_ok": "Rochiert! Der König ist jetzt sicher.",
+  "lesson_checkmate_title": "Schach und Matt",
+  "lesson_checkmate_s1": "Den König anzugreifen heißt „Schach“. Der Gegner muss seinen König retten. Kann er das nicht, ist es „Schachmatt“ und die Partie ist zu Ende.",
+  "lesson_checkmate_s2": "Der schwarze König ist von seinen eigenen Bauern eingesperrt. Ziehe den Turm nach e8 und setze Matt!",
+  "lesson_checkmate_s2_ok": "Schachmatt! Dein erstes Matt 🎉",
+  "lesson_checkmate_s3": "Du kennst jetzt die Grundregeln. In den nächsten Lektionen lernst du, wie man dem Schach entkommt, das Patt und die Taktik.",
+  "lesson_escape_check_title": "Dem Schach entkommen",
+  "lesson_escape_check_s1": "Im Schach gibt es drei Auswege: den König wegziehen, eine Figur dazwischenstellen oder den Angreifer schlagen. Zuerst wegziehen: Der weiße König steht im Schach durch den Turm.",
+  "lesson_escape_check_s1_ok": "Der König ist auf ein sicheres Feld geflohen.",
+  "lesson_escape_check_s2": "Zweiter Weg: dazwischenstellen. Der schwarze Turm gibt Schach; stelle den Läufer dazwischen.",
+  "lesson_escape_check_s2_ok": "Der Läufer wurde zum Schild; der König ist nicht mehr bedroht.",
+  "lesson_escape_check_s3": "Dritter Weg: den Angreifer schlagen. Der schwarze Läufer gibt Schach, aber der Turm erreicht ihn. Schlage den Läufer!",
+  "lesson_escape_check_s3_ok": "Der Angreifer ist weg; die Bedrohung ist vorbei.",
+  "lesson_stalemate_title": "Patt: Vorsicht, Remis!",
+  "lesson_stalemate_s1": "Steht der Spieler am Zug NICHT im Schach, hat aber keinen einzigen legalen Zug, ist es „Patt“ und die Partie endet remis. Beim Gewinnen ins Patt zu laufen ist der häufigste Fehler.",
+  "lesson_stalemate_s2": "Zieht die Dame hier nach f7, hat der schwarze König keinen Zug mehr und es ist Patt. Finde stattdessen den Mattzug: Ziehe die Dame nach g7 oder f8.",
+  "lesson_stalemate_s2_ok": "Schachmatt! Du bist nicht in die Pattfalle getappt.",
+  "lesson_en_passant_title": "En passant",
+  "lesson_en_passant_s1": "Zieht ein gegnerischer Bauer beim ersten Zug zwei Felder und landet neben deinem Bauern, darfst du ihn schlagen, als wäre er nur ein Feld gezogen. Das heißt „en passant“ und geht nur im direkt folgenden Zug.",
+  "lesson_en_passant_s2": "Der schwarze Bauer ist von d7 nach d5 gesprungen. Schlage ihn en passant mit dem Bauern auf e5: Ziehe nach d6.",
+  "lesson_en_passant_s2_ok": "En passant! Der schwarze Bauer ist vom Brett.",
+  "lesson_fork_title": "Die Gabel",
+  "lesson_fork_s1": "Mit einer Figur zwei Figuren gleichzeitig anzugreifen heißt „Gabel“. Der Gegner kann nicht beide retten. Der Springer ist der Meister der Gabel.",
+  "lesson_fork_s2": "Lass den Springer nach d6 springen: Du gibst Schach und greifst gleichzeitig die Dame auf c8 an. Zieht der König weg, gehört die Dame dir.",
+  "lesson_fork_s2_ok": "Gabel! König und Dame sind gleichzeitig angegriffen.",
+  "lesson_fork_s3": "Auch ein Bauer kann gabeln. Schiebe den Bauern nach d5: Er greift Turm und Springer an.",
+  "lesson_fork_s3_ok": "Ein kleiner Bauer bedroht zwei große Figuren!",
+  "lesson_pin_title": "Die Fesselung",
+  "lesson_pin_s1": "Eine Figur ist „gefesselt“, wenn ihr Wegziehen eine wertvollere Figur dahinter (meist den König) freilegen würde. Läufer und Türme sind die Fesselungsexperten.",
+  "lesson_pin_s2": "Ziehe den Läufer nach b5. Der schwarze Springer kann sich nicht mehr bewegen, denn hinter ihm steht der König.",
+  "lesson_pin_s2_ok": "Der Springer ist gefesselt! Laut Regeln darf er nicht ziehen.",
+  "lesson_pin_s3": "Greifst du die gefesselte Figur mit einem Bauern an, kann sie nicht fliehen. Schiebe den Bauern nach d5.",
+  "lesson_pin_s3_ok": "Der Springer ist gefesselt und angegriffen: gewonnen!",
+  "lesson_skewer_title": "Der Spieß",
+  "lesson_skewer_s1": "Der Spieß ist das Gegenteil der Fesselung: Die wertvolle Figur vorne (der König) muss weichen, und die Figur dahinter fällt.",
+  "lesson_skewer_s2": "Bringe den Turm mit Schach nach e1. Verlässt der König die e-Linie, gehört die Dame dahinter dir.",
+  "lesson_skewer_s2_ok": "Spieß! Der König flieht, die Dame bleibt.",
+  "lesson_defend_title": "Drohung erkennen, verteidigen",
+  "lesson_defend_s1": "Frage dich vor jedem Zug: „Was droht der letzte Zug des Gegners?“ Hier greift der schwarze Läufer deine Dame an. Den Läufer zu schlagen ist eine Falle: Der Bauer g7 deckt ihn.",
+  "lesson_defend_s2": "Ziehe die Dame auf ein sicheres Feld, das der Läufer nicht erreicht (zum Beispiel a4, b4, c4, d3, d2 oder d1).",
+  "lesson_defend_s2_ok": "Die Dame ist sicher. Erst verteidigen, dann angreifen.",
+  "lesson_values_title": "Der Wert der Figuren",
+  "lesson_values_s1": "Kenne die Werte beim Tauschen: Bauer 1, Springer 3, Läufer 3, Turm 5, Dame 9. Der König hat keinen Wert, weil man ihn nie verlieren kann.",
+  "lesson_values_s2": "Dein Turm kann zwei Figuren schlagen: den Springer auf b1 (3 Punkte) oder die Dame auf d8 (9 Punkte). Nimm die wertvollere.",
+  "lesson_values_s2_ok": "Die Dame ist 9 Punkte wert! Richtige Wahl.",
+  "lesson_opening_title": "Eröffnungsprinzipien",
+  "lesson_opening_s1": "Drei Regeln zu Beginn: Besetze das Zentrum mit Bauern, entwickle Springer und Läufer, rochiere für die Sicherheit des Königs. Ziehe nicht dieselbe Figur zweimal und hole die Dame nicht zu früh heraus.",
+  "lesson_opening_s2": "Erstes Prinzip: das Zentrum. Schiebe den e- oder d-Bauern zwei Felder vor.",
+  "lesson_opening_s2_ok": "Das Zentrum gehört dir. Der Bauer kontrolliert zwei Felder.",
+  "lesson_opening_s3": "Zweites Prinzip: Figuren entwickeln. Bringe den Springer von g1 nach f3; von dort sieht er das Zentrum.",
+  "lesson_opening_s3_ok": "Der Springer ist im Spiel und drückt auf den Bauern e5.",
+  "lesson_opening_s4": "Drittes Prinzip: Königssicherheit. Der Läufer ist draußen, also kannst du rochieren: Ziehe den König von e1 nach g1.",
+  "lesson_opening_s4_ok": "Rochiert. Der König ist sicher und der Turm im Spiel.",
+  "lesson_luft_title": "Gefahr auf der Grundreihe",
+  "lesson_luft_s1": "Nach der Rochade schützen die Bauern vor dem König – und sperren ihn zugleich ein. Erreicht ein gegnerischer Turm die Grundreihe, kannst du Matt werden. Lösung: Gib dem König ein kleines Luftloch.",
+  "lesson_luft_s2": "Der schwarze Turm auf a8 will nach a1 und Matt setzen. Schiebe einen Bauern, um dem König ein Fluchtfeld zu geben.",
+  "lesson_luft_s2_ok": "Die Tür ist offen. Kommt der Turm, flieht der König nach h2.",
+  "lesson_mate_queen_title": "Matt mit der Dame",
+  "lesson_mate_queen_s1": "Die Dame kann allein nicht Matt setzen; sie braucht deinen König. Methode: Dränge den gegnerischen König mit der Dame an den Rand, bringe deinen König heran, dann vollende.",
+  "lesson_mate_queen_s2": "Der schwarze König steht am Rand, der weiße König genau gegenüber. Ziehe die Dame nach d7: Vom König gedeckt ist das Matt.",
+  "lesson_mate_queen_s2_ok": "Schachmatt! Dame und König haben zusammengearbeitet.",
+  "lesson_mate_two_rooks_title": "Treppenmatt mit zwei Türmen",
+  "lesson_mate_two_rooks_s1": "Zwei Türme geben abwechselnd Schach und drängen den gegnerischen König Stufe für Stufe an den Rand; das ist das Treppenmatt. Zuerst sperrt ein Turm die Reihe vor dem König.",
+  "lesson_mate_two_rooks_s2": "Ziehe den Turm nach a7: Der schwarze König kommt nicht mehr auf die 7. Reihe.",
+  "lesson_mate_two_rooks_s2_ok": "Die 7. Reihe ist gesperrt. Der König sitzt auf der 8. fest.",
+  "lesson_mate_two_rooks_s3": "Gib jetzt mit dem anderen Turm Schach auf der 8. Reihe: Ziehe nach b8 und setze Matt.",
+  "lesson_mate_two_rooks_s3_ok": "Treppenmatt! Jetzt kannst du jede Partie mit zwei Türmen beenden.",
+  "puzzle_p01_title": "Grundreihenmatt",
+  "puzzle_p01_hint": "Die Bauern vor dem schwarzen König versperren seine Flucht.",
+  "puzzle_p02_title": "Schäfermatt",
+  "puzzle_p02_hint": "f7 ist das schwächste Feld. Dame und Läufer greifen gemeinsam an.",
+  "puzzle_p03_title": "Narrenmatt",
+  "puzzle_p03_hint": "Die Diagonale zum weißen König ist offen. Gib Schach mit der Dame.",
+  "puzzle_p04_title": "Ersticktes Matt",
+  "puzzle_p04_hint": "Der König ist von eigenen Figuren umgeben. Der Springer kann hineinspringen und Matt setzen.",
+  "puzzle_p05_title": "Dame und König",
+  "puzzle_p05_hint": "Der weiße König deckt die Dame. Bringe die Dame an den König heran.",
+  "puzzle_p06_title": "Treppenmatt",
+  "puzzle_p06_hint": "Ein Turm hält die 7. Reihe. Lass den anderen auf der 8. landen.",
+  "puzzle_p07_title": "Dame auf der Grundreihe",
+  "puzzle_p07_hint": "Landet die Dame auf der Grundreihe, hat der König kein Fluchtfeld.",
+  "puzzle_p08_title": "Zwei Türme",
+  "puzzle_p08_hint": "Schwarz am Zug. Ein Turm sperrt bereits die 2. Reihe.",
+  "puzzle_p09_title": "Läufer und Dame",
+  "puzzle_p09_hint": "Wieder f7! Der Läufer auf c4 deckt die Dame.",
+  "puzzle_p10_title": "König in der Ecke",
+  "puzzle_p10_hint": "Der König steht in der Ecke; seine eigenen Bauern versperren die Fluchtfelder.",
+  "puzzle_p11_title": "Der schwarze Springer",
+  "puzzle_p11_hint": "Schwarz am Zug. Der weiße König ist von eigenen Figuren eingesperrt.",
+  "@streakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stepsApprox": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@dailySubtitle": {
+    "placeholders": {
+      "rating": {
+        "type": "int"
+      }
+    }
+  },
+  "@lessonsDoneOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@puzzlesSolvedOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@winsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stepsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@mateIn1Subtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@mateIn2Subtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@continueFromPuzzle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@packTitle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@difficultyRange": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "@puzzleN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@puzzleMateIn1Prompt": {
+    "placeholders": {
+      "side": {
+        "type": "String"
+      }
+    }
+  },
+  "@puzzleMateInNPrompt": {
+    "placeholders": {
+      "side": {
+        "type": "String"
+      },
+      "total": {
+        "type": "int"
+      },
+      "move": {
+        "type": "int"
+      }
+    }
+  },
+  "@levelTitle": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@gameSummary": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "@movesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@replayMove": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@boardAndPieces": {
+    "placeholders": {
+      "board": {
+        "type": "String"
+      },
+      "pieces": {
+        "type": "String"
+      }
+    }
+  },
+  "@oneTimePrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "@profileUnlocked": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "@unlockAllLessonsBtn": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "@purchaseNotStarted": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "analyseGame": "Analysieren",
+  "analysing": "Analyse läuft... {pct}%",
+  "analysisUnavailable": "Die Analyse funktioniert nur auf dem Telefon (Stockfish).",
+  "analysisFailed": "Die Analyse konnte nicht abgeschlossen werden. Versuch es noch einmal.",
+  "accuracyLabel": "Genauigkeit",
+  "accuracyValue": "{pct}%",
+  "qualityBest": "Bester Zug",
+  "qualityGood": "Gut",
+  "qualityInaccuracy": "Ungenauigkeit",
+  "qualityMistake": "Fehler",
+  "qualityBlunder": "Grober Fehler",
+  "countsLine": "{blunders} grobe Fehler · {mistakes} Fehler · {inaccuracies} Ungenauigkeiten",
+  "yourMove": "Dein Zug: {san}",
+  "betterMove": "Besser: {san}",
+  "showBetter": "Bessere Fortsetzung zeigen",
+  "stopShowing": "Zurück zur Partie",
+  "moveWasGood": "Dieser Zug war gut.",
+  "missedMate": "Du hast Matt in {n} verpasst!",
+  "missedMaterial": "Eine Chance auf Materialgewinn wurde verpasst.",
+  "missedBig": "Hier gab es einen viel stärkeren Zug.",
+  "keyMoments": "Momente zum Lernen",
+  "noKeyMoments": "Keine groben Fehler in dieser Partie, super!",
+  "lossCp": "{cp} Bauern verloren",
+  "lossWinningThrown": "Gewinnstellung verspielt",
+  "lossLosesGame": "Dieser Zug verliert die Partie",
+  "analysisNote": "Die Analyse läuft mit Stockfish auf deinem Gerät und vergleicht jeden Zug mit dem stärksten, unabhängig von der Gegnerstufe.",
+  "simulationHint": "Die beste Fortsetzung wird auf dem Brett gezeigt: {san}",
+  "@analysing": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "@accuracyValue": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "@countsLine": {
+    "placeholders": {
+      "blunders": {
+        "type": "int"
+      },
+      "mistakes": {
+        "type": "int"
+      },
+      "inaccuracies": {
+        "type": "int"
+      }
+    }
+  },
+  "@yourMove": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@betterMove": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@missedMate": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@lossCp": {
+    "placeholders": {
+      "cp": {
+        "type": "String"
+      }
+    }
+  },
+  "@simulationHint": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "timeControl": "Zeit",
+  "timeUnlimited": "Ohne Zeit",
+  "timeUnlimitedHint": "Kein Stress, denk so lange du willst",
+  "timeMinutes": "{minutes} Min",
+  "timeMinutesInc": "{minutes} Min + {seconds} s",
+  "timeHint": "Jeder Spieler hat {minutes} Minuten",
+  "timeIncHint": "Nach jedem Zug kommen {seconds} Sekunden dazu",
+  "clockYou": "Du",
+  "clockComputer": "Computer",
+  "resultWinTimeout": "Dem Computer ist die Zeit ausgegangen. Gewonnen! 🎉",
+  "resultLoseTimeout": "Deine Zeit ist abgelaufen. Der Computer gewinnt.",
+  "resultDrawTimeout": "Zeit abgelaufen, aber kein Mattmaterial: Remis.",
+  "onTimeSuffix": "auf Zeit",
+  "aboutSection": "Über",
+  "openSourceTitle": "Open Source",
+  "openSourceSub": "Lizenziert unter GPL-3.0 · Quellcode und Lizenzen",
+  "licenseLegalese": "Schach-Akademie ist freie Software: Du kannst sie unter den Bedingungen der GNU General Public License Version 3 oder (nach deiner Wahl) einer späteren Version weitergeben und verändern. Es gibt keine Gewährleistung.\n\nQuellcode: {url}\n\nBrett und Regeln nutzen die lichess-Pakete chessground und dartchess, Gegner und Analyse Stockfish (GPL-3.0). Die Aufgaben stammen aus der offenen Datenbank von lichess.org (CC0)."
+}

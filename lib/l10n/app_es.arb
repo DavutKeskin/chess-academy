@@ -1,0 +1,622 @@
+{
+  "@@locale": "es",
+  "appName": "Academia de Ajedrez",
+  "continueBtn": "Continuar",
+  "startBtn": "Empezar",
+  "nextBtn": "Siguiente",
+  "backBtn": "Atrás",
+  "white": "Blancas",
+  "black": "Negras",
+  "whiteToMove": "Juegan blancas",
+  "blackToMove": "Juegan negras",
+  "streakDays": "Racha de {count} días",
+  "streakEmpty": "Termina una lección para empezar una racha",
+  "todaysLesson": "LECCIÓN DE HOY",
+  "allLessonsDoneLabel": "TODAS LAS LECCIONES HECHAS",
+  "practiceWithPuzzles": "Practica con problemas",
+  "stepsApprox": "{count} pasos · unos 3 minutos",
+  "mateInOneShort": "Mate en una",
+  "unlockedWithPack": "Se desbloquea con el paquete Todas las Lecciones",
+  "dailyPuzzle": "Problema del día",
+  "dailySolved": "Ya resolviste el de hoy. Mañana habrá otro.",
+  "dailySubtitle": "Mate en una · dificultad {rating}",
+  "dailySubtitleNoRating": "Mate en una",
+  "lessons": "Lecciones",
+  "puzzles": "Problemas",
+  "play": "Jugar",
+  "progress": "Mi progreso",
+  "settings": "Ajustes",
+  "lessonsDoneOf": "{done} / {total} completadas",
+  "puzzlesSolvedOf": "{done} / {total} resueltos",
+  "vsComputer": "Contra la computadora",
+  "winsCount": "{count} victorias",
+  "badgesAndStreak": "Insignias y racha",
+  "chessSchool": "Escuela de Ajedrez",
+  "allLessonsFinished": "¡Felicidades, terminaste todas las lecciones!",
+  "lessonsSequentialHint": "Las lecciones se desbloquean en orden; cada una dura 2-4 minutos.",
+  "completed": "Completada",
+  "stepsCount": "{count} pasos",
+  "unlockBadge": "Abrir",
+  "groupBasics": "Básico: las piezas",
+  "groupRules": "Reglas",
+  "groupTactics": "Táctica",
+  "groupMates": "Patrones de mate",
+  "taskMoveHint": "Tarea: mueve la pieza a la casilla marcada.",
+  "readyContinue": "Continúa cuando estés listo.",
+  "finishLesson": "Terminar lección",
+  "wrongTarget": "Esa casilla no; inténtalo de nuevo.",
+  "starterCategory": "Inicio",
+  "starterSubtitle": "Mates clásicos con nombre",
+  "mateIn1Category": "Mate en una",
+  "mateIn1Subtitle": "{count} problemas, de fácil a difícil",
+  "mateIn2Category": "Mate en dos",
+  "mateIn2Subtitle": "El rival responde y tú rematas · {count} problemas",
+  "lichessCredit": "Los problemas de mate en una y en dos provienen de la base de datos abierta de lichess.org (CC0).",
+  "continueFromPuzzle": "Continuar donde lo dejaste (problema {n})",
+  "categoryAllSolved": "¡Resolviste todos los problemas de esta categoría! 🎉",
+  "packTitle": "Bloque {n}",
+  "difficultyRange": "Dificultad {range}",
+  "puzzleN": "Problema {n}",
+  "puzzleMateIn1Prompt": "Juegan {side}. ¡Mate en una!",
+  "puzzleMateInNPrompt": "Juegan {side}. Mate en {total} · jugada {move}",
+  "opponentReplying": "¡Correcto! El rival responde...",
+  "notThisOne": "Esa no. Inténtalo de nuevo.",
+  "solvedWithHint": "¡Jaque mate! La próxima vez, sin pista.",
+  "solvedGreat": "¡Jaque mate! Genial 🎉",
+  "hintWhichPiece": "Pista: ¿qué pieza?",
+  "hintWhere": "Pista: ¿adónde?",
+  "hintShown": "Pista mostrada",
+  "nextPuzzle": "Siguiente problema",
+  "doneGoBack": "Listo, volver",
+  "level1": "Novato",
+  "level2": "Estudiante",
+  "level3": "Aprendiz",
+  "level4": "Maestro",
+  "level5": "Gran Maestro",
+  "levelHint1": "Juega al azar. Para las primeras partidas.",
+  "levelHint2": "Captura piezas, cae en trampas.",
+  "levelHint3": "Ve dos jugadas por delante.",
+  "levelHint4": "Rival difícil. ¡Prepárate!",
+  "levelHint5": "Toda la fuerza del motor.",
+  "opponentLevel": "Nivel del rival",
+  "whichColor": "¿Con qué color juegas?",
+  "youMoveFirst": "Tú mueves primero",
+  "computerStarts": "Empieza la computadora",
+  "startGame": "Empezar partida",
+  "restart": "Reiniciar",
+  "levelTitle": "Nivel {level} · {name}",
+  "resultDraw": "¡Tablas!",
+  "resultWin": "¡Ganaste! 🎉",
+  "resultLose": "Ganó la computadora. ¡Inténtalo de nuevo!",
+  "opponentPreparing": "Preparando al rival...",
+  "computerThinking": "La computadora piensa...",
+  "checkYourTurn": "¡Jaque! Te toca.",
+  "yourTurn": "Te toca.",
+  "playAgain": "Jugar otra vez",
+  "reviewGame": "Revisar partida",
+  "recentGames": "Partidas recientes",
+  "gameSummary": "Nivel {level} · {result}",
+  "resultWinShort": "Ganada",
+  "resultLoseShort": "Perdida",
+  "resultDrawShort": "Tablas",
+  "movesCount": "{count} jugadas",
+  "replayStart": "Posición inicial",
+  "replayMove": "Jugada {n}: {san}",
+  "replayHint": "Toca una jugada o usa las flechas.",
+  "statStreak": "días de racha",
+  "statLessons": "lecciones hechas",
+  "statPuzzles": "problemas resueltos",
+  "statGames": "victorias / partidas",
+  "badges": "Insignias",
+  "badgeFirstStep": "Primer paso",
+  "badgeFirstStepHint": "Termina la primera lección",
+  "badgePieceMaster": "Maestro de piezas",
+  "badgePieceMasterHint": "Termina todas las lecciones",
+  "badgePuzzleHunter": "Cazador de problemas",
+  "badgePuzzleHunterHint": "Resuelve 5 problemas",
+  "badgeMateMachine": "Máquina de mates",
+  "badgeMateMachineHint": "Resuelve 100 problemas",
+  "badgeFirstWin": "Primera victoria",
+  "badgeFirstWinHint": "Vence a la computadora",
+  "badgeSteady": "Constante",
+  "badgeSteadyHint": "Racha de 3 días",
+  "boardSection": "Tablero",
+  "piecesSection": "Piezas",
+  "piecesNote": "El juego \"Media luna\" es exclusivo de esta app: una media luna en lugar de una cruz sobre el rey. Los demás son juegos de código abierto de lichess.org.",
+  "boardAndPieces": "Tablero {board} · piezas {pieces}",
+  "feedbackSection": "Respuesta",
+  "sounds": "Sonidos",
+  "soundsSub": "Jugadas, acierto/error y mate",
+  "vibration": "Vibración",
+  "vibrationSub": "Toque y resultado",
+  "allLessonsSection": "Todas las lecciones",
+  "allLessonsOpen": "Todas las lecciones desbloqueadas",
+  "purchasedThanks": "Comprado, ¡gracias!",
+  "unlockTacticLessons": "Desbloquear las lecciones de táctica y mate",
+  "oneTimePrice": "Pago único · {price}",
+  "profileSection": "Perfil",
+  "profileUnlocked": "Todas las lecciones abiertas; rival sugerido desde el nivel {level}.",
+  "profileSequential": "Las lecciones se desbloquean en orden; el rival empieza en el nivel 1.",
+  "languageSection": "Idioma",
+  "languageSystem": "Idioma del sistema",
+  "boardKlasik": "Clásico",
+  "boardTurnuva": "Torneo",
+  "boardOkyanus": "Océano",
+  "boardAhsap": "Madera",
+  "boardAkcaagac": "Arce",
+  "boardMermer": "Mármol",
+  "boardMenekse": "Violeta",
+  "boardZeytin": "Oliva",
+  "boardGrafit": "Grafito",
+  "boardSeker": "Caramelo",
+  "pieceHilal": "Media luna",
+  "pieceKlasik": "Clásico",
+  "pieceMerida": "Merida",
+  "pieceStaunty": "Staunty",
+  "pieceFresca": "Fresca",
+  "pieceCardinal": "Cardenal",
+  "pieceGioco": "Gioco",
+  "pieceTatiana": "Tatiana",
+  "pieceHorsey": "Horsey",
+  "ageChild": "Niño",
+  "ageChildHint": "6-9 años",
+  "ageTeen": "Joven",
+  "ageTeenHint": "10-14 años",
+  "ageAdult": "Adulto",
+  "ageAdultHint": "15+",
+  "skillBeginner": "No sé nada",
+  "skillBeginnerHint": "Empezamos por las lecciones",
+  "skillKnowsRules": "Conozco las reglas",
+  "skillKnowsRulesHint": "Lecciones abiertas, pasa a los problemas",
+  "skillPlays": "Ya juego",
+  "skillPlaysHint": "Táctica y un rival fuerte",
+  "welcomeTitle": "Bienvenido a la Academia de Ajedrez",
+  "welcomeSub": "Dos preguntas rápidas para fijar tu punto de partida. Puedes cambiarlo después en Ajustes.",
+  "whoPlays": "¿Quién va a jugar?",
+  "howMuchChess": "¿Cuánto ajedrez sabes?",
+  "letsStart": "Empecemos",
+  "whoPlaysShort": "¿Quién juega?",
+  "skillLevel": "Nivel",
+  "paywallHeroTitle": "Toda la Escuela de Ajedrez",
+  "paywallHeroSub": "Táctica, aperturas y patrones de mate. Un solo pago, uso ilimitado.",
+  "whatUnlocks": "¿Qué se desbloquea?",
+  "benefitFamily": "Paga una vez y úsalo en todos los dispositivos con la misma cuenta de Google.",
+  "benefitNoAds": "Sin anuncios, sin suscripción, sin cargos ocultos.",
+  "benefitUpdates": "Incluye las lecciones que se añadan en el futuro.",
+  "unlockAllLessonsBtn": "Desbloquear todas las lecciones · {price}",
+  "restorePurchase": "¿Ya lo compraste? Restaurar",
+  "devUnlock": "(Desarrollo) Desbloquear para pruebas",
+  "storeNote": "El pago se realiza a través de Google Play; los reembolsos y facturas siguen las normas de Google Play.",
+  "ownedThanks": "¡Gracias! Toda la Escuela de Ajedrez es tuya.",
+  "backToLessons": "Volver a las lecciones",
+  "storeUnavailable": "No se puede acceder a la tienda ahora. Revisa tu conexión a internet y tu cuenta de Google Play.",
+  "storeUnavailableShort": "No se puede acceder a la tienda ahora.",
+  "purchaseNotStarted": "No se pudo iniciar la compra: {error}",
+  "purchaseFailed": "No se pudo completar la compra.",
+  "lesson_board_title": "El tablero y las piezas",
+  "lesson_board_s1": "Un tablero de ajedrez tiene 64 casillas: 8 filas y 8 columnas. Las columnas van de la a a la h y las filas del 1 al 8.",
+  "lesson_board_s2": "Cada jugador tiene 16 piezas: 8 peones, 2 torres, 2 caballos, 2 alfiles, 1 dama y 1 rey. Las blancas siempre mueven primero.",
+  "lesson_board_s3": "Un pequeño recordatorio: la dama va en su color. La dama blanca en casilla clara (d1), la dama negra en casilla oscura (d8).",
+  "lesson_rook_title": "La torre",
+  "lesson_rook_s1": "La torre se mueve en línea recta: adelante, atrás, izquierda o derecha, tantas casillas como quiera, pero no puede saltar otras piezas.",
+  "lesson_rook_s2": "Ahora tú: mueve la torre de a1 a a8.",
+  "lesson_rook_s2_ok": "¡Genial! La torre recorrió toda la columna.",
+  "lesson_rook_s3": "La torre puede capturar: si hay una pieza rival en su camino, la saca del tablero. Captura el peón negro de a7 con la torre.",
+  "lesson_rook_s3_ok": "¡Capturaste el peón! La torre es una pieza poderosa.",
+  "lesson_bishop_title": "El alfil",
+  "lesson_bishop_s1": "El alfil se mueve en diagonal. Un alfil permanece toda su vida en casillas del mismo color.",
+  "lesson_bishop_s2": "Mueve el alfil de c1 a h6.",
+  "lesson_bishop_s2_ok": "¡Estupendo! El alfil voló por la diagonal.",
+  "lesson_queen_title": "La dama",
+  "lesson_queen_s1": "La dama es la pieza más fuerte: se mueve en línea recta como una torre y en diagonal como un alfil.",
+  "lesson_queen_s2": "Mueve la dama de d1 a h5.",
+  "lesson_queen_s2_ok": "¡Perfecto! La dama se movió en diagonal.",
+  "lesson_queen_s3": "Ahora en línea recta: mueve la dama de h5 a h8.",
+  "lesson_queen_s3_ok": "¡La dama también se mueve como una torre!",
+  "lesson_knight_title": "El caballo",
+  "lesson_knight_s1": "El caballo salta en forma de \"L\": dos casillas en línea recta y una al lado. Es la única pieza que puede saltar sobre otras.",
+  "lesson_knight_s2": "Salta con el caballo de b1 a c3.",
+  "lesson_knight_s2_ok": "¡Una L perfecta! El caballo saltó.",
+  "lesson_knight_s3": "El caballo puede saltar sobre los peones. Mueve el caballo de b1 a a3 o c3.",
+  "lesson_knight_s3_ok": "¡Saltó por encima de los peones!",
+  "lesson_pawn_title": "El peón",
+  "lesson_pawn_s1": "El peón solo avanza, una casilla. En su primer movimiento puede avanzar dos. Captura en diagonal.",
+  "lesson_pawn_s2": "Mueve el peón de e2 dos casillas hasta e4.",
+  "lesson_pawn_s2_ok": "Dos casillas en el primer movimiento, ¡correcto!",
+  "lesson_pawn_s3": "Los peones capturan en diagonal. Captura el peón negro de d5 con el peón de e4.",
+  "lesson_pawn_s3_ok": "¡Capturado en diagonal!",
+  "lesson_pawn_s4": "Cuando un peón llega a la última fila se corona: ¡puede convertirse en dama! Mueve el peón de e7 a e8.",
+  "lesson_pawn_s4_ok": "¡El peón se convirtió en dama! Eso se llama coronación.",
+  "lesson_king_title": "El rey",
+  "lesson_king_s1": "El rey es la pieza más importante. Puede moverse en cualquier dirección, pero solo una casilla. Un rey nunca puede ir a una casilla atacada.",
+  "lesson_king_s2": "Mueve el rey de e1 a una casilla vecina.",
+  "lesson_king_s2_ok": "El rey dio un paso.",
+  "lesson_king_s3": "Enroque: el rey y la torre se mueven a la vez y el rey queda a salvo. Mueve el rey de e1 a g1 (la torre lo sigue automáticamente).",
+  "lesson_king_s3_ok": "¡Enrocaste! El rey ya está a salvo.",
+  "lesson_checkmate_title": "Jaque y jaque mate",
+  "lesson_checkmate_s1": "Atacar al rey se llama \"jaque\". El rival debe salvar a su rey. Si no puede, es \"jaque mate\" y la partida termina.",
+  "lesson_checkmate_s2": "El rey negro está encerrado por sus propios peones. ¡Lleva la torre a e8 y da mate!",
+  "lesson_checkmate_s2_ok": "¡Jaque mate! Tu primer mate 🎉",
+  "lesson_checkmate_s3": "Ya conoces las reglas básicas. En las próximas lecciones aprenderás a escapar del jaque, el ahogado y la táctica.",
+  "lesson_escape_check_title": "Escapar del jaque",
+  "lesson_escape_check_s1": "En jaque hay tres salidas: mover el rey, interponer una pieza o capturar a la atacante. Primero, huir: el rey blanco está en jaque por la torre.",
+  "lesson_escape_check_s1_ok": "El rey escapó a una casilla segura.",
+  "lesson_escape_check_s2": "Segunda salida: interponer. La torre negra da jaque; pon el alfil en medio.",
+  "lesson_escape_check_s2_ok": "El alfil hizo de escudo; el rey ya no está amenazado.",
+  "lesson_escape_check_s3": "Tercera salida: capturar a la atacante. El alfil negro da jaque, pero la torre lo alcanza. ¡Captura el alfil!",
+  "lesson_escape_check_s3_ok": "La atacante desapareció; la amenaza terminó.",
+  "lesson_stalemate_title": "Ahogado: ¡cuidado, tablas!",
+  "lesson_stalemate_s1": "Si el jugador al que le toca NO está en jaque pero no tiene ninguna jugada legal, es \"ahogado\" y la partida queda en tablas. Ahogar cuando vas ganando es el error más común.",
+  "lesson_stalemate_s2": "Aquí, si la dama va a f7, el rey negro no tiene jugadas y es ahogado. Encuentra en cambio la jugada de mate: mueve la dama a g7 o f8.",
+  "lesson_stalemate_s2_ok": "¡Jaque mate! No caíste en la trampa del ahogado.",
+  "lesson_en_passant_title": "Captura al paso",
+  "lesson_en_passant_s1": "Si un peón rival avanza dos casillas en su primer movimiento y queda junto a tu peón, puedes capturarlo como si hubiera avanzado una. Es la \"captura al paso\" y solo se puede hacer en la jugada inmediata.",
+  "lesson_en_passant_s2": "El peón negro saltó de d7 a d5. Captúralo al paso con el peón de e5: ve a d6.",
+  "lesson_en_passant_s2_ok": "¡Captura al paso! El peón negro salió del tablero.",
+  "lesson_fork_title": "La horquilla",
+  "lesson_fork_s1": "Atacar dos piezas a la vez con una sola pieza es una \"horquilla\". El rival no puede salvar ambas. El caballo es el maestro de la horquilla.",
+  "lesson_fork_s2": "Salta con el caballo a d6: das jaque y atacas la dama de c8 al mismo tiempo. Cuando el rey se mueva, la dama es tuya.",
+  "lesson_fork_s2_ok": "¡Horquilla! Rey y dama amenazados a la vez.",
+  "lesson_fork_s3": "Un peón también puede hacer horquilla. Avanza el peón a d5: ataca la torre y el caballo.",
+  "lesson_fork_s3_ok": "¡Un pequeño peón amenaza dos piezas grandes!",
+  "lesson_pin_title": "La clavada",
+  "lesson_pin_s1": "Una pieza está \"clavada\" cuando moverla dejaría expuesta una pieza más valiosa detrás (casi siempre el rey). Alfiles y torres son los expertos en clavar.",
+  "lesson_pin_s2": "Mueve el alfil a b5. El caballo negro ya no puede moverse, porque detrás está el rey.",
+  "lesson_pin_s2_ok": "¡El caballo está clavado! Por las reglas no puede moverse.",
+  "lesson_pin_s3": "Si además atacas la pieza clavada con un peón, no puede escapar. Avanza el peón a d5.",
+  "lesson_pin_s3_ok": "El caballo está clavado y atacado: ¡ganado!",
+  "lesson_skewer_title": "La enfilada",
+  "lesson_skewer_s1": "La enfilada es lo contrario de la clavada: la pieza valiosa de delante (el rey) tiene que apartarse y la pieza de detrás cae.",
+  "lesson_skewer_s2": "Lleva la torre a e1 con jaque. Cuando el rey abandone la columna e, la dama de detrás es tuya.",
+  "lesson_skewer_s2_ok": "¡Enfilada! El rey huirá y la dama se quedará.",
+  "lesson_defend_title": "Ver la amenaza y defender",
+  "lesson_defend_s1": "Antes de cada jugada pregúntate: \"¿Qué amenaza la última jugada del rival?\" Aquí el alfil negro ataca tu dama. Capturar el alfil es una trampa: el peón g7 lo defiende.",
+  "lesson_defend_s2": "Lleva la dama a una casilla segura que el alfil no alcance (por ejemplo a4, b4, c4, d3, d2 o d1).",
+  "lesson_defend_s2_ok": "La dama está a salvo. Primero defiende, luego ataca.",
+  "lesson_values_title": "El valor de las piezas",
+  "lesson_values_s1": "Conoce los valores al cambiar: peón 1, caballo 3, alfil 3, torre 5, dama 9. El rey no tiene valor porque nunca se puede perder.",
+  "lesson_values_s2": "Tu torre puede capturar dos piezas: el caballo de b1 (3 puntos) o la dama de d8 (9 puntos). Toma la más valiosa.",
+  "lesson_values_s2_ok": "¡La dama vale 9 puntos! Buena elección.",
+  "lesson_opening_title": "Principios de la apertura",
+  "lesson_opening_s1": "Tres reglas al empezar: controla el centro con peones, desarrolla caballos y alfiles, enroca para proteger al rey. No muevas la misma pieza dos veces ni saques la dama demasiado pronto.",
+  "lesson_opening_s2": "Primer principio: el centro. Avanza el peón de e o de d dos casillas.",
+  "lesson_opening_s2_ok": "El centro es tuyo. El peón controla dos casillas.",
+  "lesson_opening_s3": "Segundo principio: desarrollar las piezas. Lleva el caballo de g1 a f3; desde ahí ve el centro.",
+  "lesson_opening_s3_ok": "El caballo entró en juego y presiona el peón de e5.",
+  "lesson_opening_s4": "Tercer principio: la seguridad del rey. El alfil ya salió, así que puedes enrocar: mueve el rey de e1 a g1.",
+  "lesson_opening_s4_ok": "Enroque hecho. El rey está a salvo y la torre entró en juego.",
+  "lesson_luft_title": "Peligro en la primera fila",
+  "lesson_luft_s1": "Después del enroque, los peones delante del rey lo protegen y a la vez lo encierran. Si una torre rival llega a la primera fila, puedes recibir mate. Solución: dale al rey una pequeña puerta de escape.",
+  "lesson_luft_s2": "La torre negra de a8 quiere bajar a a1 y dar mate. Avanza un peón para darle al rey una casilla de escape.",
+  "lesson_luft_s2_ok": "La puerta está abierta. Aunque baje la torre, el rey escapa a h2.",
+  "lesson_mate_queen_title": "Dar mate con la dama",
+  "lesson_mate_queen_s1": "La dama no puede dar mate sola; necesita a tu rey. Método: empuja al rey rival hacia el borde con la dama, acerca tu rey y remata.",
+  "lesson_mate_queen_s2": "El rey negro está en el borde y el rey blanco justo enfrente. Lleva la dama a d7: protegida por el rey, es mate.",
+  "lesson_mate_queen_s2_ok": "¡Jaque mate! La dama y el rey trabajaron juntos.",
+  "lesson_mate_two_rooks_title": "Mate de la escalera con dos torres",
+  "lesson_mate_two_rooks_s1": "Dos torres dan jaque por turnos y empujan al rey rival hacia el borde escalón a escalón; es el mate de la escalera. Primero una torre corta la fila delante del rey.",
+  "lesson_mate_two_rooks_s2": "Lleva la torre a a7: el rey negro ya no puede bajar a la fila 7.",
+  "lesson_mate_two_rooks_s2_ok": "La fila 7 está cerrada. El rey quedó atrapado en la 8.",
+  "lesson_mate_two_rooks_s3": "Ahora da jaque en la fila 8 con la otra torre: ve a b8 y da mate.",
+  "lesson_mate_two_rooks_s3_ok": "¡Mate de la escalera! Ya puedes terminar cualquier partida con dos torres.",
+  "puzzle_p01_title": "Mate de pasillo",
+  "puzzle_p01_hint": "Los peones delante del rey negro le cierran la salida.",
+  "puzzle_p02_title": "Mate del pastor",
+  "puzzle_p02_hint": "f7 es la casilla más débil. Dama y alfil atacan juntos.",
+  "puzzle_p03_title": "Mate del loco",
+  "puzzle_p03_hint": "La diagonal del rey blanco está abierta. Da jaque con la dama.",
+  "puzzle_p04_title": "Mate ahogado",
+  "puzzle_p04_hint": "El rey está rodeado por sus propias piezas. El caballo puede saltar y dar mate.",
+  "puzzle_p05_title": "Dama y rey",
+  "puzzle_p05_hint": "El rey blanco protege a la dama. Acerca la dama al rey.",
+  "puzzle_p06_title": "Mate de la escalera",
+  "puzzle_p06_hint": "Una torre controla la fila 7. Que la otra baje a la 8.",
+  "puzzle_p07_title": "Dama en la primera fila",
+  "puzzle_p07_hint": "Cuando la dama llega a la primera fila, el rey no tiene adónde ir.",
+  "puzzle_p08_title": "Dos torres",
+  "puzzle_p08_hint": "Juegan negras. Una torre ya cierra la fila 2.",
+  "puzzle_p09_title": "Alfil y dama",
+  "puzzle_p09_hint": "¡Otra vez f7! El alfil de c4 protege a la dama.",
+  "puzzle_p10_title": "Arrincona al rey",
+  "puzzle_p10_hint": "El rey está en la esquina; sus propios peones le tapan las casillas de escape.",
+  "puzzle_p11_title": "El caballo negro",
+  "puzzle_p11_hint": "Juegan negras. El rey blanco está encerrado entre sus propias piezas.",
+  "@streakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stepsApprox": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@dailySubtitle": {
+    "placeholders": {
+      "rating": {
+        "type": "int"
+      }
+    }
+  },
+  "@lessonsDoneOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@puzzlesSolvedOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@winsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stepsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@mateIn1Subtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@mateIn2Subtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@continueFromPuzzle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@packTitle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@difficultyRange": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "@puzzleN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@puzzleMateIn1Prompt": {
+    "placeholders": {
+      "side": {
+        "type": "String"
+      }
+    }
+  },
+  "@puzzleMateInNPrompt": {
+    "placeholders": {
+      "side": {
+        "type": "String"
+      },
+      "total": {
+        "type": "int"
+      },
+      "move": {
+        "type": "int"
+      }
+    }
+  },
+  "@levelTitle": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@gameSummary": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "@movesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@replayMove": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@boardAndPieces": {
+    "placeholders": {
+      "board": {
+        "type": "String"
+      },
+      "pieces": {
+        "type": "String"
+      }
+    }
+  },
+  "@oneTimePrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "@profileUnlocked": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "@unlockAllLessonsBtn": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "@purchaseNotStarted": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "analyseGame": "Analizar",
+  "analysing": "Analizando... {pct}%",
+  "analysisUnavailable": "El análisis solo funciona en el teléfono (Stockfish).",
+  "analysisFailed": "No se pudo completar el análisis. Inténtalo de nuevo.",
+  "accuracyLabel": "Precisión",
+  "accuracyValue": "{pct}%",
+  "qualityBest": "Mejor jugada",
+  "qualityGood": "Buena",
+  "qualityInaccuracy": "Imprecisión",
+  "qualityMistake": "Error",
+  "qualityBlunder": "Error grave",
+  "countsLine": "{blunders} errores graves · {mistakes} errores · {inaccuracies} imprecisiones",
+  "yourMove": "Tu jugada: {san}",
+  "betterMove": "Mejor: {san}",
+  "showBetter": "Mostrar la mejor línea",
+  "stopShowing": "Volver a la partida",
+  "moveWasGood": "Esta jugada fue buena.",
+  "missedMate": "¡Te perdiste un mate en {n}!",
+  "missedMaterial": "Se perdió una oportunidad de ganar material.",
+  "missedBig": "Aquí había una jugada mucho más fuerte.",
+  "keyMoments": "Momentos para aprender",
+  "noKeyMoments": "Sin errores graves en esta partida, ¡genial!",
+  "lossCp": "{cp} peones perdidos",
+  "lossWinningThrown": "Posición ganada desperdiciada",
+  "lossLosesGame": "Esta jugada pierde la partida",
+  "analysisNote": "El análisis se hace en tu dispositivo con Stockfish y compara cada jugada con la más fuerte, sin importar el nivel del rival.",
+  "simulationHint": "Mostrando la mejor continuación en el tablero: {san}",
+  "@analysing": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "@accuracyValue": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "@countsLine": {
+    "placeholders": {
+      "blunders": {
+        "type": "int"
+      },
+      "mistakes": {
+        "type": "int"
+      },
+      "inaccuracies": {
+        "type": "int"
+      }
+    }
+  },
+  "@yourMove": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@betterMove": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@missedMate": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@lossCp": {
+    "placeholders": {
+      "cp": {
+        "type": "String"
+      }
+    }
+  },
+  "@simulationHint": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "timeControl": "Tiempo",
+  "timeUnlimited": "Sin límite",
+  "timeUnlimitedHint": "Sin prisa, piensa todo lo que quieras",
+  "timeMinutes": "{minutes} min",
+  "timeMinutesInc": "{minutes} min + {seconds} s",
+  "timeHint": "Cada jugador tiene {minutes} minutos",
+  "timeIncHint": "Se añaden {seconds} segundos tras cada jugada",
+  "clockYou": "Tú",
+  "clockComputer": "Ordenador",
+  "resultWinTimeout": "Al ordenador se le acabó el tiempo. ¡Ganaste! 🎉",
+  "resultLoseTimeout": "Se te acabó el tiempo. Gana el ordenador.",
+  "resultDrawTimeout": "Se acabó el tiempo, pero no hay material para dar mate: tablas.",
+  "onTimeSuffix": "por tiempo",
+  "aboutSection": "Acerca de",
+  "openSourceTitle": "Código abierto",
+  "openSourceSub": "Licencia GPL-3.0 · código fuente y licencias",
+  "licenseLegalese": "Academia de Ajedrez es software libre: puedes redistribuirlo y modificarlo según los términos de la Licencia Pública General de GNU versión 3 o (a tu elección) cualquier versión posterior. Se ofrece sin garantía.\n\nCódigo fuente: {url}\n\nEl tablero y las reglas usan los paquetes chessground y dartchess de lichess; el rival y el análisis usan Stockfish (GPL-3.0). Los problemas provienen de la base de datos abierta de lichess.org (CC0)."
+}

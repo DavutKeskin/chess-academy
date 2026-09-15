@@ -1,0 +1,660 @@
+{
+  "@@locale": "tr",
+  "appName": "Satranç Akademi",
+  "continueBtn": "Devam",
+  "startBtn": "Başla",
+  "nextBtn": "Sonraki",
+  "backBtn": "Geri",
+  "white": "Beyaz",
+  "black": "Siyah",
+  "whiteToMove": "Beyaz oynar",
+  "blackToMove": "Siyah oynar",
+  "streakDays": "{count} günlük seri",
+  "@streakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "streakEmpty": "Seri başlatmak için bir ders bitir",
+  "todaysLesson": "BUGÜNÜN DERSİ",
+  "allLessonsDoneLabel": "TÜM DERSLER BİTTİ",
+  "practiceWithPuzzles": "Bulmacalarla pratik yap",
+  "stepsApprox": "{count} adım · yaklaşık 3 dakika",
+  "@stepsApprox": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mateInOneShort": "Tek hamlede mat et",
+  "unlockedWithPack": "Tüm Dersler paketiyle açılır",
+  "dailyPuzzle": "Günün bulmacası",
+  "dailySolved": "Bugünkünü çözdün, yarın yenisi gelir.",
+  "dailySubtitle": "Tek hamlede mat · zorluk {rating}",
+  "@dailySubtitle": {
+    "placeholders": {
+      "rating": {
+        "type": "int"
+      }
+    }
+  },
+  "dailySubtitleNoRating": "Tek hamlede mat",
+  "lessons": "Dersler",
+  "puzzles": "Bulmacalar",
+  "play": "Oyna",
+  "progress": "İlerlemem",
+  "settings": "Ayarlar",
+  "lessonsDoneOf": "{done} / {total} tamamlandı",
+  "@lessonsDoneOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "puzzlesSolvedOf": "{done} / {total} çözüldü",
+  "@puzzlesSolvedOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "vsComputer": "Bilgisayara karşı",
+  "winsCount": "{count} galibiyet",
+  "@winsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "badgesAndStreak": "Rozetler ve seri",
+  "chessSchool": "Satranç Okulu",
+  "allLessonsFinished": "Tebrikler, tüm dersleri bitirdin!",
+  "lessonsSequentialHint": "Dersler sırayla açılır; her ders 2-4 dakika.",
+  "completed": "Tamamlandı",
+  "stepsCount": "{count} adım",
+  "@stepsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "unlockBadge": "Aç",
+  "groupBasics": "Temel: Taşlar",
+  "groupRules": "Kurallar",
+  "groupTactics": "Taktikler",
+  "groupMates": "Mat Teknikleri",
+  "taskMoveHint": "Görev: taşı gösterilen kareye taşı.",
+  "readyContinue": "Hazır olunca devam et.",
+  "finishLesson": "Dersi Bitir",
+  "wrongTarget": "Hedef kare bu değil, tekrar dene.",
+  "starterCategory": "Başlangıç",
+  "starterSubtitle": "İsimli klasik matlar",
+  "mateIn1Category": "Tek Hamlede Mat",
+  "mateIn1Subtitle": "Kolaydan zora {count} bulmaca",
+  "@mateIn1Subtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mateIn2Category": "İki Hamlede Mat",
+  "mateIn2Subtitle": "Rakip cevap verir, sen bitirirsin · {count} bulmaca",
+  "@mateIn2Subtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lichessCredit": "Tek ve iki hamlede mat bulmacaları lichess.org açık veritabanından (CC0) seçildi.",
+  "continueFromPuzzle": "Kaldığın yerden devam et ({n}. bulmaca)",
+  "@continueFromPuzzle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryAllSolved": "Bu kategorideki tüm bulmacaları çözdün! 🎉",
+  "packTitle": "Bölüm {n}",
+  "@packTitle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "difficultyRange": "Zorluk {range}",
+  "@difficultyRange": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "puzzleN": "{n}. bulmaca",
+  "@puzzleN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "puzzleMateIn1Prompt": "{side} oynar. Tek hamlede mat et!",
+  "@puzzleMateIn1Prompt": {
+    "placeholders": {
+      "side": {
+        "type": "String"
+      }
+    }
+  },
+  "puzzleMateInNPrompt": "{side} oynar. {total} hamlede mat et · {move}. hamle",
+  "@puzzleMateInNPrompt": {
+    "placeholders": {
+      "side": {
+        "type": "String"
+      },
+      "total": {
+        "type": "int"
+      },
+      "move": {
+        "type": "int"
+      }
+    }
+  },
+  "opponentReplying": "Doğru! Rakip cevap veriyor...",
+  "notThisOne": "Bu değil. Tekrar dene.",
+  "solvedWithHint": "Şah mat! Bir dahakine ipuçsuz dene.",
+  "solvedGreat": "Şah mat! Harikasın 🎉",
+  "hintWhichPiece": "İpucu: Hangi taş?",
+  "hintWhere": "İpucu: Nereye?",
+  "hintShown": "İpucu gösterildi",
+  "nextPuzzle": "Sonraki Bulmaca",
+  "doneGoBack": "Bitti, Geri Dön",
+  "level1": "Çaylak",
+  "level2": "Öğrenci",
+  "level3": "Çırak",
+  "level4": "Usta",
+  "level5": "Büyük Usta",
+  "levelHint1": "Rastgele oynar. İlk oyunlar için.",
+  "levelHint2": "Taş almayı bilir, tuzağa düşer.",
+  "levelHint3": "İki hamle ileriyi görür.",
+  "levelHint4": "Zor rakip. Hazırlan!",
+  "levelHint5": "Motorun tam gücü.",
+  "opponentLevel": "Rakip seviyesi",
+  "whichColor": "Hangi renkle oynayacaksın?",
+  "youMoveFirst": "İlk hamle sende",
+  "computerStarts": "Bilgisayar başlar",
+  "startGame": "Oyunu Başlat",
+  "restart": "Yeniden başla",
+  "levelTitle": "Seviye {level} · {name}",
+  "@levelTitle": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultDraw": "Berabere!",
+  "resultWin": "Kazandın! 🎉",
+  "resultLose": "Bilgisayar kazandı. Tekrar dene!",
+  "opponentPreparing": "Rakip hazırlanıyor...",
+  "computerThinking": "Bilgisayar düşünüyor...",
+  "checkYourTurn": "Şah! Sıra sende.",
+  "yourTurn": "Sıra sende.",
+  "playAgain": "Tekrar Oyna",
+  "reviewGame": "Oyunu İncele",
+  "recentGames": "Son oyunlar",
+  "gameSummary": "Seviye {level} · {result}",
+  "@gameSummary": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "resultWinShort": "Kazandın",
+  "resultLoseShort": "Kaybettin",
+  "resultDrawShort": "Berabere",
+  "movesCount": "{count} hamle",
+  "@movesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "replayStart": "Başlangıç konumu",
+  "replayMove": "{n}. hamle: {san}",
+  "@replayMove": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "replayHint": "Hamlelere dokunarak ya da oklarla ilerle.",
+  "statStreak": "günlük seri",
+  "statLessons": "ders bitti",
+  "statPuzzles": "bulmaca çözüldü",
+  "statGames": "galibiyet / oyun",
+  "badges": "Rozetler",
+  "badgeFirstStep": "İlk Adım",
+  "badgeFirstStepHint": "İlk dersi bitir",
+  "badgePieceMaster": "Taş Ustası",
+  "badgePieceMasterHint": "Tüm dersleri bitir",
+  "badgePuzzleHunter": "Bulmaca Avcısı",
+  "badgePuzzleHunterHint": "5 bulmaca çöz",
+  "badgeMateMachine": "Mat Makinesi",
+  "badgeMateMachineHint": "100 bulmaca çöz",
+  "badgeFirstWin": "İlk Zafer",
+  "badgeFirstWinHint": "Bilgisayarı yen",
+  "badgeSteady": "Kararlı",
+  "badgeSteadyHint": "3 günlük seri",
+  "boardSection": "Tahta",
+  "piecesSection": "Taşlar",
+  "piecesNote": "\"Hilal\" seti uygulamaya özel: şahta haç yerine hilal. Diğerleri lichess.org açık kaynak setleri.",
+  "boardAndPieces": "{board} tahta · {pieces} taşlar",
+  "@boardAndPieces": {
+    "placeholders": {
+      "board": {
+        "type": "String"
+      },
+      "pieces": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSection": "Geri bildirim",
+  "sounds": "Sesler",
+  "soundsSub": "Hamle, doğru/yanlış ve mat",
+  "vibration": "Titreşim",
+  "vibrationSub": "Dokunma ve sonuç",
+  "allLessonsSection": "Tüm Dersler",
+  "allLessonsOpen": "Tüm dersler açık",
+  "purchasedThanks": "Satın alındı, teşekkürler.",
+  "unlockTacticLessons": "Taktik ve mat derslerini aç",
+  "oneTimePrice": "Tek seferlik · {price}",
+  "@oneTimePrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "profileSection": "Profil",
+  "profileUnlocked": "Tüm dersler açık, rakip {level}. seviyeden önerilir.",
+  "@profileUnlocked": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "profileSequential": "Dersler sırayla açılır, rakip 1. seviyeden başlar.",
+  "languageSection": "Dil",
+  "languageSystem": "Sistem dili",
+  "boardKlasik": "Klasik",
+  "boardTurnuva": "Turnuva",
+  "boardOkyanus": "Okyanus",
+  "boardAhsap": "Ahşap",
+  "boardAkcaagac": "Akçaağaç",
+  "boardMermer": "Mermer",
+  "boardMenekse": "Menekşe",
+  "boardZeytin": "Zeytin",
+  "boardGrafit": "Grafit",
+  "boardSeker": "Şeker",
+  "pieceHilal": "Hilal",
+  "pieceKlasik": "Klasik",
+  "pieceMerida": "Merida",
+  "pieceStaunty": "Staunty",
+  "pieceFresca": "Fresca",
+  "pieceCardinal": "Kardinal",
+  "pieceGioco": "Gioco",
+  "pieceTatiana": "Tatiana",
+  "pieceHorsey": "Atlı",
+  "ageChild": "Çocuk",
+  "ageChildHint": "6-9 yaş",
+  "ageTeen": "Genç",
+  "ageTeenHint": "10-14 yaş",
+  "ageAdult": "Yetişkin",
+  "ageAdultHint": "15+",
+  "skillBeginner": "Hiç bilmiyorum",
+  "skillBeginnerHint": "Derslerden başlarız",
+  "skillKnowsRules": "Kuralları biliyorum",
+  "skillKnowsRulesHint": "Dersler açık, bulmacalara geç",
+  "skillPlays": "Oynuyorum",
+  "skillPlaysHint": "Taktikler ve güçlü rakip",
+  "welcomeTitle": "Satranç Akademi'ye hoş geldin",
+  "welcomeSub": "İki kısa soru; buna göre nereden başlayacağını ayarlayalım. Sonradan Ayarlar'dan değiştirebilirsin.",
+  "whoPlays": "Kim oynayacak?",
+  "howMuchChess": "Satrancı ne kadar biliyorsun?",
+  "letsStart": "Başlayalım",
+  "whoPlaysShort": "Kim oynuyor?",
+  "skillLevel": "Seviye",
+  "paywallHeroTitle": "Satranç Okulu'nun tamamı",
+  "paywallHeroSub": "Taktikler, açılış ve mat teknikleri. Tek ödeme, sınırsız kullanım.",
+  "whatUnlocks": "Neler açılır?",
+  "benefitFamily": "Bir kez öde, aynı Google hesabındaki tüm cihazlarda kullan.",
+  "benefitNoAds": "Reklam yok, abonelik yok, gizli ücret yok.",
+  "benefitUpdates": "Yeni eklenen dersler de dahil.",
+  "unlockAllLessonsBtn": "Tüm dersleri aç · {price}",
+  "@unlockAllLessonsBtn": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "restorePurchase": "Daha önce satın aldım, geri yükle",
+  "devUnlock": "(Geliştirme) Kilidi test için aç",
+  "storeNote": "Ödeme Google Play üzerinden alınır; iade ve fatura işlemleri Google Play kurallarına tabidir.",
+  "ownedThanks": "Teşekkürler! Satranç Okulu'nun tamamı senin.",
+  "backToLessons": "Derslere dön",
+  "storeUnavailable": "Mağazaya şu an ulaşılamıyor. İnternet bağlantını ve Google Play hesabını kontrol et.",
+  "storeUnavailableShort": "Mağazaya şu an ulaşılamıyor.",
+  "purchaseNotStarted": "Satın alma başlatılamadı: {error}",
+  "@purchaseNotStarted": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseFailed": "Satın alma tamamlanamadı.",
+  "lesson_board_title": "Tahta ve Taşlar",
+  "lesson_board_s1": "Satranç tahtasında 64 kare vardır: 8 sıra ve 8 sütun. Sütunlar a'dan h'ye harflerle, sıralar 1'den 8'e sayılarla adlandırılır.",
+  "lesson_board_s2": "Her oyuncunun 16 taşı vardır: 8 piyon, 2 kale, 2 at, 2 fil, 1 vezir ve 1 şah. Beyaz her zaman ilk hamleyi yapar.",
+  "lesson_board_s3": "Küçük bir hatırlatma: Vezir kendi rengindeki kareye konur. Beyaz vezir beyaz kareye (d1), siyah vezir siyah kareye (d8).",
+  "lesson_rook_title": "Kale",
+  "lesson_rook_s1": "Kale düz gider: ileri, geri, sağa, sola. İstediği kadar kare ilerleyebilir ama başka bir taşın üzerinden atlayamaz.",
+  "lesson_rook_s2": "Şimdi sen dene: Kaleyi a1 karesinden a8 karesine götür.",
+  "lesson_rook_s2_ok": "Süper! Kale sütun boyunca ilerledi.",
+  "lesson_rook_s3": "Kale rakip taşı alabilir: Gittiği karede rakip taş varsa onu tahtadan kaldırır. Kaleyle a7 karesindeki siyah piyonu al.",
+  "lesson_rook_s3_ok": "Piyonu aldın! Kale güçlü bir taştır.",
+  "lesson_bishop_title": "Fil",
+  "lesson_bishop_s1": "Fil çapraz gider. Bir fil ömrü boyunca hep aynı renk karelerde kalır.",
+  "lesson_bishop_s2": "Fili c1 karesinden h6 karesine götür.",
+  "lesson_bishop_s2_ok": "Harika! Fil çaprazda uçtu.",
+  "lesson_queen_title": "Vezir",
+  "lesson_queen_s1": "Vezir en güçlü taştır: Hem kale gibi düz, hem fil gibi çapraz gidebilir.",
+  "lesson_queen_s2": "Veziri d1 karesinden h5 karesine götür.",
+  "lesson_queen_s2_ok": "Mükemmel! Vezir çaprazda gitti.",
+  "lesson_queen_s3": "Şimdi düz git: Veziri h5 karesinden h8 karesine götür.",
+  "lesson_queen_s3_ok": "Vezir kale gibi de gidebiliyor!",
+  "lesson_knight_title": "At",
+  "lesson_knight_s1": "At \"L\" şeklinde sıçrar: 2 kare düz, 1 kare yana. Diğer taşların üzerinden atlayabilen tek taştır.",
+  "lesson_knight_s2": "Atı b1 karesinden c3 karesine sıçrat.",
+  "lesson_knight_s2_ok": "Tam bir L! At sıçradı.",
+  "lesson_knight_s3": "At piyonların üzerinden atlayabilir. Atı b1 karesinden a3 veya c3 karesine götür.",
+  "lesson_knight_s3_ok": "Piyonların üzerinden atladı!",
+  "lesson_pawn_title": "Piyon",
+  "lesson_pawn_s1": "Piyon sadece ileri gider, 1 kare. İlk hamlesinde isterse 2 kare gidebilir. Rakip taşı ise çaprazdan alır.",
+  "lesson_pawn_s2": "Piyonu e2 karesinden 2 kare ileri, e4 karesine götür.",
+  "lesson_pawn_s2_ok": "İlk hamlede iki kare, doğru!",
+  "lesson_pawn_s3": "Piyon çaprazdan alır. e4 karesindeki piyonla d5 karesindeki siyah piyonu al.",
+  "lesson_pawn_s3_ok": "Çaprazdan aldın!",
+  "lesson_pawn_s4": "Piyon son sıraya ulaşırsa terfi eder: Vezir olabilir! Piyonu e7 karesinden e8 karesine götür.",
+  "lesson_pawn_s4_ok": "Piyon vezir oldu! Buna terfi denir.",
+  "lesson_king_title": "Şah",
+  "lesson_king_s1": "Şah en önemli taştır. Her yöne gidebilir ama sadece 1 kare. Şah asla saldırı altındaki bir kareye giremez.",
+  "lesson_king_s2": "Şahı e1 karesinden komşu bir kareye götür.",
+  "lesson_king_s2_ok": "Şah bir adım attı.",
+  "lesson_king_s3": "Rok: Şah ve kale aynı anda hareket eder, şah güvene alınır. Şahı e1 karesinden g1 karesine götür (kale otomatik gelir).",
+  "lesson_king_s3_ok": "Rok yaptın! Şah artık güvende.",
+  "lesson_checkmate_title": "Şah ve Mat",
+  "lesson_checkmate_s1": "Şaha saldırırsan buna \"şah\" denir. Rakip şahını kurtarmak zorundadır. Kurtaramıyorsa \"şah mat\" olur ve oyun biter.",
+  "lesson_checkmate_s2": "Siyah şahın önü kendi piyonlarıyla kapalı. Kaleyi e8 karesine götür ve mat et!",
+  "lesson_checkmate_s2_ok": "Şah mat! İlk matını yaptın 🎉",
+  "lesson_checkmate_s3": "Temel kuralları biliyorsun. Sıradaki derslerde şahtan kurtulmayı, patı ve taktikleri öğreneceksin.",
+  "lesson_escape_check_title": "Şahtan Kurtulma",
+  "lesson_escape_check_s1": "Şah çekildiğinde üç çıkış yolu vardır: Şahı kaçırmak, araya taş koymak ya da saldıran taşı almak. Önce kaçıralım: Beyaz şah kale tarafından şah çekiliyor.",
+  "lesson_escape_check_s1_ok": "Şah güvenli bir kareye kaçtı.",
+  "lesson_escape_check_s2": "İkinci yol: araya taş koymak. Siyah kale şah çekiyor; fili araya sok.",
+  "lesson_escape_check_s2_ok": "Fil kalkan oldu, şah artık tehdit altında değil.",
+  "lesson_escape_check_s3": "Üçüncü yol: saldıran taşı almak. Siyah fil şah çekiyor ama kalenin menzilinde. Fili al!",
+  "lesson_escape_check_s3_ok": "Saldıran taş gitti, tehdit bitti.",
+  "lesson_stalemate_title": "Pat: Dikkat, Berabere!",
+  "lesson_stalemate_s1": "Sırası gelen oyuncunun şahı tehdit altında DEĞİLSE ama yapacak hiçbir hamlesi yoksa buna \"pat\" denir ve oyun berabere biter. Kazanırken pat yapmak en sık yapılan hatadır.",
+  "lesson_stalemate_s2": "Burada vezir f7 karesine giderse siyah şahın hamlesi kalmaz ve oyun pat olur. Onun yerine mat eden hamleyi bul: Veziri g7 ya da f8 karesine götür.",
+  "lesson_stalemate_s2_ok": "Şah mat! Pat tuzağına düşmedin.",
+  "lesson_en_passant_title": "Geçerken Alma",
+  "lesson_en_passant_s1": "Rakip piyon ilk hamlesinde iki kare ilerleyip senin piyonunun yanına gelirse, sanki bir kare ilerlemiş gibi onu alabilirsin. Buna \"geçerken alma\" (en passant) denir ve yalnızca hemen bir sonraki hamlede yapılabilir.",
+  "lesson_en_passant_s2": "Siyah piyon d7 karesinden d5 karesine iki kare atladı. e5 karesindeki piyonunla onu geçerken al: d6 karesine git.",
+  "lesson_en_passant_s2_ok": "Geçerken aldın! Siyah piyon tahtadan kalktı.",
+  "lesson_fork_title": "Çatal",
+  "lesson_fork_s1": "Tek taşla iki taşa birden saldırmaya \"çatal\" denir. Rakip ikisini birden kurtaramaz. At, çatal atmada en ustadır.",
+  "lesson_fork_s2": "Atı d6 karesine sıçrat: Hem şah çekersin hem de c8 karesindeki vezire saldırırsın. Şah kaçınca vezir senindir.",
+  "lesson_fork_s2_ok": "Çatal! Şah ve vezir aynı anda tehdit altında.",
+  "lesson_fork_s3": "Piyon da çatal atabilir. Piyonu d5 karesine sür: Hem kaleye hem de ata saldırırsın.",
+  "lesson_fork_s3_ok": "Küçük piyon, iki büyük taşı tehdit ediyor!",
+  "lesson_pin_title": "Çivileme",
+  "lesson_pin_s1": "Bir taş, arkasındaki daha değerli taşı (çoğu zaman şahı) açığa çıkaracağı için hareket edemiyorsa \"çivilenmiş\" demektir. Fil ve kale çivileme ustalarıdır.",
+  "lesson_pin_s2": "Fili b5 karesine götür. Siyah at artık kıpırdayamaz, çünkü arkasında şah var.",
+  "lesson_pin_s2_ok": "At çivilendi! Kuralları gereği yerinden oynayamaz.",
+  "lesson_pin_s3": "Çivilenmiş taşa bir de piyonla saldırırsan kaçamaz. Piyonu d5 karesine sür.",
+  "lesson_pin_s3_ok": "At hem çivili hem saldırı altında: Kazanıldı!",
+  "lesson_skewer_title": "Şiş",
+  "lesson_skewer_s1": "Şiş, çivilemenin tersidir: Öndeki değerli taş (şah) kaçmak zorunda kalır, arkasındaki taş düşer.",
+  "lesson_skewer_s2": "Kaleyi e1 karesine getirip şah çek. Şah e sütunundan çekilince arkasındaki vezir kalenin olur.",
+  "lesson_skewer_s2_ok": "Şiş! Şah kaçacak, vezir kalacak.",
+  "lesson_defend_title": "Tehdidi Gör, Savun",
+  "lesson_defend_s1": "Her hamleden önce sor: \"Rakibin son hamlesi neyi tehdit ediyor?\" Burada siyah fil vezirine saldırıyor. Fili almak tuzak: g7 piyonu onu koruyor.",
+  "lesson_defend_s2": "Veziri filin ulaşamayacağı güvenli bir kareye kaçır (örneğin a4, b4, c4, d3, d2 veya d1).",
+  "lesson_defend_s2_ok": "Vezir güvende. Önce savun, sonra saldır.",
+  "lesson_values_title": "Taşların Değeri",
+  "lesson_values_s1": "Takas yaparken taşların değerini bil: Piyon 1, At 3, Fil 3, Kale 5, Vezir 9. Şahın değeri yoktur çünkü o kaybedilemez.",
+  "lesson_values_s2": "Kalen iki taşı alabilir: b1 karesindeki at (3 puan) ya da d8 karesindeki vezir (9 puan). Daha değerli olanı al.",
+  "lesson_values_s2_ok": "Vezir 9 puan! Doğru seçim.",
+  "lesson_opening_title": "Açılış İlkeleri",
+  "lesson_opening_s1": "Oyunun başında üç kural: Merkezi piyonla tut, atları ve filleri çıkar, şahı rokla güvene al. Aynı taşı üst üste oynama, vezirini erkenden çıkarma.",
+  "lesson_opening_s2": "Birinci ilke: Merkez. e veya d piyonunu iki kare ileri sür.",
+  "lesson_opening_s2_ok": "Merkez senin. Piyon iki kareye hükmediyor.",
+  "lesson_opening_s3": "İkinci ilke: Taşları geliştir. Atı g1 karesinden f3 karesine çıkar; oradan merkezi görür.",
+  "lesson_opening_s3_ok": "At oyuna girdi ve e5 piyonuna baskı yapıyor.",
+  "lesson_opening_s4": "Üçüncü ilke: Şahı güvene al. Fil de çıktığına göre rok yapabilirsin: Şahı g1 karesine götür.",
+  "lesson_opening_s4_ok": "Rok tamam. Şah güvende, kale oyuna girdi.",
+  "lesson_luft_title": "Arka Sıra Tehlikesi",
+  "lesson_luft_s1": "Rok yaptıktan sonra şahın önündeki piyonlar hem korur hem hapseder. Rakip kale arka sıraya inerse mat olabilirsin. Çözüm: Şaha küçük bir kaçış kapısı aç.",
+  "lesson_luft_s2": "Siyah kale a8 karesinde, a1 karesine inip mat etmek istiyor. Bir piyonu ileri sürüp şaha kaçış karesi aç.",
+  "lesson_luft_s2_ok": "Kapı açıldı. Artık kale inse bile şah h2 karesine kaçar.",
+  "lesson_mate_queen_title": "Vezirle Mat Etme",
+  "lesson_mate_queen_s1": "Vezir tek başına mat edemez; şahınla birlikte çalışmalı. Yöntem: Vezirle rakip şahı kenara it, kendi şahını yaklaştır, sonra bitir.",
+  "lesson_mate_queen_s2": "Siyah şah kenarda, beyaz şah tam karşısında. Veziri d7 karesine götür: Şahın koruduğu bu kareden mat olur.",
+  "lesson_mate_queen_s2_ok": "Şah mat! Vezir ve şah birlikte çalıştı.",
+  "lesson_mate_two_rooks_title": "İki Kaleyle Merdiven Matı",
+  "lesson_mate_two_rooks_s1": "İki kale sırayla şah çekerek rakip şahı basamak basamak kenara iter; buna merdiven matı denir. Önce bir kale şahın önündeki sırayı kapatır.",
+  "lesson_mate_two_rooks_s2": "Kaleyi a7 karesine götür: Siyah şah artık 7. sıraya inemez.",
+  "lesson_mate_two_rooks_s2_ok": "7. sıra kapandı. Şah 8. sırada hapsoldu.",
+  "lesson_mate_two_rooks_s3": "Şimdi diğer kaleyle 8. sıraya şah çek: b8 karesine git ve mat et.",
+  "lesson_mate_two_rooks_s3_ok": "Merdiven matı! Artık iki kaleyle her oyunu bitirebilirsin.",
+  "puzzle_p01_title": "Arka Sıra Matı",
+  "puzzle_p01_hint": "Siyah şahın önündeki piyonlar kaçış yolunu kapatıyor.",
+  "puzzle_p02_title": "Çoban Matı",
+  "puzzle_p02_hint": "f7 karesi en zayıf nokta. Vezir ve fil birlikte saldırıyor.",
+  "puzzle_p03_title": "Aptal Matı",
+  "puzzle_p03_hint": "Beyaz şahın çapraz yolu açıldı. Vezirle şah çek.",
+  "puzzle_p04_title": "Boğmaca Matı",
+  "puzzle_p04_hint": "Şah kendi taşlarıyla çevrili. At sıçrayarak mat edebilir.",
+  "puzzle_p05_title": "Vezir ve Şah",
+  "puzzle_p05_hint": "Beyaz şah veziri koruyor. Veziri şaha yaklaştır.",
+  "puzzle_p06_title": "Merdiven Matı",
+  "puzzle_p06_hint": "Bir kale 7. sırayı tutuyor. Diğeri 8. sıraya insin.",
+  "puzzle_p07_title": "Vezirle Arka Sıra",
+  "puzzle_p07_hint": "Vezir arka sıraya inince şahın kaçacak yeri kalmaz.",
+  "puzzle_p08_title": "İki Kale",
+  "puzzle_p08_hint": "Siyah oynuyor. Kalelerden biri 2. sırayı kapattı.",
+  "puzzle_p09_title": "Fil ve Vezir",
+  "puzzle_p09_hint": "Yine f7! Fil c4 karesinden veziri koruyor.",
+  "puzzle_p10_title": "Şahı Köşeye Sıkıştır",
+  "puzzle_p10_hint": "Şah köşede, piyonları kendi kaçış karelerini kapatıyor.",
+  "puzzle_p11_title": "Siyahın Atı",
+  "puzzle_p11_hint": "Siyah oynuyor. Beyaz şah kendi taşları arasında sıkışmış.",
+  "analyseGame": "Analiz et",
+  "analysing": "Analiz ediliyor... %{pct}",
+  "analysisUnavailable": "Analiz yalnızca telefonda (Stockfish) çalışır.",
+  "analysisFailed": "Analiz tamamlanamadı. Tekrar dene.",
+  "accuracyLabel": "Doğruluk",
+  "accuracyValue": "%{pct}",
+  "qualityBest": "En iyi hamle",
+  "qualityGood": "İyi",
+  "qualityInaccuracy": "Küçük hata",
+  "qualityMistake": "Hata",
+  "qualityBlunder": "Büyük hata",
+  "countsLine": "{blunders} büyük hata · {mistakes} hata · {inaccuracies} küçük hata",
+  "yourMove": "Senin hamlen: {san}",
+  "betterMove": "Daha iyisi: {san}",
+  "showBetter": "Daha iyisini göster",
+  "stopShowing": "Oyuna dön",
+  "moveWasGood": "Bu hamle iyiydi.",
+  "missedMate": "{n} hamlede mat kaçırdın!",
+  "missedMaterial": "Taş kazanma fırsatı kaçtı.",
+  "missedBig": "Burada çok daha güçlü bir hamle vardı.",
+  "keyMoments": "Ders çıkarılacak anlar",
+  "noKeyMoments": "Bu oyunda büyük hata yok, harika!",
+  "lossCp": "{cp} piyon kaybı",
+  "lossWinningThrown": "Kazanılmış konum elden gitti",
+  "lossLosesGame": "Bu hamle oyunu kaybettiriyor",
+  "analysisNote": "Analiz Stockfish ile cihazında yapılır; seviyeden bağımsız olarak en güçlü hamleyle karşılaştırır.",
+  "simulationHint": "Tahtada en iyi devam gösteriliyor: {san}",
+  "@analysing": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "@accuracyValue": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "@countsLine": {
+    "placeholders": {
+      "blunders": {
+        "type": "int"
+      },
+      "mistakes": {
+        "type": "int"
+      },
+      "inaccuracies": {
+        "type": "int"
+      }
+    }
+  },
+  "@yourMove": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@betterMove": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@missedMate": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@lossCp": {
+    "placeholders": {
+      "cp": {
+        "type": "String"
+      }
+    }
+  },
+  "@simulationHint": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "timeControl": "Süre",
+  "timeUnlimited": "Süresiz",
+  "timeUnlimitedHint": "Acele yok, istediğin kadar düşün",
+  "timeMinutes": "{minutes} dk",
+  "@timeMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeMinutesInc": "{minutes} dk + {seconds} sn",
+  "@timeMinutesInc": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHint": "Her oyuncunun {minutes} dakikası var",
+  "@timeHint": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeIncHint": "Her hamlede {seconds} saniye eklenir",
+  "@timeIncHint": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "clockYou": "Sen",
+  "clockComputer": "Bilgisayar",
+  "resultWinTimeout": "Bilgisayarın süresi bitti. Kazandın! 🎉",
+  "resultLoseTimeout": "Süren bitti. Bilgisayar kazandı.",
+  "resultDrawTimeout": "Süre bitti ama mat edecek taş yok: berabere.",
+  "onTimeSuffix": "süre",
+  "aboutSection": "Hakkında",
+  "openSourceTitle": "Açık kaynak",
+  "openSourceSub": "GPL-3.0 lisanslı · kaynak kodu ve lisanslar",
+  "licenseLegalese": "Satranç Akademi özgür yazılımdır: GNU Genel Kamu Lisansı sürüm 3 ya da (istersen) sonraki bir sürümün koşullarıyla dağıtabilir ve değiştirebilirsin. Hiçbir garanti verilmez.\n\nKaynak kodu: {url}\n\nTahta ve kurallar lichess'in chessground ve dartchess paketleri, rakip ve analiz Stockfish (GPL-3.0). Bulmacalar lichess.org açık veritabanından (CC0).",
+  "@licenseLegalese": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  }
+}

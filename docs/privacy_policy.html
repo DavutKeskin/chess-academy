@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Satranç Akademi Gizlilik Politikası</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #FBF8F3;
+    --surface: #FFFFFF;
+    --ink: #1B1F2A;
+    --muted: #5E6674;
+    --line: #E6E1D8;
+    --navy: #1F3A5F;
+    --navy-deep: #14273F;
+    --gold: #E9A825;
+    --gold-soft: #FFF0C9;
+    --ok: #2E9E6B;
+    --ok-soft: #DFF4EA;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121A26;
+      --surface: #1A2433;
+      --ink: #F1EEE8;
+      --muted: #A7B0BE;
+      --line: #2B3646;
+      --navy: #DCE6F5;
+      --navy-deep: #F6F1E6;
+      --gold: #F0B94A;
+      --gold-soft: #3A2E12;
+      --ok: #5CC393;
+      --ok-soft: #173427;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121A26;
+    --surface: #1A2433;
+    --ink: #F1EEE8;
+    --muted: #A7B0BE;
+    --line: #2B3646;
+    --navy: #DCE6F5;
+    --navy-deep: #F6F1E6;
+    --gold: #F0B94A;
+    --gold-soft: #3A2E12;
+    --ok: #5CC393;
+    --ok-soft: #173427;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Manrope", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 72px; }
+  header { display: grid; gap: 12px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  .brand svg { width: 34px; height: 34px; flex: none; }
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 40px);
+    line-height: 1.15;
+    margin: 0;
+    color: var(--navy-deep);
+    text-wrap: balance;
+  }
+  .meta { color: var(--muted); font-size: 15px; }
+  .summary {
+    margin-top: 28px;
+    display: grid;
+    gap: 10px;
+    padding: 20px 22px;
+    background: var(--ok-soft);
+    border-left: 4px solid var(--ok);
+    border-radius: 0 12px 12px 0;
+  }
+  .summary strong { color: var(--ink); }
+  .summary ul { margin: 0; padding-left: 20px; }
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 40px 0 10px;
+    color: var(--navy-deep);
+    text-wrap: balance;
+  }
+  p { margin: 0 0 14px; max-width: 65ch; }
+  ul { margin: 0 0 14px; padding-left: 22px; max-width: 65ch; }
+  li { margin-bottom: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0 16px; font-size: 15.5px; }
+  .tablewrap { overflow-x: auto; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 700; color: var(--muted); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+  .chip { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--gold-soft); color: var(--ink); font-weight: 600; font-size: 13px; }
+  a { color: var(--navy); font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+  hr.section { border: 0; border-top: 1px solid var(--line); margin: 48px 0 8px; }
+  .en h1, .en h2 { font-size: 22px; }
+  .en { color: var(--muted); }
+  footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="14" fill="#1F3A5F"/>
+        <circle cx="32" cy="32" r="23" fill="none" stroke="#E9A825" stroke-width="2.5"/>
+        <path d="M22 44c6 3 14 3 20 0v-5s6-3 4-7c-3-4-9-2-10 3v-3c-1-5-7-7-10-3-2 4 4 7 4 7v8z" fill="#fff" stroke="#14273F" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M32 33s3-5 2-7c-1-2-3-2-4 0-1 2 2 7 2 7z" fill="#fff" stroke="#14273F" stroke-width="1.5"/>
+        <path d="M33.5 18.5a4.2 4.2 0 1 0 0 7.8 3.3 3.3 0 1 1 0-7.8z" fill="#fff" stroke="#14273F" stroke-width="1.2"/>
+      </svg>
+      Satranç Akademi
+    </div>
+    <h1>Gizlilik Politikası</h1>
+    <div class="meta">Son güncelleme: 10 Eylül 2026 · Sürüm 1.1</div>
+  </header>
+
+  <div class="summary">
+    <strong>Kısaca</strong>
+    <ul>
+      <li>Uygulama kişisel veri toplamaz, hesap açmaz, sunucuya hiçbir şey göndermez.</li>
+      <li>Ders ve bulmaca ilerlemen yalnızca kendi cihazında saklanır.</li>
+      <li>Reklam veya analitik SDK'sı içermez. Tek çevrimiçi işlem, Google Play üzerinden yapılan isteğe bağlı "Tüm Dersler" satın almasıdır.</li>
+    </ul>
+  </div>
+
+  <h2>Uygulama nedir?</h2>
+  <p>Satranç Akademi, çocuklar ve yeni başlayanlar için Türkçe bir satranç öğrenme uygulamasıdır. Dersler, mat bulmacaları, bilgisayara karşı oyun ve oyun analizi içerir. Satranç motoru (Stockfish) ve tahta bileşenleri tamamen cihaz üzerinde, çevrimdışı çalışır.</p>
+
+  <h2>Cihazında saklanan bilgiler</h2>
+  <p>Uygulama aşağıdaki bilgileri yalnızca telefonunda, uygulamanın kendi alanında tutar. Bu bilgiler cihazdan dışarı çıkmaz ve uygulamayı kaldırdığında silinir.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Bilgi</th><th>Ne için</th><th>Nerede</th></tr></thead>
+    <tbody>
+      <tr><td>Tamamlanan dersler, çözülen bulmacalar</td><td>Kaldığın yerden devam etmen için</td><td><span class="chip">Yalnızca cihaz</span></td></tr>
+      <tr><td>Günlük seri, oyun istatistikleri</td><td>İlerleme ve rozetler için</td><td><span class="chip">Yalnızca cihaz</span></td></tr>
+      <tr><td>Son 20 oyunun hamleleri ve analiz sonucu</td><td>Tekrar oynatma ve hata analizi için</td><td><span class="chip">Yalnızca cihaz</span></td></tr>
+      <tr><td>Tahta teması, taş seti, dil, yaş grubu ve seviye tercihi</td><td>Görünüm ve ders önerilerini hatırlamak için</td><td><span class="chip">Yalnızca cihaz</span></td></tr>
+      <tr><td>"Tüm Dersler" satın alma durumu</td><td>Ücretli dersleri açık tutmak için</td><td><span class="chip">Cihaz + Google Play</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Toplanmayan bilgiler</h2>
+  <ul>
+    <li>Ad, e-posta, telefon numarası gibi kimlik bilgileri</li>
+    <li>Konum, kişiler, fotoğraflar, mikrofon veya kamera verisi</li>
+    <li>Cihaz kimlikleri, reklam kimliği, kullanım analitiği</li>
+  </ul>
+
+  <h2>Uygulama içi satın alma</h2>
+  <p>İlk 8 ders ücretsizdir. Kalan dersler tek seferlik "Tüm Dersler" satın almasıyla açılır; abonelik yoktur. Ödeme tamamen Google Play tarafından işlenir: uygulama kart bilgisi, ad veya adres görmez ve saklamaz. Google Play'in bu işlem için işlediği veriler <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>na tabidir. Satın alma, aynı Google hesabıyla başka bir cihazda "Satın almaları geri yükle" ile geri alınabilir.</p>
+
+  <h2>İzinler</h2>
+  <p>Uygulama konum, kamera, mikrofon, kişiler veya depolama izni istemez. Yalnızca Google Play faturalandırması için gereken ağ erişimi (INTERNET, ACCESS_NETWORK_STATE) ve BILLING izinleri bulunur; bunlar satın alma dışında kullanılmaz. Dersler, bulmacalar, rakip ve analiz çevrimdışı çalışır.</p>
+
+  <h2>Üçüncü taraflar</h2>
+  <p>Uygulamada üçüncü taraf analitik, çökme raporu veya reklam SDK'sı bulunmaz. Kullanılan açık kaynak bileşenler (lichess.org tahta ve kural kütüphaneleri, Stockfish motoru) dışarıyla iletişim kurmaz. Tek üçüncü taraf, satın almayı işleyen Google Play'dir.</p>
+  <p>İleride reklam eklenirse bu politika güncellenir, sürüm numarası artırılır ve mağaza sayfasında duyurulur.</p>
+
+  <h2>Çocukların gizliliği</h2>
+  <p>Uygulama 13 yaş altı çocuklar tarafından kullanılabilir. Çocuklardan ya da yetişkinlerden hiçbir kişisel bilgi toplanmadığı için işlenecek, paylaşılacak veya silinmesi istenecek veri de yoktur.</p>
+
+  <h2>İletişim</h2>
+  <p>Sorular için: <a href="mailto:davut.keskin.94@gmail.com">davut.keskin.94@gmail.com</a></p>
+
+  <hr class="section">
+
+  <section class="en">
+    <h1>Privacy Policy (English summary)</h1>
+    <p>Chess Academy is a chess-learning app for children and beginners (Turkish, English, German, Spanish). It does not collect personal data, does not create accounts and does not send anything to our servers. Your progress (completed lessons, solved puzzles, streak, game statistics, your last 20 games and their analysis) and preferences (appearance, language, age group, level) are stored only on your device and are removed when you uninstall the app.</p>
+    <p>The first 8 lessons are free; the rest are unlocked by a one-time "All Lessons" in-app purchase, with no subscription. Payment is processed entirely by Google Play: the app never sees or stores card details, names or addresses. Data processed by Google Play is covered by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. The only permissions the app holds are the network and BILLING permissions required by Google Play Billing; they are not used for anything else. Lessons, puzzles, the engine opponent and game analysis run fully offline.</p>
+    <p>The app contains no third-party analytics, crash-reporting or advertising SDKs. If ads are added in the future, this policy will be updated and the version number increased.</p>
+    <p>The app may be used by children under 13. Because no personal information is collected from anyone, there is no data to access, share or delete.</p>
+    <p>Contact: <a href="mailto:davut.keskin.94@gmail.com">davut.keskin.94@gmail.com</a></p>
+  </section>
+
+  <footer>Satranç Akademi · Gizlilik Politikası v1.1 · 10 Eylül 2026</footer>
+</div>
+
+</body>
+</html>

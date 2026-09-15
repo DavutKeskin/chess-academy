@@ -1,0 +1,353 @@
+import 'package:flutter/material.dart';
+
+import '../../core/progress_store.dart';
+import '../../core/purchase_store.dart';
+import '../../core/theme.dart';
+import '../../l10n/l10n.dart';
+import '../lessons/lesson_list_screen.dart';
+import '../lessons/lesson_screen.dart';
+import '../lessons/lessons.dart';
+import '../paywall/paywall_screen.dart';
+import '../play/play_screen.dart';
+import '../progress/progress_screen.dart';
+import '../puzzles/puzzle_list_screen.dart';
+import '../puzzles/puzzle_repository.dart';
+import '../puzzles/puzzle_screen.dart';
+import '../settings/settings_screen.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final store = ProgressStore.instance;
+    return Scaffold(
+      body: SafeArea(
+        child: ListenableBuilder(
+          listenable: Listenable.merge([store, PurchaseStore.instance]),
+          builder: (context, _) {
+            final t = context.t;
+            final lessons = buildLessons(t);
+            final nextLesson = lessons.where((l) => !store.isLessonDone(l.id)).firstOrNull;
+            final nextLocked = nextLesson != null &&
+                isPremiumLesson(lessons.indexOf(nextLesson)) &&
+                !PurchaseStore.instance.hasFullAccess;
+            final lessonsDone = store.completedLessons.length;
+            final puzzlesDone = store.solvedPuzzles.length;
+            final repo = PuzzleRepository.instance;
+            final daily = repo.dailyPuzzle(DateTime.now());
+            return ListView(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
+              children: [
+                _Header(streak: store.streak, onSettings: () => _open(context, const SettingsScreen())),
+                const SizedBox(height: 20),
+                _TodayCard(
+                  lesson: nextLesson,
+                  locked: nextLocked,
+                  onTap: () => _open(
+                    context,
+                    nextLocked
+                        ? const PaywallScreen()
+                        : nextLesson != null
+                            ? LessonScreen(lesson: nextLesson)
+                            : const PuzzleListScreen(),
+                  ),
+                ),
+                if (daily != null) ...[
+                  const SizedBox(height: 12),
+                  _DailyCard(
+                    solved: store.isPuzzleSolved(daily.id),
+                    rating: daily.rating,
+                    onTap: () => _open(context, PuzzleScreen(puzzles: [daily], index: 0)),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                GridView.count(
+                  crossAxisCount: 2,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  mainAxisSpacing: 12,
+                  crossAxisSpacing: 12,
+                  childAspectRatio: 0.95,
+                  children: [
+                    _ModuleTile(
+                      icon: Icons.school_rounded,
+                      color: AppColors.lessons,
+                      title: t.lessons,
+                      subtitle: t.lessonsDoneOf(lessonsDone, lessons.length),
+                      progress: lessonsDone / lessons.length,
+                      onTap: () => _open(context, const LessonListScreen()),
+                    ),
+                    _ModuleTile(
+                      icon: Icons.extension_rounded,
+                      color: AppColors.puzzles,
+                      title: t.puzzles,
+                      subtitle: t.puzzlesSolvedOf(puzzlesDone, repo.totalCount),
+                      progress: repo.totalCount == 0 ? 0 : puzzlesDone / repo.totalCount,
+                      onTap: () => _open(context, const PuzzleListScreen()),
+                    ),
+                    _ModuleTile(
+                      icon: Icons.sports_esports_rounded,
+                      color: AppColors.play,
+                      title: t.play,
+                      subtitle: store.gamesPlayed == 0 ? t.vsComputer : t.winsCount(store.gamesWon),
+                      onTap: () => _open(context, const PlaySetupScreen()),
+                    ),
+                    _ModuleTile(
+                      icon: Icons.emoji_events_rounded,
+                      color: AppColors.progress,
+                      title: t.progress,
+                      subtitle: t.badgesAndStreak,
+                      onTap: () => _open(context, const ProgressScreen()),
+                    ),
+                  ],
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  void _open(BuildContext context, Widget screen) {
+    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => screen));
+  }
+}
+
+class _Header extends StatelessWidget {
+  const _Header({required this.streak, required this.onSettings});
+  final int streak;
+  final VoidCallback onSettings;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(context.t.appName, style: Theme.of(context).textTheme.headlineMedium),
+              const SizedBox(height: 6),
+              Row(children: [_StreakPill(streak: streak)]),
+            ],
+          ),
+        ),
+        IconButton.filledTonal(
+          tooltip: context.t.settings,
+          onPressed: onSettings,
+          icon: const Icon(Icons.settings_outlined),
+        ),
+      ],
+    );
+  }
+}
+
+class _StreakPill extends StatelessWidget {
+  const _StreakPill({required this.streak});
+  final int streak;
+
+  @override
+  Widget build(BuildContext context) {
+    final active = streak > 0;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: active ? AppColors.goldLight : AppColors.surfaceContainer,
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: active ? AppColors.gold : AppColors.outline),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.local_fire_department_rounded,
+              size: 18, color: active ? const Color(0xFFB7791F) : AppColors.inkMuted),
+          const SizedBox(width: 6),
+          Flexible(
+            child: Text(
+              active ? context.t.streakDays(streak) : context.t.streakEmpty,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: active ? const Color(0xFF5C3F00) : AppColors.inkMuted,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TodayCard extends StatelessWidget {
+  const _TodayCard({required this.lesson, required this.onTap, this.locked = false});
+  final Lesson? lesson;
+  final bool locked;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final l = lesson;
+    return Material(
+      color: AppColors.navy,
+      borderRadius: BorderRadius.circular(22),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(22),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l != null ? t.todaysLesson : t.allLessonsDoneLabel,
+                      style: const TextStyle(
+                        color: AppColors.gold,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      l != null ? '${l.emoji} ${l.title}' : t.practiceWithPuzzles,
+                      style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      locked
+                          ? t.unlockedWithPack
+                          : l != null
+                              ? t.stepsApprox(l.steps.length)
+                              : t.mateInOneShort,
+                      style: const TextStyle(color: Color(0xFFBFD0EA), fontSize: 14),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 12),
+              Container(
+                width: 48,
+                height: 48,
+                decoration: const BoxDecoration(color: AppColors.gold, shape: BoxShape.circle),
+                child: Icon(locked ? Icons.lock_rounded : Icons.play_arrow_rounded, color: AppColors.navyDark, size: 28),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _DailyCard extends StatelessWidget {
+  const _DailyCard({required this.solved, required this.rating, required this.onTap});
+  final bool solved;
+  final int? rating;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    return Card(
+      color: solved ? AppColors.successLight : AppColors.goldLight,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          child: Row(
+            children: [
+              Icon(solved ? Icons.check_circle_rounded : Icons.today_rounded,
+                  color: solved ? AppColors.success : const Color(0xFFB7791F)),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(t.dailyPuzzle, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
+                    Text(
+                      solved
+                          ? t.dailySolved
+                          : (rating != null ? t.dailySubtitle(rating!) : t.dailySubtitleNoRating),
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right_rounded, color: AppColors.navy),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ModuleTile extends StatelessWidget {
+  const _ModuleTile({
+    required this.icon,
+    required this.color,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+    this.progress,
+  });
+
+  final IconData icon;
+  final Color color;
+  final String title;
+  final String subtitle;
+  final double? progress;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: 0.14),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Icon(icon, color: color, size: 26),
+              ),
+              const Spacer(),
+              Text(title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, height: 1.2)),
+              const SizedBox(height: 2),
+              Text(subtitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(height: 1.2)),
+              if (progress != null) ...[
+                const SizedBox(height: 10),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(value: progress, minHeight: 6, color: color),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

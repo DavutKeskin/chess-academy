@@ -1,0 +1,622 @@
+{
+  "@@locale": "en",
+  "appName": "Chess Academy",
+  "continueBtn": "Continue",
+  "startBtn": "Start",
+  "nextBtn": "Next",
+  "backBtn": "Back",
+  "white": "White",
+  "black": "Black",
+  "whiteToMove": "White to move",
+  "blackToMove": "Black to move",
+  "streakDays": "{count}-day streak",
+  "streakEmpty": "Finish a lesson to start a streak",
+  "todaysLesson": "TODAY'S LESSON",
+  "allLessonsDoneLabel": "ALL LESSONS DONE",
+  "practiceWithPuzzles": "Practice with puzzles",
+  "stepsApprox": "{count} steps · about 3 minutes",
+  "mateInOneShort": "Checkmate in one",
+  "unlockedWithPack": "Unlocks with the All Lessons pack",
+  "dailyPuzzle": "Puzzle of the day",
+  "dailySolved": "Solved today's puzzle. A new one comes tomorrow.",
+  "dailySubtitle": "Mate in one · difficulty {rating}",
+  "dailySubtitleNoRating": "Mate in one",
+  "lessons": "Lessons",
+  "puzzles": "Puzzles",
+  "play": "Play",
+  "progress": "My Progress",
+  "settings": "Settings",
+  "lessonsDoneOf": "{done} / {total} completed",
+  "puzzlesSolvedOf": "{done} / {total} solved",
+  "vsComputer": "Against the computer",
+  "winsCount": "{count} wins",
+  "badgesAndStreak": "Badges and streak",
+  "chessSchool": "Chess School",
+  "allLessonsFinished": "Congratulations, you finished every lesson!",
+  "lessonsSequentialHint": "Lessons unlock in order; each takes 2-4 minutes.",
+  "completed": "Completed",
+  "stepsCount": "{count} steps",
+  "unlockBadge": "Unlock",
+  "groupBasics": "Basics: The Pieces",
+  "groupRules": "Rules",
+  "groupTactics": "Tactics",
+  "groupMates": "Checkmate Patterns",
+  "taskMoveHint": "Task: move the piece to the marked square.",
+  "readyContinue": "Continue when you're ready.",
+  "finishLesson": "Finish Lesson",
+  "wrongTarget": "Not that square, try again.",
+  "starterCategory": "Starter",
+  "starterSubtitle": "Classic named mates",
+  "mateIn1Category": "Mate in One",
+  "mateIn1Subtitle": "{count} puzzles, easy to hard",
+  "mateIn2Category": "Mate in Two",
+  "mateIn2Subtitle": "The opponent replies, you finish · {count} puzzles",
+  "lichessCredit": "Mate-in-one and mate-in-two puzzles come from the lichess.org open database (CC0).",
+  "continueFromPuzzle": "Continue where you left off (puzzle {n})",
+  "categoryAllSolved": "You solved every puzzle in this category! 🎉",
+  "packTitle": "Set {n}",
+  "difficultyRange": "Difficulty {range}",
+  "puzzleN": "Puzzle {n}",
+  "puzzleMateIn1Prompt": "{side} to move. Checkmate in one!",
+  "puzzleMateInNPrompt": "{side} to move. Mate in {total} · move {move}",
+  "opponentReplying": "Correct! The opponent is replying...",
+  "notThisOne": "Not that one. Try again.",
+  "solvedWithHint": "Checkmate! Next time try without a hint.",
+  "solvedGreat": "Checkmate! Brilliant 🎉",
+  "hintWhichPiece": "Hint: which piece?",
+  "hintWhere": "Hint: where to?",
+  "hintShown": "Hint shown",
+  "nextPuzzle": "Next Puzzle",
+  "doneGoBack": "Done, Go Back",
+  "level1": "Rookie",
+  "level2": "Student",
+  "level3": "Apprentice",
+  "level4": "Master",
+  "level5": "Grandmaster",
+  "levelHint1": "Plays randomly. For first games.",
+  "levelHint2": "Captures pieces, falls for traps.",
+  "levelHint3": "Sees two moves ahead.",
+  "levelHint4": "Tough opponent. Get ready!",
+  "levelHint5": "Full engine strength.",
+  "opponentLevel": "Opponent level",
+  "whichColor": "Which color will you play?",
+  "youMoveFirst": "You move first",
+  "computerStarts": "Computer starts",
+  "startGame": "Start Game",
+  "restart": "Restart",
+  "levelTitle": "Level {level} · {name}",
+  "resultDraw": "Draw!",
+  "resultWin": "You won! 🎉",
+  "resultLose": "The computer won. Try again!",
+  "opponentPreparing": "Preparing opponent...",
+  "computerThinking": "Computer is thinking...",
+  "checkYourTurn": "Check! Your move.",
+  "yourTurn": "Your move.",
+  "playAgain": "Play Again",
+  "reviewGame": "Review Game",
+  "recentGames": "Recent games",
+  "gameSummary": "Level {level} · {result}",
+  "resultWinShort": "Won",
+  "resultLoseShort": "Lost",
+  "resultDrawShort": "Draw",
+  "movesCount": "{count} moves",
+  "replayStart": "Starting position",
+  "replayMove": "Move {n}: {san}",
+  "replayHint": "Tap a move or use the arrows.",
+  "statStreak": "day streak",
+  "statLessons": "lessons done",
+  "statPuzzles": "puzzles solved",
+  "statGames": "wins / games",
+  "badges": "Badges",
+  "badgeFirstStep": "First Step",
+  "badgeFirstStepHint": "Finish the first lesson",
+  "badgePieceMaster": "Piece Master",
+  "badgePieceMasterHint": "Finish all lessons",
+  "badgePuzzleHunter": "Puzzle Hunter",
+  "badgePuzzleHunterHint": "Solve 5 puzzles",
+  "badgeMateMachine": "Mate Machine",
+  "badgeMateMachineHint": "Solve 100 puzzles",
+  "badgeFirstWin": "First Victory",
+  "badgeFirstWinHint": "Beat the computer",
+  "badgeSteady": "Steady",
+  "badgeSteadyHint": "3-day streak",
+  "boardSection": "Board",
+  "piecesSection": "Pieces",
+  "piecesNote": "The \"Crescent\" set is exclusive to this app: a crescent instead of a cross on the king. The others are open-source sets from lichess.org.",
+  "boardAndPieces": "{board} board · {pieces} pieces",
+  "feedbackSection": "Feedback",
+  "sounds": "Sounds",
+  "soundsSub": "Moves, right/wrong and checkmate",
+  "vibration": "Vibration",
+  "vibrationSub": "Touch and results",
+  "allLessonsSection": "All Lessons",
+  "allLessonsOpen": "All lessons unlocked",
+  "purchasedThanks": "Purchased, thank you.",
+  "unlockTacticLessons": "Unlock tactics and checkmate lessons",
+  "oneTimePrice": "One-time · {price}",
+  "profileSection": "Profile",
+  "profileUnlocked": "All lessons open; opponent suggested from level {level}.",
+  "profileSequential": "Lessons unlock in order; the opponent starts at level 1.",
+  "languageSection": "Language",
+  "languageSystem": "System language",
+  "boardKlasik": "Classic",
+  "boardTurnuva": "Tournament",
+  "boardOkyanus": "Ocean",
+  "boardAhsap": "Wood",
+  "boardAkcaagac": "Maple",
+  "boardMermer": "Marble",
+  "boardMenekse": "Violet",
+  "boardZeytin": "Olive",
+  "boardGrafit": "Graphite",
+  "boardSeker": "Candy",
+  "pieceHilal": "Crescent",
+  "pieceKlasik": "Classic",
+  "pieceMerida": "Merida",
+  "pieceStaunty": "Staunty",
+  "pieceFresca": "Fresca",
+  "pieceCardinal": "Cardinal",
+  "pieceGioco": "Gioco",
+  "pieceTatiana": "Tatiana",
+  "pieceHorsey": "Horsey",
+  "ageChild": "Child",
+  "ageChildHint": "Ages 6-9",
+  "ageTeen": "Teen",
+  "ageTeenHint": "Ages 10-14",
+  "ageAdult": "Adult",
+  "ageAdultHint": "15+",
+  "skillBeginner": "Complete beginner",
+  "skillBeginnerHint": "We start with the lessons",
+  "skillKnowsRules": "I know the rules",
+  "skillKnowsRulesHint": "Lessons open, jump to puzzles",
+  "skillPlays": "I play already",
+  "skillPlaysHint": "Tactics and a strong opponent",
+  "welcomeTitle": "Welcome to Chess Academy",
+  "welcomeSub": "Two quick questions so we can set your starting point. You can change this later in Settings.",
+  "whoPlays": "Who will play?",
+  "howMuchChess": "How much chess do you know?",
+  "letsStart": "Let's start",
+  "whoPlaysShort": "Who plays?",
+  "skillLevel": "Level",
+  "paywallHeroTitle": "The whole Chess School",
+  "paywallHeroSub": "Tactics, openings and checkmate patterns. One payment, unlimited use.",
+  "whatUnlocks": "What unlocks?",
+  "benefitFamily": "Pay once, use on every device with the same Google account.",
+  "benefitNoAds": "No ads, no subscription, no hidden fees.",
+  "benefitUpdates": "Includes lessons added in the future.",
+  "unlockAllLessonsBtn": "Unlock all lessons · {price}",
+  "restorePurchase": "Already bought it? Restore",
+  "devUnlock": "(Dev) Unlock for testing",
+  "storeNote": "Payment is handled by Google Play; refunds and invoices follow Google Play rules.",
+  "ownedThanks": "Thank you! The whole Chess School is yours.",
+  "backToLessons": "Back to lessons",
+  "storeUnavailable": "The store can't be reached right now. Check your internet connection and Google Play account.",
+  "storeUnavailableShort": "The store can't be reached right now.",
+  "purchaseNotStarted": "Purchase could not start: {error}",
+  "purchaseFailed": "Purchase could not be completed.",
+  "lesson_board_title": "The Board and Pieces",
+  "lesson_board_s1": "A chessboard has 64 squares: 8 ranks and 8 files. Files are named a to h, ranks 1 to 8.",
+  "lesson_board_s2": "Each player has 16 pieces: 8 pawns, 2 rooks, 2 knights, 2 bishops, 1 queen and 1 king. White always moves first.",
+  "lesson_board_s3": "A small reminder: the queen starts on her own color. The white queen on a light square (d1), the black queen on a dark square (d8).",
+  "lesson_rook_title": "The Rook",
+  "lesson_rook_s1": "The rook moves in straight lines: forward, backward, left or right, as far as it likes, but it cannot jump over other pieces.",
+  "lesson_rook_s2": "Now you try: move the rook from a1 to a8.",
+  "lesson_rook_s2_ok": "Great! The rook slid all the way up the file.",
+  "lesson_rook_s3": "A rook can capture: if an enemy piece stands on its path, it takes it off the board. Capture the black pawn on a7 with the rook.",
+  "lesson_rook_s3_ok": "You captured the pawn! The rook is a powerful piece.",
+  "lesson_bishop_title": "The Bishop",
+  "lesson_bishop_s1": "The bishop moves diagonally. A bishop stays on squares of the same color its whole life.",
+  "lesson_bishop_s2": "Move the bishop from c1 to h6.",
+  "lesson_bishop_s2_ok": "Wonderful! The bishop flew along the diagonal.",
+  "lesson_queen_title": "The Queen",
+  "lesson_queen_s1": "The queen is the strongest piece: she moves in straight lines like a rook and diagonally like a bishop.",
+  "lesson_queen_s2": "Move the queen from d1 to h5.",
+  "lesson_queen_s2_ok": "Perfect! The queen moved diagonally.",
+  "lesson_queen_s3": "Now straight: move the queen from h5 to h8.",
+  "lesson_queen_s3_ok": "The queen can move like a rook too!",
+  "lesson_knight_title": "The Knight",
+  "lesson_knight_s1": "The knight jumps in an \"L\" shape: two squares straight, one to the side. It is the only piece that can jump over others.",
+  "lesson_knight_s2": "Jump the knight from b1 to c3.",
+  "lesson_knight_s2_ok": "A perfect L! The knight jumped.",
+  "lesson_knight_s3": "The knight can jump over pawns. Move the knight from b1 to a3 or c3.",
+  "lesson_knight_s3_ok": "It jumped right over the pawns!",
+  "lesson_pawn_title": "The Pawn",
+  "lesson_pawn_s1": "A pawn only moves forward, one square. On its first move it may go two squares. It captures diagonally.",
+  "lesson_pawn_s2": "Move the pawn from e2 two squares forward to e4.",
+  "lesson_pawn_s2_ok": "Two squares on the first move, correct!",
+  "lesson_pawn_s3": "Pawns capture diagonally. Capture the black pawn on d5 with the pawn on e4.",
+  "lesson_pawn_s3_ok": "Captured diagonally!",
+  "lesson_pawn_s4": "When a pawn reaches the last rank it promotes: it can become a queen! Move the pawn from e7 to e8.",
+  "lesson_pawn_s4_ok": "The pawn became a queen! That is called promotion.",
+  "lesson_king_title": "The King",
+  "lesson_king_s1": "The king is the most important piece. It can move in any direction, but only one square. A king may never step onto an attacked square.",
+  "lesson_king_s2": "Move the king from e1 to a neighboring square.",
+  "lesson_king_s2_ok": "The king took a step.",
+  "lesson_king_s3": "Castling: the king and a rook move at the same time, and the king reaches safety. Move the king from e1 to g1 (the rook follows automatically).",
+  "lesson_king_s3_ok": "You castled! The king is safe now.",
+  "lesson_checkmate_title": "Check and Checkmate",
+  "lesson_checkmate_s1": "Attacking the king is called \"check\". The opponent must save the king. If they can't, it is \"checkmate\" and the game ends.",
+  "lesson_checkmate_s2": "The black king is boxed in by its own pawns. Move the rook to e8 and deliver checkmate!",
+  "lesson_checkmate_s2_ok": "Checkmate! Your first mate 🎉",
+  "lesson_checkmate_s3": "You now know the basic rules. In the next lessons you will learn how to escape check, stalemate and tactics.",
+  "lesson_escape_check_title": "Escaping Check",
+  "lesson_escape_check_s1": "When in check there are three ways out: move the king, block with a piece, or capture the attacker. First, move away: the white king is in check from the rook.",
+  "lesson_escape_check_s1_ok": "The king escaped to a safe square.",
+  "lesson_escape_check_s2": "Second way: block. The black rook gives check; put the bishop in between.",
+  "lesson_escape_check_s2_ok": "The bishop became a shield; the king is no longer threatened.",
+  "lesson_escape_check_s3": "Third way: capture the attacker. The black bishop gives check, but the rook can reach it. Capture the bishop!",
+  "lesson_escape_check_s3_ok": "The attacker is gone; the threat is over.",
+  "lesson_stalemate_title": "Stalemate: Careful, a Draw!",
+  "lesson_stalemate_s1": "If the player to move is NOT in check but has no legal move, it is \"stalemate\" and the game is a draw. Stalemating while winning is the most common mistake.",
+  "lesson_stalemate_s2": "Here, if the queen goes to f7 the black king has no moves and it is stalemate. Find the mating move instead: move the queen to g7 or f8.",
+  "lesson_stalemate_s2_ok": "Checkmate! You avoided the stalemate trap.",
+  "lesson_en_passant_title": "En Passant",
+  "lesson_en_passant_s1": "If an enemy pawn advances two squares on its first move and lands beside your pawn, you may capture it as if it had moved one square. This is \"en passant\" and it is only possible on the very next move.",
+  "lesson_en_passant_s2": "The black pawn jumped from d7 to d5. Capture it en passant with the pawn on e5: move to d6.",
+  "lesson_en_passant_s2_ok": "En passant! The black pawn is off the board.",
+  "lesson_fork_title": "The Fork",
+  "lesson_fork_s1": "Attacking two pieces with one piece is a \"fork\". The opponent can't save both. The knight is the master of forks.",
+  "lesson_fork_s2": "Jump the knight to d6: you give check and attack the queen on c8 at the same time. When the king moves, the queen is yours.",
+  "lesson_fork_s2_ok": "Fork! King and queen are attacked at once.",
+  "lesson_fork_s3": "A pawn can fork too. Push the pawn to d5: it attacks both the rook and the knight.",
+  "lesson_fork_s3_ok": "A little pawn threatening two big pieces!",
+  "lesson_pin_title": "The Pin",
+  "lesson_pin_s1": "A piece is \"pinned\" when moving it would expose a more valuable piece behind it (usually the king). Bishops and rooks are the pinning experts.",
+  "lesson_pin_s2": "Move the bishop to b5. The black knight can no longer move, because the king is behind it.",
+  "lesson_pin_s2_ok": "The knight is pinned! By the rules it cannot move.",
+  "lesson_pin_s3": "Attack the pinned piece with a pawn and it cannot run. Push the pawn to d5.",
+  "lesson_pin_s3_ok": "The knight is pinned and attacked: it is won!",
+  "lesson_skewer_title": "The Skewer",
+  "lesson_skewer_s1": "A skewer is the reverse of a pin: the valuable piece in front (the king) must move, and the piece behind it falls.",
+  "lesson_skewer_s2": "Bring the rook to e1 with check. When the king leaves the e-file, the queen behind it is yours.",
+  "lesson_skewer_s2_ok": "Skewer! The king will run, the queen will stay.",
+  "lesson_defend_title": "Spot the Threat, Defend",
+  "lesson_defend_s1": "Before every move ask: \"What does my opponent's last move threaten?\" Here the black bishop attacks your queen. Taking the bishop is a trap: the g7 pawn protects it.",
+  "lesson_defend_s2": "Move the queen to a safe square the bishop can't reach (for example a4, b4, c4, d3, d2 or d1).",
+  "lesson_defend_s2_ok": "The queen is safe. Defend first, then attack.",
+  "lesson_values_title": "Piece Values",
+  "lesson_values_s1": "Know the values when trading: pawn 1, knight 3, bishop 3, rook 5, queen 9. The king has no value because it can never be lost.",
+  "lesson_values_s2": "Your rook can capture two pieces: the knight on b1 (3 points) or the queen on d8 (9 points). Take the more valuable one.",
+  "lesson_values_s2_ok": "The queen is 9 points! Right choice.",
+  "lesson_opening_title": "Opening Principles",
+  "lesson_opening_s1": "Three rules at the start of the game: control the center with pawns, develop knights and bishops, castle to keep the king safe. Don't move the same piece twice, and don't bring the queen out early.",
+  "lesson_opening_s2": "First principle: the center. Push the e- or d-pawn two squares.",
+  "lesson_opening_s2_ok": "The center is yours. The pawn controls two squares.",
+  "lesson_opening_s3": "Second principle: develop your pieces. Bring the knight from g1 to f3; from there it sees the center.",
+  "lesson_opening_s3_ok": "The knight joined the game and pressures the e5 pawn.",
+  "lesson_opening_s4": "Third principle: king safety. The bishop is out, so you can castle: move the king from e1 to g1.",
+  "lesson_opening_s4_ok": "Castled. The king is safe and the rook joined the game.",
+  "lesson_luft_title": "Back-Rank Danger",
+  "lesson_luft_s1": "After castling, the pawns in front of the king both protect and trap it. If an enemy rook reaches the back rank, you can get mated. Solution: give the king a small escape door.",
+  "lesson_luft_s2": "The black rook on a8 wants to land on a1 and mate. Push a pawn to give the king an escape square.",
+  "lesson_luft_s2_ok": "The door is open. Even if the rook comes, the king escapes to h2.",
+  "lesson_mate_queen_title": "Mating with the Queen",
+  "lesson_mate_queen_s1": "A queen cannot mate alone; she needs your king. Method: push the enemy king to the edge with the queen, bring your king closer, then finish.",
+  "lesson_mate_queen_s2": "The black king is on the edge, the white king faces it. Move the queen to d7: protected by the king, it is checkmate.",
+  "lesson_mate_queen_s2_ok": "Checkmate! Queen and king worked together.",
+  "lesson_mate_two_rooks_title": "The Ladder Mate with Two Rooks",
+  "lesson_mate_two_rooks_s1": "Two rooks give check in turns and push the enemy king to the edge step by step; this is the ladder mate. First one rook cuts off the rank in front of the king.",
+  "lesson_mate_two_rooks_s2": "Move the rook to a7: the black king can no longer come to the 7th rank.",
+  "lesson_mate_two_rooks_s2_ok": "The 7th rank is closed. The king is trapped on the 8th.",
+  "lesson_mate_two_rooks_s3": "Now give check on the 8th rank with the other rook: go to b8 and mate.",
+  "lesson_mate_two_rooks_s3_ok": "Ladder mate! Now you can finish any game with two rooks.",
+  "puzzle_p01_title": "Back-Rank Mate",
+  "puzzle_p01_hint": "The pawns in front of the black king block its escape.",
+  "puzzle_p02_title": "Scholar's Mate",
+  "puzzle_p02_hint": "f7 is the weakest square. Queen and bishop attack together.",
+  "puzzle_p03_title": "Fool's Mate",
+  "puzzle_p03_hint": "The white king's diagonal is open. Check with the queen.",
+  "puzzle_p04_title": "Smothered Mate",
+  "puzzle_p04_hint": "The king is surrounded by its own pieces. The knight can jump in and mate.",
+  "puzzle_p05_title": "Queen and King",
+  "puzzle_p05_hint": "The white king protects the queen. Bring the queen next to the king.",
+  "puzzle_p06_title": "Ladder Mate",
+  "puzzle_p06_hint": "One rook holds the 7th rank. Let the other one land on the 8th.",
+  "puzzle_p07_title": "Queen on the Back Rank",
+  "puzzle_p07_hint": "When the queen lands on the back rank, the king has nowhere to go.",
+  "puzzle_p08_title": "Two Rooks",
+  "puzzle_p08_hint": "Black to move. One rook already seals the 2nd rank.",
+  "puzzle_p09_title": "Bishop and Queen",
+  "puzzle_p09_hint": "f7 again! The bishop on c4 protects the queen.",
+  "puzzle_p10_title": "Corner the King",
+  "puzzle_p10_hint": "The king is in the corner; its own pawns block the escape squares.",
+  "puzzle_p11_title": "Black's Knight",
+  "puzzle_p11_hint": "Black to move. The white king is boxed in by its own pieces.",
+  "@streakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stepsApprox": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@dailySubtitle": {
+    "placeholders": {
+      "rating": {
+        "type": "int"
+      }
+    }
+  },
+  "@lessonsDoneOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@puzzlesSolvedOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@winsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stepsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@mateIn1Subtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@mateIn2Subtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@continueFromPuzzle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@packTitle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@difficultyRange": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "@puzzleN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@puzzleMateIn1Prompt": {
+    "placeholders": {
+      "side": {
+        "type": "String"
+      }
+    }
+  },
+  "@puzzleMateInNPrompt": {
+    "placeholders": {
+      "side": {
+        "type": "String"
+      },
+      "total": {
+        "type": "int"
+      },
+      "move": {
+        "type": "int"
+      }
+    }
+  },
+  "@levelTitle": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@gameSummary": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "@movesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@replayMove": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@boardAndPieces": {
+    "placeholders": {
+      "board": {
+        "type": "String"
+      },
+      "pieces": {
+        "type": "String"
+      }
+    }
+  },
+  "@oneTimePrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "@profileUnlocked": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "@unlockAllLessonsBtn": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "@purchaseNotStarted": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "analyseGame": "Analyse",
+  "analysing": "Analysing... {pct}%",
+  "analysisUnavailable": "Analysis only works on the phone (Stockfish).",
+  "analysisFailed": "Analysis could not finish. Try again.",
+  "accuracyLabel": "Accuracy",
+  "accuracyValue": "{pct}%",
+  "qualityBest": "Best move",
+  "qualityGood": "Good",
+  "qualityInaccuracy": "Inaccuracy",
+  "qualityMistake": "Mistake",
+  "qualityBlunder": "Blunder",
+  "countsLine": "{blunders} blunders · {mistakes} mistakes · {inaccuracies} inaccuracies",
+  "yourMove": "Your move: {san}",
+  "betterMove": "Better: {san}",
+  "showBetter": "Show the better line",
+  "stopShowing": "Back to game",
+  "moveWasGood": "This move was good.",
+  "missedMate": "You missed mate in {n}!",
+  "missedMaterial": "A chance to win material was missed.",
+  "missedBig": "There was a much stronger move here.",
+  "keyMoments": "Moments to learn from",
+  "noKeyMoments": "No big mistakes in this game, great!",
+  "lossCp": "{cp} pawns lost",
+  "lossWinningThrown": "Winning position thrown away",
+  "lossLosesGame": "This move loses the game",
+  "analysisNote": "Analysis runs on your device with Stockfish and compares every move with the strongest one, regardless of the opponent level.",
+  "simulationHint": "Showing the best continuation on the board: {san}",
+  "@analysing": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "@accuracyValue": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "@countsLine": {
+    "placeholders": {
+      "blunders": {
+        "type": "int"
+      },
+      "mistakes": {
+        "type": "int"
+      },
+      "inaccuracies": {
+        "type": "int"
+      }
+    }
+  },
+  "@yourMove": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@betterMove": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "@missedMate": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@lossCp": {
+    "placeholders": {
+      "cp": {
+        "type": "String"
+      }
+    }
+  },
+  "@simulationHint": {
+    "placeholders": {
+      "san": {
+        "type": "String"
+      }
+    }
+  },
+  "timeControl": "Time",
+  "timeUnlimited": "Unlimited",
+  "timeUnlimitedHint": "No rush, think as long as you like",
+  "timeMinutes": "{minutes} min",
+  "timeMinutesInc": "{minutes} min + {seconds} s",
+  "timeHint": "Each player has {minutes} minutes",
+  "timeIncHint": "{seconds} seconds added after every move",
+  "clockYou": "You",
+  "clockComputer": "Computer",
+  "resultWinTimeout": "The computer ran out of time. You win! 🎉",
+  "resultLoseTimeout": "You ran out of time. The computer wins.",
+  "resultDrawTimeout": "Time ran out, but no mating material: draw.",
+  "onTimeSuffix": "on time",
+  "aboutSection": "About",
+  "openSourceTitle": "Open source",
+  "openSourceSub": "Licensed under GPL-3.0 · source code and licenses",
+  "licenseLegalese": "Chess Academy is free software: you can redistribute and modify it under the terms of the GNU General Public License version 3 or (at your option) any later version. It comes with no warranty.\n\nSource code: {url}\n\nBoard and rules use lichess' chessground and dartchess packages; the opponent and analysis use Stockfish (GPL-3.0). Puzzles come from the lichess.org open database (CC0)."
+}
