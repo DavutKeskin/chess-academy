@@ -6,10 +6,12 @@ import 'package:dartchess/dartchess.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/analysis/game_analysis.dart';
+import '../../core/captured_material.dart';
 import '../../core/engine/engine_service.dart';
 import '../../core/game_store.dart';
 import '../../core/settings_store.dart';
 import '../../core/theme.dart';
+import '../../core/widgets/captured_pieces.dart';
 import '../../l10n/l10n.dart';
 import 'play_screen.dart';
 
@@ -285,29 +287,52 @@ class _ReplayScreenState extends State<ReplayScreen> {
                 padding: const EdgeInsets.fromLTRB(12, 8, 16, 8),
                 child: LayoutBuilder(
                   builder: (context, c) {
-                    final size = min(c.maxWidth - 22, c.maxHeight);
-                    return Row(
+                    final size = min(
+                      c.maxWidth - 22,
+                      c.maxHeight - 2 * PlayerMaterialRow.height,
+                    );
+                    final playerSide = g.playerIsWhite ? Side.white : Side.black;
+                    final material = CapturedMaterial.of(boardPos.board);
+                    // Oyuncu satırları tahtayla hizalı (soldaki değerlendirme çubuğu kadar içeride).
+                    Widget playerRow(Side side, String label) => Padding(
+                      padding: const EdgeInsets.only(left: 22),
+                      child: SizedBox(
+                        width: size,
+                        child: PlayerMaterialRow(
+                          label: label,
+                          side: side,
+                          material: material,
+                          active: true,
+                        ),
+                      ),
+                    );
+                    return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          width: 14,
-                          height: size,
-                          child: _EvalBar(
-                            eval: eval,
-                            playerIsWhite: g.playerIsWhite,
-                          ),
+                        playerRow(playerSide.opposite, t.clockComputer),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 14,
+                              height: size,
+                              child: _EvalBar(
+                                eval: eval,
+                                playerIsWhite: g.playerIsWhite,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            StaticChessboard(
+                              size: size,
+                              orientation: playerSide,
+                              fen: boardPos.fen,
+                              lastMove: boardLast,
+                              shapes: shapes,
+                              settings: SettingsStore.instance.staticBoardSettings,
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 8),
-                        StaticChessboard(
-                          size: size,
-                          orientation: g.playerIsWhite
-                              ? Side.white
-                              : Side.black,
-                          fen: boardPos.fen,
-                          lastMove: boardLast,
-                          shapes: shapes,
-                          settings: SettingsStore.instance.staticBoardSettings,
-                        ),
+                        playerRow(playerSide, t.clockYou),
                       ],
                     );
                   },

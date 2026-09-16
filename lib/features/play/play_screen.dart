@@ -5,12 +5,14 @@ import 'package:dartchess/dartchess.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/bot/bot.dart';
+import '../../core/captured_material.dart';
 import '../../core/feedback.dart';
 import '../../core/game_clock.dart';
 import '../../core/game_store.dart';
 import '../../core/progress_store.dart';
 import '../../core/settings_store.dart';
 import '../../core/theme.dart';
+import '../../core/widgets/captured_pieces.dart';
 import '../../core/widgets/status_banner.dart';
 import '../../l10n/l10n.dart';
 import 'replay_screen.dart';
@@ -264,6 +266,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
     final t = context.t;
     final (text, tone, icon) = _status(t);
     final clock = _clock;
+    final material = CapturedMaterial.of(_position.board);
     return Scaffold(
       appBar: AppBar(
         title: Text(t.levelTitle(widget.level, levelName(t, widget.level))),
@@ -278,11 +281,10 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
               padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
               child: StatusBanner(text: text, tone: tone, icon: icon),
             ),
-            if (clock != null)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 6, 20, 0),
-                child: _ClockRow(clock: clock, side: _botSide, label: t.clockComputer),
-              ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 6, 20, 0),
+              child: _PlayerRow(clock: clock, side: _botSide, label: t.clockComputer, material: material),
+            ),
             Expanded(
               child: Center(
                 child: Padding(
@@ -299,11 +301,10 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
                 ),
               ),
             ),
-            if (clock != null)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 6),
-                child: _ClockRow(clock: clock, side: widget.playerSide, label: t.clockYou),
-              ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 6),
+              child: _PlayerRow(clock: clock, side: widget.playerSide, label: t.clockYou, material: material),
+            ),
             SizedBox(
               height: 40,
               child: _sanMoves.isEmpty
@@ -363,52 +364,66 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   }
 }
 
-/// Bir tarafın saati: etiket solda, kalan süre sağda. Sayan taraf lacivert,
-/// son 10 saniye kırmızı.
-class _ClockRow extends StatelessWidget {
-  const _ClockRow({required this.clock, required this.side, required this.label});
-  final GameClock clock;
+/// Bir oyuncunun satırı: adı, aldığı taşlar ve süreli oyunda saati.
+class _PlayerRow extends StatelessWidget {
+  const _PlayerRow({required this.clock, required this.side, required this.label, required this.material});
+  final GameClock? clock;
   final Side side;
   final String label;
+  final CapturedMaterial material;
 
   @override
   Widget build(BuildContext context) {
+    final clock = this.clock;
+    if (clock == null) {
+      return PlayerMaterialRow(label: label, side: side, material: material, active: true);
+    }
     return ListenableBuilder(
       listenable: clock,
-      builder: (context, _) {
-        final remaining = clock.remaining(side);
-        final active = clock.running == side;
-        final low = remaining < const Duration(seconds: 10);
-        final bg = low ? AppColors.error : (active ? AppColors.navy : AppColors.surfaceContainer);
-        final fg = low || active ? Colors.white : AppColors.inkMuted;
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(label, style: TextStyle(fontWeight: FontWeight.w700, color: active ? AppColors.ink : AppColors.inkMuted)),
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-              decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(12)),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(low ? Icons.timer_rounded : Icons.timer_outlined, size: 18, color: fg),
-                  const SizedBox(width: 6),
-                  Text(
-                    formatClock(remaining),
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w800,
-                      color: fg,
-                      fontFeatures: const [FontFeature.tabularFigures()],
-                    ),
-                  ),
-                ],
-              ),
+      builder: (context, _) => PlayerMaterialRow(
+        label: label,
+        side: side,
+        material: material,
+        active: clock.running == side,
+        trailing: _ClockPill(clock: clock, side: side),
+      ),
+    );
+  }
+}
+
+/// Kalan süre. Sayan taraf lacivert, son 10 saniye kırmızı.
+class _ClockPill extends StatelessWidget {
+  const _ClockPill({required this.clock, required this.side});
+  final GameClock clock;
+  final Side side;
+
+  @override
+  Widget build(BuildContext context) {
+    final remaining = clock.remaining(side);
+    final active = clock.running == side;
+    final low = remaining < const Duration(seconds: 10);
+    final bg = low ? AppColors.error : (active ? AppColors.navy : AppColors.surfaceContainer);
+    final fg = low || active ? Colors.white : AppColors.inkMuted;
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+      decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(12)),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(low ? Icons.timer_rounded : Icons.timer_outlined, size: 18, color: fg),
+          const SizedBox(width: 6),
+          Text(
+            formatClock(remaining),
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w800,
+              color: fg,
+              fontFeatures: const [FontFeature.tabularFigures()],
             ),
-          ],
-        );
-      },
+          ),
+        ],
+      ),
     );
   }
 }
