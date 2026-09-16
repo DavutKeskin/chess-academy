@@ -26,9 +26,12 @@ class _LessonScreenState extends State<LessonScreen> {
   String? _feedback;
   bool _feedbackOk = false;
 
+  /// Görevi çözülmüş adımlar; geri dönüp tekrar ileri gelince yeniden çözmek gerekmez.
+  final Set<int> _solved = {};
+
   LessonStep get _step => widget.lesson.steps[_stepIndex];
   bool get _isLast => _stepIndex == widget.lesson.steps.length - 1;
-  bool get _canContinue => _step.task == null || _taskDone;
+  bool get _canContinue => _step.task == null || _taskDone || _solved.contains(_stepIndex);
 
   void _next() {
     if (_isLast) {
@@ -36,8 +39,12 @@ class _LessonScreenState extends State<LessonScreen> {
       Navigator.of(context).pop();
       return;
     }
+    _goTo(_stepIndex + 1);
+  }
+
+  void _goTo(int index) {
     setState(() {
-      _stepIndex++;
+      _stepIndex = index;
       _taskDone = false;
       _feedback = null;
     });
@@ -45,6 +52,7 @@ class _LessonScreenState extends State<LessonScreen> {
 
   void _onTaskResult(bool ok, String message) {
     setState(() {
+      if (ok) _solved.add(_stepIndex);
       _taskDone = ok;
       _feedbackOk = ok;
       _feedback = message;
@@ -148,12 +156,24 @@ class _LessonScreenState extends State<LessonScreen> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 4, 20, 16),
-              child: FilledButton.icon(
-                onPressed: _canContinue ? _next : null,
-                icon: Icon(
-                  _isLast ? Icons.check_rounded : Icons.arrow_forward_rounded,
-                ),
-                label: Text(_isLast ? context.t.finishLesson : context.t.continueBtn),
+              child: Row(
+                children: [
+                  OutlinedButton.icon(
+                    onPressed: _stepIndex > 0 ? () => _goTo(_stepIndex - 1) : null,
+                    icon: const Icon(Icons.arrow_back_rounded),
+                    label: Text(context.t.backBtn),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: FilledButton.icon(
+                      onPressed: _canContinue ? _next : null,
+                      icon: Icon(
+                        _isLast ? Icons.check_rounded : Icons.arrow_forward_rounded,
+                      ),
+                      label: Text(_isLast ? context.t.finishLesson : context.t.continueBtn),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
