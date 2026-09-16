@@ -73,7 +73,7 @@ class PlayerMaterialRow extends StatelessWidget {
                   if (advantage > 0)
                     Text(
                       '+$advantage',
-                      style: const TextStyle(fontWeight: FontWeight.w800, color: AppColors.inkMuted),
+                      style: TextStyle(fontWeight: FontWeight.w800, color: AppColors.inkMuted),
                     ),
                 ],
               ),

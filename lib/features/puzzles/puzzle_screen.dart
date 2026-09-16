@@ -301,7 +301,7 @@ class _PuzzleScreenState extends State<PuzzleScreen> {
                             const SizedBox(width: 12),
                             Text(
                               '${widget.index + 1} / ${widget.puzzles.length}',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: AppColors.inkMuted,

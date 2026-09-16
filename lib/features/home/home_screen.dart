@@ -172,7 +172,7 @@ class _StreakPill extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(Icons.local_fire_department_rounded,
-              size: 18, color: active ? const Color(0xFFB7791F) : AppColors.inkMuted),
+              size: 18, color: active ? AppColors.goldInk : AppColors.inkMuted),
           const SizedBox(width: 6),
           Flexible(
             child: Text(
@@ -181,7 +181,7 @@ class _StreakPill extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: active ? const Color(0xFF5C3F00) : AppColors.inkMuted,
+                color: active ? AppColors.goldOnLight : AppColors.inkMuted,
               ),
             ),
           ),
@@ -202,7 +202,7 @@ class _TodayCard extends StatelessWidget {
     final t = context.t;
     final l = lesson;
     return Material(
-      color: AppColors.navy,
+      color: AppColors.hero,
       borderRadius: BorderRadius.circular(22),
       child: InkWell(
         onTap: onTap,
@@ -217,7 +217,7 @@ class _TodayCard extends StatelessWidget {
                   children: [
                     Text(
                       l != null ? t.todaysLesson : t.allLessonsDoneLabel,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.gold,
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
@@ -245,8 +245,8 @@ class _TodayCard extends StatelessWidget {
               Container(
                 width: 48,
                 height: 48,
-                decoration: const BoxDecoration(color: AppColors.gold, shape: BoxShape.circle),
-                child: Icon(locked ? Icons.lock_rounded : Icons.play_arrow_rounded, color: AppColors.navyDark, size: 28),
+                decoration: BoxDecoration(color: AppColors.gold, shape: BoxShape.circle),
+                child: Icon(locked ? Icons.lock_rounded : Icons.play_arrow_rounded, color: AppPalette.light.navyDark, size: 28),
               ),
             ],
           ),
@@ -275,7 +275,7 @@ class _DailyCard extends StatelessWidget {
           child: Row(
             children: [
               Icon(solved ? Icons.check_circle_rounded : Icons.today_rounded,
-                  color: solved ? AppColors.success : const Color(0xFFB7791F)),
+                  color: solved ? AppColors.success : AppColors.goldInk),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -291,7 +291,7 @@ class _DailyCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const Icon(Icons.chevron_right_rounded, color: AppColors.navy),
+              Icon(Icons.chevron_right_rounded, color: AppColors.navy),
             ],
           ),
         ),

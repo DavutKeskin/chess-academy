@@ -448,7 +448,7 @@ class _ClockPill extends StatelessWidget {
     final remaining = clock.remaining(side);
     final active = clock.running == side;
     final low = remaining < const Duration(seconds: 10);
-    final bg = low ? AppColors.error : (active ? AppColors.navy : AppColors.surfaceContainer);
+    final bg = low ? AppColors.error : (active ? AppColors.hero : AppColors.surfaceContainer);
     final fg = low || active ? Colors.white : AppColors.inkMuted;
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
@@ -605,7 +605,7 @@ class _GameTile extends StatelessWidget {
         leading: CircleAvatar(backgroundColor: color.withValues(alpha: 0.15), child: Icon(icon, color: color)),
         title: Text(t.gameSummary(game.level, label), style: const TextStyle(fontWeight: FontWeight.w700)),
         subtitle: Text('${t.movesCount(game.sanMoves.length)}$tc · $date'),
-        trailing: const Icon(Icons.chevron_right_rounded, color: AppColors.navy),
+        trailing: Icon(Icons.chevron_right_rounded, color: AppColors.navy),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute<void>(builder: (_) => ReplayScreen(game: game)),
         ),
@@ -641,7 +641,7 @@ class _LevelTile extends StatelessWidget {
                 width: 40,
                 height: 40,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(color: selected ? AppColors.navy : AppColors.surfaceContainer, shape: BoxShape.circle),
+                decoration: BoxDecoration(color: selected ? AppColors.hero : AppColors.surfaceContainer, shape: BoxShape.circle),
                 child: Text('$level', style: TextStyle(fontWeight: FontWeight.w800, color: selected ? Colors.white : AppColors.ink)),
               ),
               const SizedBox(width: 14),

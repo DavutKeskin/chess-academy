@@ -89,13 +89,13 @@ class _LessonScreenState extends State<LessonScreen> {
                     width: 28,
                     height: 28,
                     alignment: Alignment.center,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: AppColors.navyLight,
                       shape: BoxShape.circle,
                     ),
                     child: Text(
                       '${_stepIndex + 1}',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.w800,
                         color: AppColors.navyDark,
                       ),

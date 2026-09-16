@@ -79,6 +79,20 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ),
               _Section(
+                title: t.themeSection,
+                child: SegmentedButton<ThemeMode>(
+                  showSelectedIcon: false,
+                  segments: [
+                    ButtonSegment(
+                        value: ThemeMode.system, icon: const Icon(Icons.brightness_auto_rounded), label: Text(t.themeSystem)),
+                    ButtonSegment(value: ThemeMode.light, icon: const Icon(Icons.light_mode_rounded), label: Text(t.themeLight)),
+                    ButtonSegment(value: ThemeMode.dark, icon: const Icon(Icons.dark_mode_rounded), label: Text(t.themeDark)),
+                  ],
+                  selected: {store.themeMode},
+                  onSelectionChanged: (s) => store.setThemeMode(s.first),
+                ),
+              ),
+              _Section(
                 title: t.languageSection,
                 child: Card(
                   child: Column(
@@ -131,10 +145,10 @@ class SettingsScreen extends StatelessWidget {
                     return Card(
                       child: ListTile(
                         leading: Icon(owned ? Icons.verified_rounded : Icons.workspace_premium_rounded,
-                            color: owned ? AppColors.success : const Color(0xFFB7791F)),
+                            color: owned ? AppColors.success : AppColors.goldInk),
                         title: Text(owned ? t.allLessonsOpen : t.unlockTacticLessons),
                         subtitle: Text(owned ? t.purchasedThanks : t.oneTimePrice(PurchaseStore.instance.priceText)),
-                        trailing: const Icon(Icons.chevron_right_rounded, color: AppColors.navy),
+                        trailing: Icon(Icons.chevron_right_rounded, color: AppColors.navy),
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<void>(builder: (_) => const PaywallScreen()),
                         ),
@@ -186,7 +200,7 @@ class SettingsScreen extends StatelessWidget {
                     leading: const Icon(Icons.code_rounded),
                     title: Text(t.openSourceTitle),
                     subtitle: Text(t.openSourceSub),
-                    trailing: const Icon(Icons.chevron_right_rounded, color: AppColors.navy),
+                    trailing: Icon(Icons.chevron_right_rounded, color: AppColors.navy),
                     // Flutter, pub paketlerinin LICENSE dosyalarını bu sayfada kendisi listeler.
                     onTap: () => showLicensePage(
                       context: context,

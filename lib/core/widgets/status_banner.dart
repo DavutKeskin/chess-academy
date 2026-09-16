@@ -33,12 +33,12 @@ class StatusBanner extends StatelessWidget {
       ),
       BannerTone.success => (
         AppColors.successLight,
-        const Color(0xFF0E4D30),
+        AppColors.successInk,
         Icons.celebration_rounded,
       ),
       BannerTone.error => (
         AppColors.errorLight,
-        const Color(0xFF6E1B1B),
+        AppColors.errorInk,
         Icons.replay_rounded,
       ),
     };

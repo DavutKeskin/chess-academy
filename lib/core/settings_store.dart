@@ -143,6 +143,7 @@ class SettingsStore extends ChangeNotifier {
   static const _kOnboarded = 'onboarding_done';
   static const _kLang = 'language';
   static const _kTimeControl = 'time_control';
+  static const _kThemeMode = 'theme_mode';
 
   late SharedPreferences _prefs;
   BoardTheme _board = BoardTheme.turnuva;
@@ -155,6 +156,7 @@ class SettingsStore extends ChangeNotifier {
   bool _onboarded = false;
   String? _language; // null = sistem dili
   String? _timeControl; // son seçilen süre kodu ("5+0"), null = süresiz
+  ThemeMode _themeMode = ThemeMode.system;
 
   BoardTheme get board => _board;
   PieceStyle get pieces => _pieces;
@@ -163,6 +165,9 @@ class SettingsStore extends ChangeNotifier {
   AgeGroup get age => _age;
   SkillLevel get level => _level;
   bool get onboardingDone => _onboarded;
+
+  /// Açık/koyu tema; varsayılan cihaz ayarı.
+  ThemeMode get themeMode => _themeMode;
 
   /// Bilgisayara karşı son seçilen süre kontrolü kodu; null ise süresiz.
   String? get timeControl => _timeControl;
@@ -193,6 +198,14 @@ class SettingsStore extends ChangeNotifier {
     _onboarded = _prefs.getBool(_kOnboarded) ?? false;
     _language = _prefs.getString(_kLang);
     _timeControl = _prefs.getString(_kTimeControl);
+    _themeMode = ThemeMode.values.asNameMap()[_prefs.getString(_kThemeMode)] ?? _themeMode;
+  }
+
+  Future<void> setThemeMode(ThemeMode value) async {
+    if (value == _themeMode) return;
+    _themeMode = value;
+    await _prefs.setString(_kThemeMode, value.name);
+    notifyListeners();
   }
 
   Future<void> setTimeControl(String? code) async {

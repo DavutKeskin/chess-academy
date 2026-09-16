@@ -37,7 +37,7 @@ class PaywallScreen extends StatelessWidget {
             children: [
               Container(
                 padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(color: AppColors.navy, borderRadius: BorderRadius.circular(22)),
+                decoration: BoxDecoration(color: AppColors.hero, borderRadius: BorderRadius.circular(22)),
                 child: Row(
                   children: [
                     Image.asset('assets/branding/icon.png', width: 64, height: 64),
@@ -84,7 +84,7 @@ class PaywallScreen extends StatelessWidget {
               if (error != null)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: Text(error, style: const TextStyle(color: AppColors.error, fontWeight: FontWeight.w600)),
+                  child: Text(error, style: TextStyle(color: AppColors.error, fontWeight: FontWeight.w600)),
                 ),
               FilledButton(
                 onPressed: store.busy ? null : store.buy,
@@ -117,7 +117,7 @@ class _Owned extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.verified_rounded, size: 72, color: AppColors.success),
+            Icon(Icons.verified_rounded, size: 72, color: AppColors.success),
             const SizedBox(height: 12),
             Text(t.allLessonsOpen, style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 6),

@@ -42,7 +42,7 @@ class ChoiceCard extends StatelessWidget {
           Text(
             hint!,
             textAlign: align,
-            style: const TextStyle(fontSize: 13, height: 1.3, color: AppColors.inkMuted),
+            style: TextStyle(fontSize: 13, height: 1.3, color: AppColors.inkMuted),
           ),
         ],
       ],

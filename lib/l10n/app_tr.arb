@@ -328,6 +328,10 @@
     }
   },
   "profileSequential": "Dersler sırayla açılır, rakip 1. seviyeden başlar.",
+  "themeSection": "Görünüm",
+  "themeSystem": "Cihaz ayarı",
+  "themeLight": "Açık",
+  "themeDark": "Koyu",
   "languageSection": "Dil",
   "languageSystem": "Sistem dili",
   "boardKlasik": "Klasik",

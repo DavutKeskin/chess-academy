@@ -74,7 +74,7 @@ class _LevelCard extends StatelessWidget {
     final rating = puzzle.rating;
     final title = category?.title(t) ?? '';
     return Material(
-      color: AppColors.puzzles,
+      color: AppColors.puzzlesStrong,
       borderRadius: BorderRadius.circular(20),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
@@ -158,7 +158,7 @@ class _CategoryCard extends StatelessWidget {
                                 ),
                                 child: Text(
                                   t.forYourLevel,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.puzzles),
                                 ),
                               ),
@@ -168,7 +168,7 @@ class _CategoryCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Icon(Icons.chevron_right_rounded, color: AppColors.navy),
+                  Icon(Icons.chevron_right_rounded, color: AppColors.navy),
                 ],
               ),
               const SizedBox(height: 12),
@@ -323,7 +323,7 @@ class _Dot extends StatelessWidget {
         ),
         child: solved
             ? const Icon(Icons.check_rounded, size: 18, color: Colors.white)
-            : Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.navyDark)),
+            : Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.navyDark)),
       ),
     );
   }

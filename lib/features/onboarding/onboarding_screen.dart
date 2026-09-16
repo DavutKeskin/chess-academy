@@ -49,7 +49,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   builder: (context, _) => DropdownButton<String?>(
                     value: settings.language,
                     underline: const SizedBox.shrink(),
-                    icon: const Icon(Icons.language_rounded, color: AppColors.navy),
+                    icon: Icon(Icons.language_rounded, color: AppColors.navy),
                     items: [
                       DropdownMenuItem<String?>(value: null, child: Text(t.languageSystem)),
                       for (final e in supportedLanguages.entries)

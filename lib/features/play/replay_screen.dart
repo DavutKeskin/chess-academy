@@ -266,7 +266,7 @@ class _ReplayScreenState extends State<ReplayScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   t.analysisFailed,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: AppColors.error,
                     fontWeight: FontWeight.w600,
                   ),
@@ -344,7 +344,7 @@ class _ReplayScreenState extends State<ReplayScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 6),
                 child: Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.play_circle_outline_rounded,
                       color: AppColors.success,
                     ),
@@ -371,7 +371,7 @@ class _ReplayScreenState extends State<ReplayScreen> {
                   _ply == 0
                       ? t.replayStart
                       : t.replayMove(_ply, g.sanMoves[_ply - 1]),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.w700,
                     color: AppColors.navyDark,
                   ),
@@ -486,7 +486,7 @@ class _SummaryBar extends StatelessWidget {
               ),
               Text(
                 t.accuracyLabel,
-                style: const TextStyle(fontSize: 11, color: AppColors.inkMuted),
+                style: TextStyle(fontSize: 11, color: AppColors.inkMuted),
               ),
             ],
           ),
@@ -600,7 +600,7 @@ class _MovePanel extends StatelessWidget {
                   ] else
                     Text(
                       t.moveWasGood,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
                         color: AppColors.inkMuted,
                       ),

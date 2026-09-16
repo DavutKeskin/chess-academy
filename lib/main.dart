@@ -44,7 +44,11 @@ class SatrancAkademiApp extends StatelessWidget {
       builder: (context, _) => MaterialApp(
       onGenerateTitle: (context) => context.t.appName,
       debugShowCheckedModeBanner: false,
-      theme: buildAppTheme(),
+      theme: buildAppTheme(Brightness.light),
+      darkTheme: buildAppTheme(Brightness.dark),
+      themeMode: settings.themeMode,
+      // Ekranlar AppColors'ı doğrudan okur: etkin temanın paletini seç, değişince ağacı yeniden çiz.
+      builder: (context, child) => _PaletteScope(brightness: Theme.of(context).brightness, child: child!),
       locale: settings.locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
@@ -52,4 +56,37 @@ class SatrancAkademiApp extends StatelessWidget {
       ),
     );
   }
+}
+
+class _PaletteScope extends StatefulWidget {
+  const _PaletteScope({required this.brightness, required this.child});
+  final Brightness brightness;
+  final Widget child;
+
+  @override
+  State<_PaletteScope> createState() => _PaletteScopeState();
+}
+
+class _PaletteScopeState extends State<_PaletteScope> {
+  @override
+  void initState() {
+    super.initState();
+    AppColors.use(widget.brightness);
+  }
+
+  @override
+  void didUpdateWidget(_PaletteScope old) {
+    super.didUpdateWidget(old);
+    if (old.brightness == widget.brightness) return;
+    AppColors.use(widget.brightness);
+    // const olmayan ama paleti okuyan tüm alt widget'lar (açık sayfalar dahil) yeni renkle çizilsin.
+    void rebuild(Element e) {
+      e.markNeedsBuild();
+      e.visitChildren(rebuild);
+    }
+    (context as Element).visitChildren(rebuild);
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
 }

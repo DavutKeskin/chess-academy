@@ -72,6 +72,9 @@ Android için JDK 17 gerekir (`flutter config --jdk-dir`).
 ## Tasarım dili (2026-09-08)
 - Renk kararları `lib/core/theme.dart` başındaki yorumda: lacivert (akademi/odak), altın (başarı/vurgu),
   krem yüzey, durum renkleri yalnızca geri bildirimde. Modül kimlik renkleri `AppColors.lessons/puzzles/play/progress`.
+- Koyu tema (2026-09-17): `AppPalette.light/dark` (theme.dart); `AppColors.x` getter'ları etkin paletten okur, bu yüzden
+  `const` içinde kullanılamaz. Tema `SettingsStore.themeMode` (sistem/açık/koyu); main.dart `_PaletteScope` değişince tüm ağacı
+  yeniden çizer. Beyaz yazılı koyu kart zemini `AppColors.hero` / `puzzlesStrong`; yeni renk eklerken iki palete de ekle.
 - Tahta ve taş seçimi `lib/core/settings_store.dart` (BoardTheme, PieceStyle); ekranlar `SettingsStore.instance.boardSettings` kullanır.
 - "Hilal" taş seti uygulamaya özel: `assets/pieces/hilal/` (cburnett tabanlı, şahta haç ve filde artı yerine hilal; yıldızsız, eksene ortalı, hafif eğik).
   Kaynak SVG'ler aynı klasörde (`hilal_{w,b}K.svg`, `hilal_{w,b}B.svg`); değiştirince 1x/2x/3x webp'leri `magick` ile yeniden üret (bkz. klasördeki README).

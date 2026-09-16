@@ -35,7 +35,7 @@ class LessonListScreen extends StatelessWidget {
                     padding: EdgeInsets.only(top: i == 0 ? 0 : 10, bottom: 8, left: 4),
                     child: Text(
                       lessons[i].group.title(t).toUpperCase(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                         letterSpacing: 1.1,
@@ -147,7 +147,7 @@ class _LessonTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
           ),
           child: done
-              ? const Icon(Icons.check_rounded, color: AppColors.success)
+              ? Icon(Icons.check_rounded, color: AppColors.success)
               : Text(lesson.emoji, style: const TextStyle(fontSize: 24)),
         ),
         title: Text(
@@ -169,9 +169,9 @@ class _LessonTile extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.workspace_premium_rounded, size: 16, color: Color(0xFFB7791F)),
+                    Icon(Icons.workspace_premium_rounded, size: 16, color: AppColors.goldInk),
                     const SizedBox(width: 4),
-                    Text(context.t.unlockBadge, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w800, color: Color(0xFF5C3F00))),
+                    Text(context.t.unlockBadge, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800, color: AppColors.goldOnLight)),
                   ],
                 ),
               )
