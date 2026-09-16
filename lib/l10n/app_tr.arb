@@ -33,15 +33,27 @@
   "unlockedWithPack": "Tüm Dersler paketiyle açılır",
   "dailyPuzzle": "Günün bulmacası",
   "dailySolved": "Bugünkünü çözdün, yarın yenisi gelir.",
-  "dailySubtitle": "Tek hamlede mat · zorluk {rating}",
+  "levelPuzzle": "Seviyene uygun bulmaca",
+  "forYourLevel": "Seviyene uygun",
+  "levelLabel": "Seviye: {level}",
+  "@levelLabel": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "dailySubtitle": "{category} · zorluk {rating}",
   "@dailySubtitle": {
     "placeholders": {
+      "category": {
+        "type": "String"
+      },
       "rating": {
         "type": "int"
       }
     }
   },
-  "dailySubtitleNoRating": "Tek hamlede mat",
   "lessons": "Dersler",
   "puzzles": "Bulmacalar",
   "play": "Oyna",

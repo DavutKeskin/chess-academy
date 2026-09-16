@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/progress_store.dart';
 import '../../core/purchase_store.dart';
+import '../../core/settings_store.dart';
 import '../../core/theme.dart';
 import '../../l10n/l10n.dart';
 import '../lessons/lesson_list_screen.dart';
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ListenableBuilder(
-          listenable: Listenable.merge([store, PurchaseStore.instance]),
+          listenable: Listenable.merge([store, PurchaseStore.instance, SettingsStore.instance]),
           builder: (context, _) {
             final t = context.t;
             final lessons = buildLessons(t);
@@ -35,7 +36,9 @@ class HomeScreen extends StatelessWidget {
             final lessonsDone = store.completedLessons.length;
             final puzzlesDone = store.solvedPuzzles.length;
             final repo = PuzzleRepository.instance;
-            final daily = repo.dailyPuzzle(DateTime.now());
+            final level = SettingsStore.instance.level;
+            final daily = repo.dailyPuzzle(DateTime.now(), level);
+            final dailyCategory = daily == null ? null : repo.categoryOf(daily);
             return ListView(
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
               children: [
@@ -50,14 +53,14 @@ class HomeScreen extends StatelessWidget {
                         ? const PaywallScreen()
                         : nextLesson != null
                             ? LessonScreen(lesson: nextLesson)
-                            : const PuzzleListScreen(),
+                            : _levelPuzzleScreen(level),
                   ),
                 ),
                 if (daily != null) ...[
                   const SizedBox(height: 12),
                   _DailyCard(
                     solved: store.isPuzzleSolved(daily.id),
-                    rating: daily.rating,
+                    subtitle: t.dailySubtitle(dailyCategory?.title(t) ?? '', daily.rating ?? 0),
                     onTap: () => _open(context, PuzzleScreen(puzzles: [daily], index: 0)),
                   ),
                 ],
@@ -108,6 +111,13 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Tüm dersler bitince: seviyeye göre sıradaki çözülmemiş bulmaca.
+  Widget _levelPuzzleScreen(SkillLevel level) {
+    final sequence = PuzzleRepository.instance.levelSequence(level);
+    final next = sequence.indexWhere((p) => !ProgressStore.instance.isPuzzleSolved(p.id));
+    return next < 0 ? const PuzzleListScreen() : PuzzleScreen(puzzles: sequence, index: next);
   }
 
   void _open(BuildContext context, Widget screen) {
@@ -247,9 +257,9 @@ class _TodayCard extends StatelessWidget {
 }
 
 class _DailyCard extends StatelessWidget {
-  const _DailyCard({required this.solved, required this.rating, required this.onTap});
+  const _DailyCard({required this.solved, required this.subtitle, required this.onTap});
   final bool solved;
-  final int? rating;
+  final String subtitle;
   final VoidCallback onTap;
 
   @override
@@ -275,7 +285,7 @@ class _DailyCard extends StatelessWidget {
                     Text(
                       solved
                           ? t.dailySolved
-                          : (rating != null ? t.dailySubtitle(rating!) : t.dailySubtitleNoRating),
+                          : subtitle,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],

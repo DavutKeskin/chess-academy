@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/progress_store.dart';
+import '../../core/settings_store.dart';
 import '../../core/theme.dart';
 import '../../l10n/l10n.dart';
 import 'puzzle_repository.dart';
@@ -16,26 +17,90 @@ class PuzzleListScreen extends StatelessWidget {
     final store = ProgressStore.instance;
     final repo = PuzzleRepository.instance;
     final t = context.t;
+    final level = SettingsStore.instance.level;
     return Scaffold(
       appBar: AppBar(title: Text(t.puzzles)),
       body: ListenableBuilder(
         listenable: store,
-        builder: (context, _) => ListView(
-          padding: const EdgeInsets.fromLTRB(20, 4, 20, 32),
-          children: [
-            for (final c in repo.categories) ...[
-              _CategoryCard(
-                category: c,
-                solved: c.puzzles.where((p) => store.isPuzzleSolved(p.id)).length,
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(builder: (_) => PuzzlePackScreen(category: c)),
+        builder: (context, _) {
+          final sequence = repo.levelSequence(level);
+          final next = sequence.indexWhere((p) => !store.isPuzzleSolved(p.id));
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(20, 4, 20, 32),
+            children: [
+              if (next >= 0) ...[
+                _LevelCard(
+                  level: level,
+                  puzzle: sequence[next],
+                  category: repo.categoryOf(sequence[next]),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => PuzzleScreen(puzzles: sequence, index: next)),
+                  ),
+                ),
+                const SizedBox(height: 16),
+              ],
+              for (final c in repo.categories) ...[
+                _CategoryCard(
+                  category: c,
+                  forLevel: c.id == repo.levelCategoryId(level),
+                  solved: c.puzzles.where((p) => store.isPuzzleSolved(p.id)).length,
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => PuzzlePackScreen(category: c)),
+                  ),
+                ),
+                const SizedBox(height: 12),
+              ],
+              const SizedBox(height: 8),
+              Text(t.lichessCredit, style: Theme.of(context).textTheme.bodyMedium),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+/// Seviyeye göre sıradaki bulmaca: seviye adı, kategori ve zorluk.
+class _LevelCard extends StatelessWidget {
+  const _LevelCard({required this.level, required this.puzzle, required this.category, required this.onTap});
+  final SkillLevel level;
+  final Puzzle puzzle;
+  final PuzzleCategory? category;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final rating = puzzle.rating;
+    final title = category?.title(t) ?? '';
+    return Material(
+      color: AppColors.puzzles,
+      borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(t.levelPuzzle,
+                        style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700)),
+                    const SizedBox(height: 2),
+                    Text(
+                      '${t.levelLabel(level.label(t))} · ${rating == null ? title : t.dailySubtitle(title, rating)}',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(width: 12),
+              const Icon(Icons.play_circle_fill_rounded, color: Colors.white, size: 36),
             ],
-            const SizedBox(height: 8),
-            Text(t.lichessCredit, style: Theme.of(context).textTheme.bodyMedium),
-          ],
+          ),
         ),
       ),
     );
@@ -43,8 +108,9 @@ class PuzzleListScreen extends StatelessWidget {
 }
 
 class _CategoryCard extends StatelessWidget {
-  const _CategoryCard({required this.category, required this.solved, required this.onTap});
+  const _CategoryCard({required this.category, required this.solved, required this.onTap, this.forLevel = false});
   final PuzzleCategory category;
+  final bool forLevel;
   final int solved;
   final VoidCallback onTap;
 
@@ -78,7 +144,26 @@ class _CategoryCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(category.title(t), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        Wrap(
+                          spacing: 8,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(category.title(t), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                            if (forLevel)
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: AppColors.puzzles.withValues(alpha: 0.14),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Text(
+                                  t.forYourLevel,
+                                  style: const TextStyle(
+                                      fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.puzzles),
+                                ),
+                              ),
+                          ],
+                        ),
                         Text(category.subtitle(t), style: Theme.of(context).textTheme.bodyMedium),
                       ],
                     ),

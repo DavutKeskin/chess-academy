@@ -25,7 +25,8 @@ Android için JDK 17 gerekir (`flutter config --jdk-dir`).
   Açıklama adımına ok: `arrows: ['b1b3']`; at görevlerinde oklar kendiliğinden L çizilir.
 - `lib/features/puzzles/puzzles.dart` — Puzzle modeli + elle yazılmış 11 başlangıç bulmacası.
   `puzzle_repository.dart` açılışta `assets/puzzles/mate_in_1.json` (400) ve `mate_in_2.json` (300) yükler,
-  kategoriler ve 20'lik bölümler üretir, günün bulmacasını tarihten seçer.
+  kategoriler ve 20'lik bölümler üretir. Seviyeye göre (`SettingsStore.level`) puan dilimleri `_bands`:
+  günün bulmacası seviye havuzundan tarihe göre, listede "Seviyene uygun bulmaca" sıradaki çözülmemişi açar.
 - Bulmaca verisi Lichess CC0 veritabanından: `tool/lichess/filter_puzzles.py` (süzme: popülerlik ≥ 90,
   ≥ 2000 oynanma, puan aralığı) → `dart run tool/lichess/convert.dart` (rakip hamlesini uygular, dartchess ile
   doğrular, JSON yazar). Ham .zst dosyası git dışında; `curl -sL -o tool/lichess/lichess_db_puzzle.csv.zst https://database.lichess.org/lichess_db_puzzle.csv.zst`.
