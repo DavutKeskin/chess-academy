@@ -44,14 +44,16 @@ String timeControlHint(AppLocalizations t, TimeControl tc) {
   return tc.incrementSeconds == 0 ? t.timeHint(tc.minutes) : t.timeIncHint(tc.incrementSeconds);
 }
 
-/// Sonucun kısa adı; süreyle bitmişse "(süre)" eklenir.
+/// Sonucun kısa adı; süreyle bitmiş ya da bırakılmışsa parantez içinde belirtilir.
 String resultLabel(AppLocalizations t, GameRecord g) {
   final base = switch (g.result) {
     'win' => t.resultWinShort,
     'loss' => t.resultLoseShort,
     _ => t.resultDrawShort,
   };
-  return g.endedOnTime ? '$base (${t.onTimeSuffix})' : base;
+  if (g.endedOnTime) return '$base (${t.onTimeSuffix})';
+  if (g.resigned) return '$base (${t.resignedSuffix})';
+  return base;
 }
 
 /// Bilgisayara karşı oyun ekranı.
@@ -79,7 +81,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   GameClock? _clock;
   bool _thinking = false;
   bool _finished = false;
-  bool _timedOut = false;
+  String? _endedBy; // 'timeout' | 'resign'
   final List<String> _sanMoves = [];
   final List<String> _uciMoves = [];
   GameRecord? _record;
@@ -166,9 +168,9 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   }
 
   /// Oyunu bitirir, sonucu kaydeder. [winner] null ise berabere.
-  void _finish({required Side? winner, bool onTime = false}) {
+  void _finish({required Side? winner, String? endedBy}) {
     _finished = true;
-    _timedOut = onTime;
+    _endedBy = endedBy;
     _clock?.stop();
     final won = winner == widget.playerSide;
     ProgressStore.instance.recordGame(won: won);
@@ -181,7 +183,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
       sanMoves: List.of(_sanMoves),
       result: winner == null ? 'draw' : (won ? 'win' : 'loss'),
       timeControl: widget.timeControl.isUnlimited ? null : widget.timeControl.code,
-      endedBy: onTime ? 'timeout' : null,
+      endedBy: endedBy,
     );
     _record = record;
     GameStore.instance.add(record);
@@ -196,7 +198,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   void _onFlag(Side side) {
     if (_finished || !mounted) return;
     final winner = side.opposite;
-    _finish(winner: _position.hasInsufficientMaterial(winner) ? null : winner, onTime: true);
+    _finish(winner: _position.hasInsufficientMaterial(winner) ? null : winner, endedBy: 'timeout');
     _thinking = false;
     _controller.updatePosition(_gameData());
     setState(() {});
@@ -222,12 +224,42 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
     _apply(move);
   }
 
+  /// Oyuncu en az bir hamle yaptıysa oyun sürüyor sayılır; çıkmak ya da yeniden başlamak kayıp.
+  bool get _inProgress => !_finished && _uciMoves.length >= (widget.playerSide == Side.white ? 1 : 2);
+
+  /// Onay alınırsa oyunu bırakılmış (kayıp) olarak bitirir.
+  Future<bool> _confirmResign() async {
+    final t = context.t;
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.resignTitle),
+        content: Text(t.resignBody),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(context).pop(false), child: Text(t.keepPlaying)),
+          FilledButton(onPressed: () => Navigator.of(context).pop(true), child: Text(t.resign)),
+        ],
+      ),
+    );
+    if (ok != true || !mounted || !_inProgress) return false;
+    _thinking = false;
+    _finish(winner: _botSide, endedBy: 'resign');
+    _controller.updatePosition(_gameData());
+    setState(() {});
+    return true;
+  }
+
+  Future<void> _onRestartPressed() async {
+    if (_inProgress && !await _confirmResign()) return;
+    if (mounted) _restart();
+  }
+
   void _restart() {
     setState(() {
       _position = Chess.initial;
       _lastMove = null;
       _finished = false;
-      _timedOut = false;
+      _endedBy = null;
       _thinking = false;
       _sanMoves.clear();
       _uciMoves.clear();
@@ -245,7 +277,8 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   (String, BannerTone, IconData?) _status(AppLocalizations t) {
     if (_finished) {
       final winner = _record?.result;
-      if (_timedOut) {
+      if (_endedBy == 'resign') return (t.resultResigned, BannerTone.error, Icons.flag_rounded);
+      if (_endedBy == 'timeout') {
         return switch (winner) {
           'win' => (t.resultWinTimeout, BannerTone.success, null),
           'loss' => (t.resultLoseTimeout, BannerTone.error, Icons.timer_off_rounded),
@@ -271,97 +304,106 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
     final (text, tone, icon) = _status(t);
     final clock = _clock;
     final material = CapturedMaterial.of(_position.board);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(t.levelTitle(widget.level, levelName(t, widget.level))),
-        actions: [
-          IconButton(tooltip: t.restart, onPressed: _restart, icon: const Icon(Icons.refresh_rounded)),
-        ],
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
-              child: StatusBanner(text: text, tone: tone, icon: icon),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 6, 20, 0),
-              child: _PlayerRow(clock: clock, side: _botSide, label: t.clockComputer, material: material),
-            ),
-            Expanded(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: LayoutBuilder(
-                    builder: (context, c) => Chessboard(
-                      controller: _controller,
-                      size: min(c.maxWidth, c.maxHeight),
-                      settings: SettingsStore.instance.boardSettings,
-                      orientation: widget.playerSide,
-                      onMove: _onUserMove,
+    return PopScope(
+      canPop: !_inProgress,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop) return;
+        if (await _confirmResign() && context.mounted) Navigator.of(context).pop();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(t.levelTitle(widget.level, levelName(t, widget.level))),
+          actions: [
+            if (_inProgress)
+              IconButton(tooltip: t.resign, onPressed: _confirmResign, icon: const Icon(Icons.flag_outlined)),
+            IconButton(tooltip: t.restart, onPressed: _onRestartPressed, icon: const Icon(Icons.refresh_rounded)),
+          ],
+        ),
+        body: SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+                child: StatusBanner(text: text, tone: tone, icon: icon),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 6, 20, 0),
+                child: _PlayerRow(clock: clock, side: _botSide, label: t.clockComputer, material: material),
+              ),
+              Expanded(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: LayoutBuilder(
+                      builder: (context, c) => Chessboard(
+                        controller: _controller,
+                        size: min(c.maxWidth, c.maxHeight),
+                        settings: SettingsStore.instance.boardSettings,
+                        orientation: widget.playerSide,
+                        onMove: _onUserMove,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 6),
-              child: _PlayerRow(clock: clock, side: widget.playerSide, label: t.clockYou, material: material),
-            ),
-            SizedBox(
-              height: 40,
-              child: _sanMoves.isEmpty
-                  ? const SizedBox.shrink()
-                  : ListView.builder(
-                      controller: _movesScroll,
-                      scrollDirection: Axis.horizontal,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      itemCount: _sanMoves.length,
-                      itemBuilder: (context, i) => Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 12),
-                          child: Text(
-                            i.isEven ? '${i ~/ 2 + 1}. ${_sanMoves[i]}' : _sanMoves[i],
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: i == _sanMoves.length - 1 ? FontWeight.w800 : FontWeight.w500,
-                              color: i == _sanMoves.length - 1 ? AppColors.ink : AppColors.inkMuted,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 6),
+                child: _PlayerRow(clock: clock, side: widget.playerSide, label: t.clockYou, material: material),
+              ),
+              SizedBox(
+                height: 40,
+                child: _sanMoves.isEmpty
+                    ? const SizedBox.shrink()
+                    : ListView.builder(
+                        controller: _movesScroll,
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        itemCount: _sanMoves.length,
+                        itemBuilder: (context, i) => Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 12),
+                            child: Text(
+                              i.isEven ? '${i ~/ 2 + 1}. ${_sanMoves[i]}' : _sanMoves[i],
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: i == _sanMoves.length - 1 ? FontWeight.w800 : FontWeight.w500,
+                                color: i == _sanMoves.length - 1 ? AppColors.ink : AppColors.inkMuted,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 4, 20, 16),
-              child: _finished
-                  ? Row(
-                      children: [
-                        Expanded(
-                          child: OutlinedButton.icon(
-                            onPressed: _record == null
-                                ? null
-                                : () => Navigator.of(context).push(
-                                      MaterialPageRoute<void>(builder: (_) => ReplayScreen(game: _record!)),
-                                    ),
-                            icon: const Icon(Icons.history_rounded),
-                            label: Text(t.reviewGame),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 16),
+                child: _finished
+                    ? Row(
+                        children: [
+                          Expanded(
+                            child: OutlinedButton.icon(
+                              onPressed: _record == null
+                                  ? null
+                                  : () => Navigator.of(context).push(
+                                        MaterialPageRoute<void>(builder: (_) => ReplayScreen(game: _record!)),
+                                      ),
+                              icon: const Icon(Icons.history_rounded),
+                              label: Text(t.reviewGame),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: FilledButton.icon(
-                            onPressed: _restart,
-                            icon: const Icon(Icons.replay_rounded),
-                            label: Text(t.playAgain),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: FilledButton.icon(
+                              onPressed: _restart,
+                              icon: const Icon(Icons.replay_rounded),
+                              label: Text(t.playAgain),
+                            ),
                           ),
-                        ),
-                      ],
-                    )
-                  : const SizedBox(height: 0),
-            ),
-          ],
+                        ],
+                      )
+                    : const SizedBox(height: 0),
+              ),
+            ],
+          ),
         ),
       ),
     );

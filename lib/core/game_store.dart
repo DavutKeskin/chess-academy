@@ -39,6 +39,7 @@ class GameRecord {
 
   bool get isTimed => timeControl != null;
   bool get endedOnTime => endedBy == 'timeout';
+  bool get resigned => endedBy == 'resign';
 
   /// Motor analizi (yapıldıysa).
   final GameAnalysis? analysis;
