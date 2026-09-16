@@ -22,6 +22,7 @@ Android için JDK 17 gerekir (`flutter config --jdk-dir`).
 - `lib/core/progress_store.dart` — shared_preferences ile ilerleme, seri, rozetler.
 - `lib/features/lessons/lessons.dart` — 20 ders (FEN + görev), 4 grup (temel, kurallar, taktik, mat). Yeni ders buraya eklenir;
   görev mat/şah iddiası taşıyorsa `mates: true` / `givesCheck: true` ver, test doğrular.
+  Açıklama adımına ok: `arrows: ['b1b3']`; at görevlerinde oklar kendiliğinden L çizilir.
 - `lib/features/puzzles/puzzles.dart` — Puzzle modeli + elle yazılmış 11 başlangıç bulmacası.
   `puzzle_repository.dart` açılışta `assets/puzzles/mate_in_1.json` (400) ve `mate_in_2.json` (300) yükler,
   kategoriler ve 20'lik bölümler üretir, günün bulmacasını tarihten seçer.
