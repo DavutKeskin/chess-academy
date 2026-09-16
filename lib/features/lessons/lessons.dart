@@ -1,14 +1,25 @@
+import 'package:dartchess/dartchess.dart';
+
 import '../../l10n/l10n.dart';
 
 /// Ders içerikleri. Her ders adımlardan oluşur; adım bir açıklama,
 /// gösterilecek konum (FEN) ve isteğe bağlı bir görev içerir.
 /// Görev: verilen konumda, [from] karesindeki taşı [targets] içinden bir kareye taşımak.
 class LessonStep {
-  const LessonStep({required this.text, required this.fen, this.task});
+  const LessonStep({required this.text, required this.fen, this.task, this.arrows = const []});
 
   final String text;
   final String fen;
   final MoveTask? task;
+
+  /// Açıklama tahtasında çizilecek oklar, "b1b3" biçiminde (çıkış + varış karesi).
+  final List<String> arrows;
+}
+
+/// Derste at okları için: at sıçrayışının L köşesi: önce iki kare düz gidilen kare.
+Square knightCorner(Square from, Square to) {
+  final dy = (to.rank - from.rank).abs();
+  return dy == 2 ? Square.fromCoords(from.file, to.rank) : Square.fromCoords(to.file, from.rank);
 }
 
 class MoveTask {
@@ -182,6 +193,7 @@ List<Lesson> buildLessons(AppLocalizations t) => <Lesson>[
       LessonStep(
         text: t.lesson_knight_s1,
         fen: '4k3/8/8/8/8/8/8/1N2K3 w - - 0 1',
+        arrows: ['b1b3', 'b3c3'],
       ),
       LessonStep(
         text: t.lesson_knight_s2,

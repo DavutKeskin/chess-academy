@@ -125,6 +125,14 @@ class _LessonScreenState extends State<LessonScreen> {
                           orientation: Side.white,
                           fen: step.fen,
                           settings: settings.staticBoardSettings,
+                          shapes: {
+                            for (final a in step.arrows)
+                              Arrow(
+                                color: AppColors.lessons.withValues(alpha: 0.8),
+                                orig: Square.fromName(a.substring(0, 2)),
+                                dest: Square.fromName(a.substring(2, 4)),
+                              ),
+                          },
                         );
                       }
                       return _TaskBoard(
@@ -264,17 +272,19 @@ class _TaskBoardState extends State<_TaskBoard> {
   @override
   Widget build(BuildContext context) {
     final from = Square.fromName(widget.task.from);
+    final isKnight = _position.board.roleAt(from) == Role.knight;
+    final arrowColor = AppColors.lessons.withValues(alpha: 0.8);
     final shapes = <Shape>{
       if (!_done)
         Circle(color: AppColors.gold.withValues(alpha: 0.9), orig: from),
       if (!_done)
         for (final t in widget.task.targets)
-          if (t != 'h1' && t != 'h8') // rok hedefinde kale karesini işaretleme
-            Arrow(
-              color: AppColors.lessons.withValues(alpha: 0.8),
-              orig: from,
-              dest: Square.fromName(t),
-            ),
+          if (isKnight) ...[
+            // At: düz ok çapraz görünüyordu; L yolu iki okla çizilir.
+            Arrow(color: arrowColor, orig: from, dest: knightCorner(from, Square.fromName(t))),
+            Arrow(color: arrowColor, orig: knightCorner(from, Square.fromName(t)), dest: Square.fromName(t)),
+          ] else if (t != 'h1' && t != 'h8') // rok hedefinde kale karesini işaretleme
+            Arrow(color: arrowColor, orig: from, dest: Square.fromName(t)),
     };
     return Chessboard(
       controller: _controller,

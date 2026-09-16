@@ -74,4 +74,24 @@ void main() {
       });
     }
   }
+
+  test('at L köşesi: önce iki kare düz', () {
+    Square sq(String n) => Square.fromName(n);
+    expect(knightCorner(sq('b1'), sq('c3')), sq('b3'));
+    expect(knightCorner(sq('b1'), sq('a3')), sq('b3'));
+    expect(knightCorner(sq('b1'), sq('d2')), sq('d1'));
+    expect(knightCorner(sq('e4'), sq('d6')), sq('e6'));
+    expect(knightCorner(sq('e4'), sq('c3')), sq('c4'));
+  });
+
+  test('açıklama okları geçerli karelerde', () {
+    for (final lesson in lessons) {
+      for (final step in lesson.steps) {
+        for (final a in step.arrows) {
+          expect(a.length, 4, reason: '${lesson.id}: $a');
+          expect(Square.fromName(a.substring(0, 2)) != Square.fromName(a.substring(2)), isTrue);
+        }
+      }
+    }
+  });
 }
