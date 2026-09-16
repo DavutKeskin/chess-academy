@@ -82,6 +82,9 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   bool _thinking = false;
   bool _finished = false;
   String? _endedBy; // 'timeout' | 'resign'
+
+  /// Her yeni oyunda artar; önceki oyun için gelen bilgisayar hamlesi bununla ayıklanır.
+  int _gameSeq = 0;
   final List<String> _sanMoves = [];
   final List<String> _uciMoves = [];
   GameRecord? _record;
@@ -170,6 +173,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   /// Oyunu bitirir, sonucu kaydeder. [winner] null ise berabere.
   void _finish({required Side? winner, String? endedBy}) {
     _finished = true;
+    _thinking = false;
     _endedBy = endedBy;
     _clock?.stop();
     final won = winner == widget.playerSide;
@@ -199,7 +203,6 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
     if (_finished || !mounted) return;
     final winner = side.opposite;
     _finish(winner: _position.hasInsufficientMaterial(winner) ? null : winner, endedBy: 'timeout');
-    _thinking = false;
     _controller.updatePosition(_gameData());
     setState(() {});
   }
@@ -218,8 +221,10 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
     // Süreli oyunda bilgisayar kalan süresinin küçük bir payını kullanır.
     final clock = _clock;
     final budget = clock == null ? null : clock.remaining(_botSide).inMilliseconds ~/ 20;
+    final seq = _gameSeq;
     final move = await bot.bestMove(_position, maxTimeMs: budget);
-    if (!mounted || _finished) return;
+    // Beklerken oyun bittiyse ya da yeniden başladıysa bu hamle artık geçersiz.
+    if (!mounted || _finished || seq != _gameSeq) return;
     _thinking = false;
     _apply(move);
   }
@@ -242,7 +247,6 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
       ),
     );
     if (ok != true || !mounted || !_inProgress) return false;
-    _thinking = false;
     _finish(winner: _botSide, endedBy: 'resign');
     _controller.updatePosition(_gameData());
     setState(() {});
@@ -255,6 +259,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   }
 
   void _restart() {
+    _gameSeq++;
     setState(() {
       _position = Chess.initial;
       _lastMove = null;

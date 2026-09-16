@@ -159,7 +159,7 @@ class _CategoryCard extends StatelessWidget {
                                 child: Text(
                                   t.forYourLevel,
                                   style: TextStyle(
-                                      fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.puzzles),
+                                      fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.puzzlesInk),
                                 ),
                               ),
                           ],

@@ -22,6 +22,8 @@ const Map<Role, int> _startCount = {
 /// Hamle geçmişi tutulmaz: taşlar başlangıç dizilişiyle karşılaştırılır, böylece
 /// yeniden başlatma ve tekrar oynatmada ek iş gerekmez. Terfi eden piyon alınmış
 /// sayılmaz (başlangıçtan fazla olan taş kadar piyon terfi etmiş kabul edilir).
+/// Sınır: terfiyle çıkan taş sonradan alınırsa tahtadan ayırt edilemez, piyon alınmış
+/// görünür; puan farkı yine doğrudur.
 class CapturedMaterial {
   CapturedMaterial._(this._lost, this._points);
 

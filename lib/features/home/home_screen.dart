@@ -218,7 +218,7 @@ class _TodayCard extends StatelessWidget {
                     Text(
                       l != null ? t.todaysLesson : t.allLessonsDoneLabel,
                       style: TextStyle(
-                        color: AppColors.gold,
+                        color: AppColors.heroAccent,
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
                         letterSpacing: 1.2,

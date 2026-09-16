@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 
 import 'core/feedback.dart';
@@ -47,6 +48,8 @@ class SatrancAkademiApp extends StatelessWidget {
       theme: buildAppTheme(Brightness.light),
       darkTheme: buildAppTheme(Brightness.dark),
       themeMode: settings.themeMode,
+      // Palet tema animasyonunun ortasında değişirdi; geçiş anlık olsun, renkler tutarlı kalsın.
+      themeAnimationDuration: Duration.zero,
       // Ekranlar AppColors'ı doğrudan okur: etkin temanın paletini seç, değişince ağacı yeniden çiz.
       builder: (context, child) => _PaletteScope(brightness: Theme.of(context).brightness, child: child!),
       locale: settings.locale,
@@ -88,5 +91,9 @@ class _PaletteScopeState extends State<_PaletteScope> {
   }
 
   @override
-  Widget build(BuildContext context) => widget.child;
+  // AppBar'sız sayfalarda (ana sayfa, ilk açılış) durum çubuğu ikonları da temaya uysun.
+  Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
+        value: widget.brightness == Brightness.dark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+        child: widget.child,
+      );
 }

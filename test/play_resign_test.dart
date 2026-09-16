@@ -98,4 +98,26 @@ void main() {
     expect(GameStore.instance.games.length, before + 1);
     expect(GameStore.instance.games.first.resigned, isTrue);
   });
+
+  testWidgets('bilgisayar düşünürken bırakıp yeniden başlayınca eski hamle yeni oyuna işlenmez', (tester) async {
+    await _open(tester);
+    // Hamleyi yap, bilgisayarın cevabını (350 ms) beklemeden bırak ve yeniden başlat.
+    final rect = tester.getRect(find.byType(Chessboard));
+    final sq = rect.width / 8;
+    await tester.tapAt(rect.topLeft + Offset(4.5 * sq, 6.5 * sq));
+    await tester.pump();
+    await tester.tapAt(rect.topLeft + Offset(4.5 * sq, 4.5 * sq));
+    await tester.pump(const Duration(milliseconds: 20));
+    await tester.tap(find.byIcon(Icons.refresh_rounded));
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.tap(find.widgetWithText(FilledButton, 'Oyunu bırak'));
+    await tester.pump(const Duration(milliseconds: 20));
+
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    expect(find.textContaining('1.'), findsNothing, reason: 'yeni oyunda hamle olmamalı');
+    expect(find.byIcon(Icons.flag_outlined), findsNothing);
+    expect(find.text('Sıra sende.'), findsOneWidget);
+  });
 }

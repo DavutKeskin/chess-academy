@@ -38,6 +38,8 @@ class AppPalette {
     required this.lessons,
     required this.puzzles,
     required this.puzzlesStrong,
+    required this.puzzlesInk,
+    required this.heroAccent,
     required this.play,
     required this.progress,
   });
@@ -77,6 +79,12 @@ class AppPalette {
   final Color puzzles;
   /// Beyaz yazılı mor kart zemini.
   final Color puzzlesStrong;
+
+  /// Açık mor zemin (etiket) üstündeki mor metin.
+  final Color puzzlesInk;
+
+  /// hero zemin üstündeki altın etiket.
+  final Color heroAccent;
   final Color play;
   final Color progress;
 
@@ -105,6 +113,8 @@ class AppPalette {
     lessons: Color(0xFF3B7DD8),
     puzzles: Color(0xFF8E5BD6),
     puzzlesStrong: Color(0xFF8E5BD6),
+    puzzlesInk: Color(0xFF6A3FB5),
+    heroAccent: Color(0xFFE9A825),
     play: Color(0xFF2E9E6B),
     progress: Color(0xFFE9A825),
   );
@@ -134,6 +144,8 @@ class AppPalette {
     lessons: Color(0xFF6FA3EC),
     puzzles: Color(0xFFB08BEA),
     puzzlesStrong: Color(0xFF6A3FB5),
+    puzzlesInk: Color(0xFFB08BEA),
+    heroAccent: Color(0xFFF2C75C),
     play: Color(0xFF4CC38A),
     progress: Color(0xFFE9A825),
   );
@@ -174,6 +186,8 @@ abstract final class AppColors {
   static Color get lessons => _p.lessons;
   static Color get puzzles => _p.puzzles;
   static Color get puzzlesStrong => _p.puzzlesStrong;
+  static Color get puzzlesInk => _p.puzzlesInk;
+  static Color get heroAccent => _p.heroAccent;
   static Color get play => _p.play;
   static Color get progress => _p.progress;
 }

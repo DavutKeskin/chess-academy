@@ -155,8 +155,12 @@ class _PuzzleScreenState extends State<PuzzleScreen> {
   }
 
   void _next() {
-    final nextIndex = widget.index + 1;
-    if (nextIndex >= widget.puzzles.length) {
+    // Çözülmüşleri atla (seviye sırası farklı kategorilerden önceden çözülenleri de içerir).
+    final nextIndex = widget.puzzles.indexWhere(
+      (p) => !ProgressStore.instance.isPuzzleSolved(p.id),
+      widget.index + 1,
+    );
+    if (nextIndex < 0) {
       Navigator.of(context).pop();
       return;
     }

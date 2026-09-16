@@ -45,8 +45,11 @@ class _LessonScreenState extends State<LessonScreen> {
   void _goTo(int index) {
     setState(() {
       _stepIndex = index;
-      _taskDone = false;
-      _feedback = null;
+      // Daha önce çözülen göreve dönülünce çözülmüş hali ve başarı mesajı gösterilir.
+      final solvedTask = _solved.contains(index) ? widget.lesson.steps[index].task : null;
+      _taskDone = solvedTask != null;
+      _feedbackOk = solvedTask != null;
+      _feedback = solvedTask?.success;
     });
   }
 
@@ -141,6 +144,7 @@ class _LessonScreenState extends State<LessonScreen> {
                         fen: step.fen,
                         task: task,
                         settings: settings.boardSettings,
+                        solved: _solved.contains(_stepIndex),
                         onResult: _onTaskResult,
                       );
                     },
@@ -201,8 +205,11 @@ class _TaskBoard extends StatefulWidget {
     required this.task,
     required this.settings,
     required this.onResult,
+    this.solved = false,
   });
 
+  /// Görev daha önce çözüldü: tahta hedef hamle oynanmış ve kilitli açılır.
+  final bool solved;
   final double size;
   final String fen;
   final MoveTask task;
@@ -223,6 +230,12 @@ class _TaskBoardState extends State<_TaskBoard> {
   void initState() {
     super.initState();
     _position = Chess.fromSetup(Setup.parseFen(widget.fen));
+    if (widget.solved) {
+      final move = NormalMove(from: Square.fromName(widget.task.from), to: Square.fromName(widget.task.targets.first));
+      _position = _position.playUnchecked(move);
+      _lastMove = move;
+      _done = true;
+    }
     _controller = ChessboardController(game: _gameData());
   }
 

@@ -344,6 +344,9 @@
   },
   "@dailySubtitle": {
     "placeholders": {
+      "category": {
+        "type": "String"
+      },
       "rating": {
         "type": "int"
       }
