@@ -123,7 +123,7 @@
   "badgeSteadyHint": "3-Tage-Serie",
   "boardSection": "Brett",
   "piecesSection": "Figuren",
-  "piecesNote": "Der Satz „Halbmond“ ist exklusiv für diese App: ein Halbmond statt eines Kreuzes auf dem König. Die anderen sind Open-Source-Sätze von lichess.org.",
+  "piecesNote": "Der Satz „Halbmond“ ist exklusiv für diese App: ein Halbmond statt eines Kreuzes auf König und Läufer. Die anderen sind Open-Source-Sätze von lichess.org.",
   "boardAndPieces": "Brett {board} · Figuren {pieces}",
   "feedbackSection": "Rückmeldung",
   "sounds": "Töne",

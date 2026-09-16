@@ -123,7 +123,7 @@
   "badgeSteadyHint": "3-day streak",
   "boardSection": "Board",
   "piecesSection": "Pieces",
-  "piecesNote": "The \"Crescent\" set is exclusive to this app: a crescent instead of a cross on the king. The others are open-source sets from lichess.org.",
+  "piecesNote": "The \"Crescent\" set is exclusive to this app: a crescent instead of a cross on the king and bishop. The others are open-source sets from lichess.org.",
   "boardAndPieces": "{board} board · {pieces} pieces",
   "feedbackSection": "Feedback",
   "sounds": "Sounds",

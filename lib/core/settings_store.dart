@@ -41,7 +41,7 @@ enum BoardTheme {
       };
 }
 
-/// Uygulamanın kendi taş seti: cburnett tabanlı, şah taşında haç yerine ay-yıldız.
+/// Uygulamanın kendi taş seti: cburnett tabanlı, şah ve filde haç yerine hilal.
 /// Görseller `assets/pieces/hilal/` altında (1x, 2x, 3x).
 final PieceAssets hilalAssets = {
   for (final kind in PieceKind.values)

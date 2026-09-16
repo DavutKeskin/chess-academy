@@ -277,7 +277,7 @@
   "badgeSteadyHint": "3 günlük seri",
   "boardSection": "Tahta",
   "piecesSection": "Taşlar",
-  "piecesNote": "\"Hilal\" seti uygulamaya özel: şahta haç yerine hilal. Diğerleri lichess.org açık kaynak setleri.",
+  "piecesNote": "\"Hilal\" seti uygulamaya özel: şahta ve filde haç yerine hilal. Diğerleri lichess.org açık kaynak setleri.",
   "boardAndPieces": "{board} tahta · {pieces} taşlar",
   "@boardAndPieces": {
     "placeholders": {

@@ -3,7 +3,7 @@
 Çocuklar ve yeni başlayanlar için Türkçe satranç öğrenme uygulaması. Flutter ile yazıldı; tahta ve kurallar lichess'in `chessground` ve `dartchess` paketleri, rakip Stockfish.
 
 - Dersler, tek ve iki hamlede mat bulmacaları, 5 seviyeli bilgisayar rakibi, ilerleme ve rozetler
-- 10 tahta teması, 9 taş seti; aralarında uygulamaya özel "Hilal" seti (şahta haç yerine hilal)
+- 10 tahta teması, 9 taş seti; aralarında uygulamaya özel "Hilal" seti (şahta ve filde haç yerine hilal)
 - Gizlilik: hiçbir veri toplanmaz, her şey cihazda kalır (`PRIVACY_POLICY.md`)
 
 Web sitesi ve gizlilik politikası: https://davutkeskin.github.io/chess-academy/ (kaynak `docs/`).

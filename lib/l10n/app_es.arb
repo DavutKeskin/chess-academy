@@ -123,7 +123,7 @@
   "badgeSteadyHint": "Racha de 3 días",
   "boardSection": "Tablero",
   "piecesSection": "Piezas",
-  "piecesNote": "El juego \"Media luna\" es exclusivo de esta app: una media luna en lugar de una cruz sobre el rey. Los demás son juegos de código abierto de lichess.org.",
+  "piecesNote": "El juego \"Media luna\" es exclusivo de esta app: una media luna en lugar de una cruz sobre el rey y el alfil. Los demás son juegos de código abierto de lichess.org.",
   "boardAndPieces": "Tablero {board} · piezas {pieces}",
   "feedbackSection": "Respuesta",
   "sounds": "Sonidos",
