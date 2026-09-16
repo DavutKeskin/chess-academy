@@ -238,6 +238,10 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
     if (_position.turn != widget.playerSide) _botMove();
   }
 
+  /// İlk üç oyunda, bilgisayarın ilk iki hamlesinden sonra son hamle vurgusunu anlatır.
+  bool get _showLastMoveHint =>
+      _lastMove != null && _sanMoves.length <= 4 && ProgressStore.instance.gamesPlayed < 3;
+
   (String, BannerTone, IconData?) _status(AppLocalizations t) {
     if (_finished) {
       final winner = _record?.result;
@@ -258,7 +262,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
     if (_thinking) return (t.computerThinking, BannerTone.info, Icons.psychology_rounded);
     return _position.isCheck
         ? (t.checkYourTurn, BannerTone.neutral, Icons.warning_amber_rounded)
-        : (t.yourTurn, BannerTone.neutral, null);
+        : (_showLastMoveHint ? t.yourTurnLastMoveHint : t.yourTurn, BannerTone.neutral, null);
   }
 
   @override

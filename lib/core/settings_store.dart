@@ -18,8 +18,14 @@ enum BoardTheme {
   grafit(ChessboardColorScheme.grey),
   seker(ChessboardColorScheme.pinkPyramid);
 
-  const BoardTheme(this.colors);
-  final ChessboardColorScheme colors;
+  const BoardTheme(this._colors);
+  final ChessboardColorScheme _colors;
+
+  /// Lichess'in yeşil temasında son hamle soluk mavi; yeşil karelerde seçilmiyordu
+  /// (test geri bildirimi). Bu temada belirgin sarı kullanılır.
+  ChessboardColorScheme get colors => this == BoardTheme.turnuva
+      ? _colors.copyWith(lastMove: const HighlightDetails(solidColor: Color(0xA6F2E24B)))
+      : _colors;
 
   String label(AppLocalizations t) => switch (this) {
         BoardTheme.klasik => t.boardKlasik,

@@ -92,6 +92,7 @@
   "computerThinking": "Der Computer denkt...",
   "checkYourTurn": "Schach! Du bist am Zug.",
   "yourTurn": "Du bist am Zug.",
+  "yourTurnLastMoveHint": "Du bist am Zug. Die zwei farbigen Felder zeigen den letzten Zug des Computers.",
   "playAgain": "Noch einmal",
   "reviewGame": "Partie ansehen",
   "recentGames": "Letzte Partien",

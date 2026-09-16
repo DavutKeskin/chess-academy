@@ -92,6 +92,7 @@
   "computerThinking": "Computer is thinking...",
   "checkYourTurn": "Check! Your move.",
   "yourTurn": "Your move.",
+  "yourTurnLastMoveHint": "Your move. The two coloured squares show the computer's last move.",
   "playAgain": "Play Again",
   "reviewGame": "Review Game",
   "recentGames": "Recent games",

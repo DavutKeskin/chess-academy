@@ -92,6 +92,7 @@
   "computerThinking": "La computadora piensa...",
   "checkYourTurn": "¡Jaque! Te toca.",
   "yourTurn": "Te toca.",
+  "yourTurnLastMoveHint": "Te toca. Las dos casillas de color muestran la última jugada de la computadora.",
   "playAgain": "Jugar otra vez",
   "reviewGame": "Revisar partida",
   "recentGames": "Partidas recientes",

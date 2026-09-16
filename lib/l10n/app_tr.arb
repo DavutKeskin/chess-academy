@@ -219,6 +219,7 @@
   "computerThinking": "Bilgisayar düşünüyor...",
   "checkYourTurn": "Şah! Sıra sende.",
   "yourTurn": "Sıra sende.",
+  "yourTurnLastMoveHint": "Sıra sende. Renkli iki kare, bilgisayarın son hamlesini gösterir.",
   "playAgain": "Tekrar Oyna",
   "reviewGame": "Oyunu İncele",
   "recentGames": "Son oyunlar",
