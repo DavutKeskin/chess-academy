@@ -91,6 +91,17 @@ def main():
     run('-size', '1024x1024', 'xc:none', '-fill', NAVY, '-draw', 'roundrectangle 0,0 1023,1023 224,224', base)
     compose(base, os.path.join(OUT, 'icon.png'))
     run(os.path.join(OUT, 'icon.png'), '-resize', '512x512', os.path.join(STORE, 'icon_512.png'))
+    # Ana sayfa başlığındaki logo (uygulama içi, 52 dp): 1x/2x/3x.
+    logo = os.path.join(ROOT, 'assets', 'logo')
+    # İkondaki altın madalyon (lacivert kare zemin olmadan), yuvarlak kırpılır.
+    medal = os.path.join(OUT, '_medal.png')
+    run(os.path.join(OUT, 'icon.png'), '-crop', '716x716+154+154', '+repage',
+        '(', '-size', '716x716', 'xc:none', '-fill', 'white', '-draw', 'circle 358,358 358,2', ')',
+        '-compose', 'DstIn', '-composite', medal)
+    for sub, px in (('', 44), ('2.0x', 88), ('3.0x', 132)):
+        os.makedirs(os.path.join(logo, sub), exist_ok=True)
+        run(medal, '-resize', f'{px}x{px}', os.path.join(logo, sub, 'logo.png'))
+    os.remove(medal)
 
     # Adaptive: arka plan lacivert + madalyon, ön plan yalnızca şah (güvenli bölge %66 → 0.72 ölçek)
     run('-size', '1024x1024', f'xc:{NAVY}', disc, '-gravity', 'center', '-composite', os.path.join(OUT, 'icon_background.png'))

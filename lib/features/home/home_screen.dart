@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
-                  childAspectRatio: 0.95,
+                  childAspectRatio: 1.12,
                   children: [
                     _ModuleTile(
                       icon: Icons.school_rounded,
@@ -134,20 +134,27 @@ class _Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(context.t.appName, style: Theme.of(context).textTheme.headlineMedium),
-              const SizedBox(height: 6),
-              Row(children: [_StreakPill(streak: streak)]),
-            ],
-          ),
+        // Uygulama adı yerine logo; ad ekran okuyucu için etiket olarak kalır.
+        Semantics(
+          label: context.t.appName,
+          header: true,
+          image: true,
+          child: const Image(image: AssetImage('assets/logo/logo.png'), width: 44, height: 44),
         ),
-        IconButton.filledTonal(
+        const SizedBox(width: 12),
+        Expanded(
+          child: Align(alignment: Alignment.centerLeft, child: _StreakPill(streak: streak)),
+        ),
+        const SizedBox(width: 8),
+        IconButton(
           tooltip: context.t.settings,
           onPressed: onSettings,
-          icon: const Icon(Icons.settings_outlined),
+          style: IconButton.styleFrom(
+            backgroundColor: AppColors.surfaceContainer,
+            foregroundColor: AppColors.ink,
+            fixedSize: const Size(44, 44),
+          ),
+          icon: const Icon(Icons.settings_outlined, size: 22),
         ),
       ],
     );
@@ -324,24 +331,24 @@ class _ModuleTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 44,
-                height: 44,
+                width: 40,
+                height: 40,
                 decoration: BoxDecoration(
                   color: color.withValues(alpha: 0.14),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(icon, color: color, size: 26),
+                child: Icon(icon, color: color, size: 24),
               ),
               const Spacer(),
               Text(title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, height: 1.2)),
+                  style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700, height: 1.2)),
               const SizedBox(height: 2),
               Text(subtitle,
                   maxLines: 1,

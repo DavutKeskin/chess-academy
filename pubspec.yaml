@@ -73,6 +73,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/logo/
+    - assets/logo/2.0x/
+    - assets/logo/3.0x/
     - assets/pieces/hilal/
     - assets/pieces/hilal/2.0x/
     - assets/pieces/hilal/3.0x/
