@@ -1,6 +1,7 @@
 import 'package:chessground/chessground.dart';
 import 'package:dartchess/dartchess.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/purchase_store.dart';
 import '../../core/settings_store.dart';
@@ -201,19 +202,29 @@ class SettingsScreen extends StatelessWidget {
               ),
               _Section(
                 title: t.aboutSection,
-                child: Card(
-                  child: ListTile(
-                    leading: const Icon(Icons.code_rounded),
-                    title: Text(t.openSourceTitle),
-                    subtitle: Text(t.openSourceSub),
-                    trailing: Icon(Icons.chevron_right_rounded, color: AppColors.navy),
-                    // Flutter, pub paketlerinin LICENSE dosyalarını bu sayfada kendisi listeler.
-                    onTap: () => showLicensePage(
-                      context: context,
-                      applicationName: t.appName,
-                      applicationLegalese: t.licenseLegalese(sourceCodeUrl),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Card(
+                      child: ListTile(
+                        leading: Icon(Icons.code_rounded, color: AppColors.navy),
+                        title: Text(t.openSourceTitle, style: const TextStyle(fontWeight: FontWeight.w700)),
+                        subtitle: Text(sourceCodeUrl.replaceFirst('https://', '')),
+                        trailing: Icon(Icons.chevron_right_rounded, color: AppColors.inkMuted),
+                        onTap: () => _showLicenseDialog(context),
+                      ),
                     ),
-                  ),
+                    // Bağımlılıkların (BSD/MIT/Apache) lisans metinleri dağıtımda verilmek zorunda;
+                    // Flutter bu sayfada pub paketlerinin LICENSE dosyalarını kendisi listeler.
+                    TextButton(
+                      onPressed: () => showLicensePage(
+                        context: context,
+                        applicationName: t.appName,
+                        applicationLegalese: t.licenseLegalese(sourceCodeUrl),
+                      ),
+                      child: Text(t.thirdPartyLicenses),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -222,6 +233,29 @@ class SettingsScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+/// GPL-3.0 bildirimi ve kaynak kodu adresi (kopyalanabilir).
+void _showLicenseDialog(BuildContext context) {
+  final t = context.t;
+  showDialog<void>(
+    context: context,
+    builder: (dialogContext) => AlertDialog(
+      title: Text(t.openSourceTitle),
+      content: SingleChildScrollView(child: Text(t.licenseLegalese(sourceCodeUrl))),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Clipboard.setData(const ClipboardData(text: sourceCodeUrl));
+            Navigator.of(dialogContext).pop();
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(t.linkCopied)));
+          },
+          child: Text(t.copyLink),
+        ),
+        FilledButton(onPressed: () => Navigator.of(dialogContext).pop(), child: Text(t.closeBtn)),
+      ],
+    ),
+  );
 }
 
 class _Section extends StatelessWidget {

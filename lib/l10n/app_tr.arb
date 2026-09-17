@@ -670,8 +670,11 @@
   "resultResigned": "Oyunu bıraktın. Bir dahaki sefere!",
   "resignedSuffix": "bırakıldı",
   "aboutSection": "Hakkında",
-  "openSourceTitle": "Açık kaynak",
-  "openSourceSub": "GPL-3.0 lisanslı · kaynak kodu ve lisanslar",
+  "openSourceTitle": "Açık kaynak · GPL-3.0",
+  "thirdPartyLicenses": "Üçüncü taraf lisansları",
+  "copyLink": "Bağlantıyı kopyala",
+  "linkCopied": "Bağlantı kopyalandı",
+  "closeBtn": "Kapat",
   "licenseLegalese": "Satranç Akademi özgür yazılımdır: GNU Genel Kamu Lisansı sürüm 3 ya da (istersen) sonraki bir sürümün koşullarıyla dağıtabilir ve değiştirebilirsin. Hiçbir garanti verilmez.\n\nKaynak kodu: {url}\n\nTahta ve kurallar lichess'in chessground ve dartchess paketleri, rakip ve analiz Stockfish (GPL-3.0). Bulmacalar lichess.org açık veritabanından (CC0).",
   "@licenseLegalese": {
     "placeholders": {
