@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Aynı Wi-Fi'da arkadaşla oyun: yerel ağ soketi ve mDNS (nsd) için. Sunucu yok, veri dışarı çıkmaz. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
     <application
         android:label="@string/app_name"
         android:name="${applicationName}"

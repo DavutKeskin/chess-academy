@@ -68,5 +68,11 @@
 		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
-	</dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Aynı Wi-Fi ağındaki arkadaşınızla oynamak için yerel ağ erişimi gerekir.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_satranc._tcp</string>
+	</array>
+</dict>
 </plist>
