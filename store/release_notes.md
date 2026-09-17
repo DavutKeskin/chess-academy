@@ -1,11 +1,11 @@
 ## tr
-Koyu tema (Ayarlar → Görünüm). Oyunda yenen taşlar ve puan farkı; son hamle daha belirgin; oyunu bırakma. Seviyene göre bulmacalar ve günün bulmacası. Derslerde önceki adıma dönme, atın L hareketi çizimle. Hilal setinde fil de hilalli.
+Yeni: Aynı Wi-Fi ağındaki bir arkadaşınla oyna (Oyna → Arkadaşla oyna). Telefon sessizdeyken uygulama sesleri de susar ve çalan müziği durdurmaz. Yenilenen ana sayfa ve daha sade ekranlar; son oyunlar listesi, ilerleme kartları ve Hakkında bölümü düzenlendi.
 
 ## en
-Dark theme (Settings → Appearance). Captured pieces and material difference in games; clearer last move; resign option. Puzzles and daily puzzle matched to your level. Go back a step in lessons; the knight's L move is drawn. The Crescent set's bishop now has a crescent too.
+New: play a friend on the same Wi-Fi network (Play → Play with a friend). App sounds now stay quiet when the phone is on silent and no longer pause your music. Refreshed home screen and cleaner screens: recent games, progress cards and the About section were tidied up.
 
 ## de
-Dunkles Design (Einstellungen → Darstellung). Geschlagene Figuren und Materialvorteil in Partien; deutlicherer letzter Zug; Aufgeben möglich. Rätsel und Tagesrätsel passend zu deinem Niveau. In Lektionen einen Schritt zurück; der L-Sprung des Springers wird gezeichnet. Im Halbmond-Satz hat auch der Läufer einen Halbmond.
+Neu: Spiele gegen Freunde im selben WLAN (Spielen → Mit Freund spielen). App-Töne bleiben stumm, wenn das Handy lautlos ist, und unterbrechen keine Musik mehr. Überarbeiteter Startbildschirm und aufgeräumte Ansichten: letzte Partien, Fortschrittskarten und der Bereich „Über“.
 
 ## es
-Tema oscuro (Ajustes → Apariencia). Piezas capturadas y ventaja de material en las partidas; última jugada más visible; opción de abandonar. Problemas y problema del día según tu nivel. Volver un paso atrás en las lecciones; el salto en L del caballo se dibuja. En el juego Media luna, el alfil también lleva media luna.
+Nuevo: juega con un amigo en la misma red Wi-Fi (Jugar → Jugar con un amigo). Los sonidos se silencian cuando el teléfono está en silencio y ya no pausan tu música. Pantalla de inicio renovada y pantallas más limpias: partidas recientes, tarjetas de progreso y la sección Acerca de.
