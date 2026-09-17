@@ -13,11 +13,27 @@ class AppFeedback {
   final Map<String, AudioPlayer> _players = {};
   bool _ready = false;
 
+  /// Arayüz sesi olarak çal: Android'de sistem sesi akışı (telefon sessiz ya da titreşimdeyken
+  /// susar), iOS'ta ambient (sessiz anahtarına uyar). Ses odağı istenmez; çalan müzik durmaz.
+  static final _context = AudioContext(
+    android: const AudioContextAndroid(
+      contentType: AndroidContentType.sonification,
+      usageType: AndroidUsageType.assistanceSonification,
+      audioFocus: AndroidAudioFocus.none,
+    ),
+    iOS: AudioContextIOS(
+      category: AVAudioSessionCategory.ambient,
+      options: const {AVAudioSessionOptions.mixWithOthers},
+    ),
+  );
+
   Future<void> init() async {
     try {
+      await AudioPlayer.global.setAudioContext(_context);
       await AudioCache.instance.loadAll([for (final n in _names) 'sounds/$n.wav']);
       for (final n in _names) {
         final p = AudioPlayer();
+        await p.setAudioContext(_context);
         await p.setPlayerMode(PlayerMode.lowLatency);
         await p.setReleaseMode(ReleaseMode.stop);
         await p.setSource(AssetSource('sounds/$n.wav'));

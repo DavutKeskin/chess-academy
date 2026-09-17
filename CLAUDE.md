@@ -100,6 +100,8 @@ Android için JDK 17 gerekir (`flutter config --jdk-dir`).
 - Ortak parçalar: `StatusBanner` (durum mesajı), `SectionHeader`.
 - Geri bildirim: `lib/core/feedback.dart` (audioplayers + HapticFeedback), sesler `assets/sounds/*.wav`
   (Python ile sentezlendi). Ayarlar'dan kapatılır.
+  Sesler arayüz sesi olarak çalar (Android USAGE_ASSISTANCE_SONIFICATION, ses odağı yok; iOS ambient):
+  telefon sessiz/titreşimdeyken susar, çalan müziği durdurmaz. Medya kullanımına geri çevirme.
 - İlk açılış: `features/onboarding` yaş/seviye sorar; `SettingsStore.level` dersleri açar ve rakip seviyesi önerir.
 - Sürüm APK'ları artık yükleme anahtarıyla imzalı; telefonda debug imzalı eski kurulum varsa
   `adb uninstall` gerekir (INSTALL_FAILED_UPDATE_INCOMPATIBLE). Derleme zincirlerinde `grep -q '✓ Built'` ile başarıyı kontrol et.
