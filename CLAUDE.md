@@ -69,6 +69,25 @@ Android için JDK 17 gerekir (`flutter config --jdk-dir`).
   Süreli oyunlar `lib/core/game_clock.dart` (TimeControl önayarları + GameClock; saat ilk hamlede başlar,
   arka planda durur, bayrak düşünce mat edecek taş yoksa berabere). GameRecord `tc`/`endedBy` alanları.
 
+## Arkadaşla oyna, aynı Wi‑Fi (2026-09-17)
+- Sunucusuz yerel ağ oyunu (MVP): ev sahibi oda kurar, konuk aynı Wi‑Fi'da bulup katılır. Süresiz, yalnızca bırakma;
+  beraberlik teklifi, rövanş, yeniden bağlanma yok; kopuş oyunu bitirir (`endedBy: 'disconnect'`, sonuç berabere).
+- Kod: `lib/core/net/lan/` — `transport.dart` (Transport: SocketTransport + testler için FakeTransport.pair),
+  `protocol.dart` (satır satır JSON, `lanProtocolVersion = 1`, hizmet türü `_satranc._tcp`), `lan_session.dart`
+  (el sıkışma hello/welcome, hamle doğrulama dartchess + yarı hamle sırası, resign, ping 3 sn / zaman aşımı 10 sn),
+  `lan_host.dart` (ServerSocket, tek konuk; LanGuest.connect), `lan_discovery.dart` (nsd ile mDNS; TXT: proto, emoji, side),
+  `room_emoji.dart` (oda kimliği: 3 emoji, isim/yazı yok), `remote_opponent.dart`.
+- `lib/core/opponent.dart`: `Opponent` soyutlaması; `BotOpponent` (bilgisayar) ve `RemoteOpponent` aynı `PlayScreen`'i
+  kullanır (`PlayScreen.remote`). Uzak oyunda `level: 0`, `GameRecord.isVsFriend`; ProgressStore'a sayılmaz, kayıt/analiz var.
+- Arayüz: `features/play/lan_lobby_screen.dart` (lobi, oda kur: renk + emoji + bekleme, odaya katıl: emoji kartları).
+  Debug derlemede oda ekranı IP:port gösterir ve katılma ekranında elle IP:port alanı vardır (mDNS'siz test).
+- Protokolü değiştirirken `lanProtocolVersion` artır; eski sürüm `error{proto}` ile reddedilir. Emoji listesi de sürüme bağlıdır.
+- Testler: `test/lan_protocol_test.dart`, `test/lan_session_test.dart` (FakeTransport, kısa zaman aşımları),
+  `test/play_remote_test.dart` (sahte uzak rakiple oyun ekranı). Gerçek cihaz testi: PC'de `avahi-browse -r _satranc._tcp`
+  ile duyuruyu gör; `avahi-publish -s sa-test _satranc._tcp PORT proto=1 emoji=1,2,3 side=w` ile sahte oda yayınla.
+- Android izinleri: INTERNET, CHANGE_WIFI_MULTICAST_STATE (manifest). Gizlilik metni v1.2'de anlatıldı; veri toplanmıyor.
+- nsd paketi (MIT) Linux'u desteklemez: masaüstünde `lanDiscoverySupported` false, ekran uyarı gösterir; testler etkilenmez.
+
 ## Tasarım dili (2026-09-08)
 - Renk kararları `lib/core/theme.dart` başındaki yorumda: lacivert (akademi/odak), altın (başarı/vurgu),
   krem yüzey, durum renkleri yalnızca geri bildirimde. Modül kimlik renkleri `AppColors.lessons/puzzles/play/progress`.
