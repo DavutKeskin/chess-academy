@@ -135,20 +135,20 @@ class _LessonTile extends StatelessWidget {
     return Card(
       child: ListTile(
         enabled: !muted,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        contentPadding: const EdgeInsets.fromLTRB(14, 2, 12, 2),
         leading: Container(
-          width: 48,
-          height: 48,
+          width: 40,
+          height: 40,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: done
                 ? AppColors.successLight
                 : (muted ? AppColors.surfaceContainer : AppColors.navyLight),
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: done
               ? Icon(Icons.check_rounded, color: AppColors.success)
-              : Text(lesson.emoji, style: const TextStyle(fontSize: 24)),
+              : Text(lesson.emoji, style: const TextStyle(fontSize: 20)),
         ),
         title: Text(
           '${index + 1}. ${lesson.title}',

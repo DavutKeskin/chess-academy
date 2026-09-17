@@ -674,20 +674,56 @@ class _GameTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final (color, icon) = switch (game.result) {
-      'win' => (AppColors.success, Icons.emoji_events_rounded),
-      'loss' => (AppColors.error, Icons.sentiment_neutral_rounded),
-      _ => (AppColors.info, Icons.handshake_rounded),
+    final (resultText, color) = switch (game.result) {
+      'win' => (t.resultWinShort, AppColors.success),
+      'loss' => (t.resultLoseShort, AppColors.error),
+      _ => (t.resultDrawShort, AppColors.info),
     };
-    final tc = game.isTimed ? ' · ${timeControlLabel(t, TimeControl.parse(game.timeControl))}' : '';
+    // Bitiş şekli sonuç rozetine değil alt satıra: başlık tek satırda kalsın.
+    final endedBy = game.endedOnTime
+        ? t.onTimeSuffix
+        : game.resigned
+            ? t.resignedSuffix
+            : game.disconnected
+                ? t.lanDisconnectedSuffix
+                : null;
     final d = game.playedAt;
-    final date = '${d.day.toString().padLeft(2, '0')}.${d.month.toString().padLeft(2, '0')} ${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}';
+    final date = '${d.day.toString().padLeft(2, '0')}.${d.month.toString().padLeft(2, '0')} '
+        '${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}';
+    final details = [
+      ?endedBy,
+      t.movesCount(game.sanMoves.length),
+      if (game.isTimed) timeControlLabel(t, TimeControl.parse(game.timeControl)),
+      date,
+    ].map((e) => e.replaceAll(' ', '\u00A0')).join(' · '); // satır yalnızca ayraçlarda kırılsın
     return Card(
       child: ListTile(
-        leading: CircleAvatar(backgroundColor: color.withValues(alpha: 0.15), child: Icon(icon, color: color)),
-        title: Text(gameSummaryLabel(t, game), style: const TextStyle(fontWeight: FontWeight.w700)),
-        subtitle: Text('${t.movesCount(game.sanMoves.length)}$tc · $date'),
-        trailing: Icon(Icons.chevron_right_rounded, color: AppColors.navy),
+        contentPadding: const EdgeInsets.fromLTRB(14, 2, 10, 2),
+        // İkon rakibi (bilgisayar / Wi‑Fi), rengi sonucu gösterir.
+        leading: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            color: color.withValues(alpha: 0.14),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Icon(game.isVsFriend ? Icons.wifi_rounded : Icons.smart_toy_outlined, color: color, size: 22),
+        ),
+        title: Text(
+          game.isVsFriend ? t.lanFriend : t.levelTitle(game.level, levelName(t, game.level)),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontWeight: FontWeight.w700),
+        ),
+        subtitle: Text.rich(
+          TextSpan(children: [
+            TextSpan(text: resultText, style: TextStyle(fontWeight: FontWeight.w700, color: color)),
+            TextSpan(text: ' · $details'),
+          ]),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+        trailing: Icon(Icons.chevron_right_rounded, color: AppColors.inkMuted),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute<void>(builder: (_) => ReplayScreen(game: game)),
         ),
@@ -740,7 +776,7 @@ class _LevelTile extends StatelessWidget {
                 children: [
                   for (var s = 1; s <= 5; s++)
                     Icon(s <= level ? Icons.star_rounded : Icons.star_outline_rounded,
-                        size: 16, color: s <= level ? AppColors.gold : AppColors.outline),
+                        size: 16, color: s <= level ? AppColors.gold : AppColors.inkMuted.withValues(alpha: 0.35)),
                 ],
               ),
             ],

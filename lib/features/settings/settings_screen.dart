@@ -82,6 +82,12 @@ class SettingsScreen extends StatelessWidget {
                 title: t.themeSection,
                 child: SegmentedButton<ThemeMode>(
                   showSelectedIcon: false,
+                  style: SegmentedButton.styleFrom(
+                    selectedBackgroundColor: AppColors.navyLight,
+                    selectedForegroundColor: AppColors.navyDark,
+                    foregroundColor: AppColors.ink,
+                    side: BorderSide(color: AppColors.outline),
+                  ),
                   segments: [
                     ButtonSegment(
                         value: ThemeMode.system, icon: const Icon(Icons.brightness_auto_rounded), label: Text(t.themeSystem)),
