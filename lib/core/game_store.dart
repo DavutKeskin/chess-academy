@@ -23,6 +23,7 @@ class GameRecord {
 
   final String id;
   final DateTime playedAt;
+  /// Bilgisayar seviyesi 1–5; 0 = arkadaşla (Wi‑Fi) oyun.
   final int level;
   final bool playerIsWhite;
   final List<String> uciMoves;
@@ -34,12 +35,16 @@ class GameRecord {
   /// Süre kontrolü kodu ("5+0"); süresiz oyunda null.
   final String? timeControl;
 
-  /// Oyun tahta dışında bittiyse nedeni: 'timeout'. Mat/pat/berabere için null.
+  /// Oyun tahta dışında bittiyse nedeni: 'timeout' | 'resign' | 'disconnect'. Mat/pat/berabere için null.
   final String? endedBy;
 
   bool get isTimed => timeControl != null;
   bool get endedOnTime => endedBy == 'timeout';
   bool get resigned => endedBy == 'resign';
+  bool get disconnected => endedBy == 'disconnect';
+
+  /// Wi‑Fi üstünden arkadaşla oynanmış oyun (seviye 0); ilerlemeye sayılmaz.
+  bool get isVsFriend => level == 0;
 
   /// Motor analizi (yapıldıysa).
   final GameAnalysis? analysis;
@@ -101,9 +106,9 @@ class GameStore extends ChangeNotifier {
     _prefs = await SharedPreferences.getInstance();
     try {
       final raw = _prefs.getString(_key);
-      if (raw != null) {
-        _games = [for (final j in jsonDecode(raw) as List) GameRecord.fromJson(j as Map<String, dynamic>)];
-      }
+      _games = raw == null
+          ? const []
+          : [for (final j in jsonDecode(raw) as List) GameRecord.fromJson(j as Map<String, dynamic>)];
     } catch (_) {
       _games = const [];
     }

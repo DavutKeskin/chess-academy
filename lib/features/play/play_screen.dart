@@ -1,20 +1,22 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:chessground/chessground.dart';
 import 'package:dartchess/dartchess.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/bot/bot.dart';
 import '../../core/captured_material.dart';
 import '../../core/feedback.dart';
 import '../../core/game_clock.dart';
 import '../../core/game_store.dart';
+import '../../core/opponent.dart';
 import '../../core/progress_store.dart';
 import '../../core/settings_store.dart';
 import '../../core/theme.dart';
 import '../../core/widgets/captured_pieces.dart';
 import '../../core/widgets/status_banner.dart';
 import '../../l10n/l10n.dart';
+import 'lan_lobby_screen.dart';
 import 'replay_screen.dart';
 
 String levelName(AppLocalizations t, int level) => switch (level) {
@@ -44,7 +46,7 @@ String timeControlHint(AppLocalizations t, TimeControl tc) {
   return tc.incrementSeconds == 0 ? t.timeHint(tc.minutes) : t.timeIncHint(tc.incrementSeconds);
 }
 
-/// Sonucun kısa adı; süreyle bitmiş ya da bırakılmışsa parantez içinde belirtilir.
+/// Sonucun kısa adı; süreyle bitmiş, bırakılmış ya da bağlantı kopmuşsa parantez içinde belirtilir.
 String resultLabel(AppLocalizations t, GameRecord g) {
   final base = switch (g.result) {
     'win' => t.resultWinShort,
@@ -53,21 +55,38 @@ String resultLabel(AppLocalizations t, GameRecord g) {
   };
   if (g.endedOnTime) return '$base (${t.onTimeSuffix})';
   if (g.resigned) return '$base (${t.resignedSuffix})';
+  if (g.disconnected) return '$base (${t.lanDisconnectedSuffix})';
   return base;
 }
 
-/// Bilgisayara karşı oyun ekranı.
+/// Oyun özeti: "Seviye 3 · Kazandın" ya da Wi‑Fi oyununda "Arkadaş (Wi‑Fi) · Kazandın".
+String gameSummaryLabel(AppLocalizations t, GameRecord g) {
+  final result = resultLabel(t, g);
+  return g.isVsFriend ? '${t.lanFriend} · $result' : t.gameSummary(g.level, result);
+}
+
+/// Rakip satırının adı: bilgisayar ya da arkadaş.
+String opponentLabel(AppLocalizations t, GameRecord g) => g.isVsFriend ? t.lanFriendShort : t.clockComputer;
+
+/// Oyun ekranı: bilgisayara karşı (varsayılan yapıcı) ya da hazır bir [Opponent] ile
+/// (örneğin Wi‑Fi üstünden arkadaş). Ekran rakibi sahiplenir ve kapanırken bırakır.
 class PlayScreen extends StatefulWidget {
   const PlayScreen({
     super.key,
     required this.level,
     required this.playerSide,
     this.timeControl = TimeControl.unlimited,
-  });
+  }) : opponent = null;
+
+  /// Bağlantısı kurulmuş uzak rakiple oyun; süresiz, seviye 0.
+  const PlayScreen.remote({super.key, required Opponent this.opponent, required this.playerSide})
+      : level = 0,
+        timeControl = TimeControl.unlimited;
 
   final int level;
   final Side playerSide;
   final TimeControl timeControl;
+  final Opponent? opponent;
 
   @override
   State<PlayScreen> createState() => _PlayScreenState();
@@ -77,11 +96,13 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   late ChessboardController _controller;
   Position _position = Chess.initial;
   Move? _lastMove;
-  Bot? _bot;
+  late final Opponent _opponent;
+  StreamSubscription<OpponentEvent>? _events;
+  bool _ready = false;
   GameClock? _clock;
   bool _thinking = false;
   bool _finished = false;
-  String? _endedBy; // 'timeout' | 'resign'
+  String? _endedBy; // 'timeout' | 'resign' | 'disconnect'
 
   /// Her yeni oyunda artar; önceki oyun için gelen bilgisayar hamlesi bununla ayıklanır.
   int _gameSeq = 0;
@@ -91,28 +112,41 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   final _movesScroll = ScrollController();
 
   Side get _botSide => widget.playerSide.opposite;
+  bool get _remote => _opponent.isRemote;
 
   @override
   void initState() {
     super.initState();
+    _opponent = widget.opponent ?? BotOpponent(widget.level);
+    _events = _opponent.events.listen(_onOpponentEvent);
     _controller = ChessboardController(game: _gameData());
     if (!widget.timeControl.isUnlimited) {
       _clock = GameClock(widget.timeControl, onFlag: _onFlag);
       WidgetsBinding.instance.addObserver(this);
     }
-    _startBot();
+    _startOpponent();
   }
 
-  Future<void> _startBot() async {
-    final bot = await Bot.create(widget.level);
-    if (!mounted) {
-      await bot.dispose();
-      return;
-    }
-    setState(() => _bot = bot);
+  Future<void> _startOpponent() async {
+    await _opponent.ready;
+    if (!mounted) return;
+    setState(() => _ready = true);
     // Rakip hazır: tahtayı oynanabilir duruma al (aksi halde dokunma çalışmaz).
     _controller.updatePosition(_gameData(), animate: false);
     if (_position.turn != widget.playerSide) _botMove();
+  }
+
+  /// Uzak rakipten hamle dışı olay: bırakma ya da kopuş. Oyun bittiyse yok sayılır.
+  void _onOpponentEvent(OpponentEvent e) {
+    if (_finished || !mounted) return;
+    switch (e) {
+      case OpponentResigned():
+        _finish(winner: widget.playerSide, endedBy: 'resign');
+      case OpponentDisconnected():
+        _finish(winner: null, endedBy: 'disconnect');
+    }
+    _controller.updatePosition(_gameData());
+    setState(() {});
   }
 
   @override
@@ -121,7 +155,8 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
     _clock?.dispose();
     _controller.dispose();
     _movesScroll.dispose();
-    _bot?.dispose();
+    _events?.cancel();
+    _opponent.dispose();
     super.dispose();
   }
 
@@ -138,7 +173,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   GameData _gameData() => GameData(
         fen: _position.fen,
         lastMove: _lastMove,
-        playerSide: _finished || _thinking || _bot == null
+        playerSide: _finished || _thinking || !_ready
             ? PlayerSide.none
             : (widget.playerSide == Side.white ? PlayerSide.white : PlayerSide.black),
         sideToMove: _position.turn,
@@ -171,13 +206,16 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   }
 
   /// Oyunu bitirir, sonucu kaydeder. [winner] null ise berabere.
+  /// Arkadaşla oyun ilerlemeye (istatistik, rozet) sayılmaz; yalnızca kayda girer.
+  /// Hiç hamle yapılmadan biten oyun (ör. bağlantı hemen koptu) kaydedilmez.
   void _finish({required Side? winner, String? endedBy}) {
     _finished = true;
     _thinking = false;
     _endedBy = endedBy;
     _clock?.stop();
     final won = winner == widget.playerSide;
-    ProgressStore.instance.recordGame(won: won);
+    if (!_remote) ProgressStore.instance.recordGame(won: won);
+    if (_uciMoves.isEmpty) return;
     final record = GameRecord(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       playedAt: DateTime.now(),
@@ -210,21 +248,22 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
   void _onUserMove(Move move, {bool? viaDragAndDrop}) {
     if (_thinking || _finished) return;
     _apply(move);
+    _opponent.onLocalMove(move, _uciMoves.length - 1);
     if (!_finished) _botMove();
   }
 
+  /// Rakibin hamlesini ister (bilgisayar hesaplar, arkadaş ağdan gönderir).
   Future<void> _botMove() async {
-    final bot = _bot;
-    if (bot == null) return;
+    if (!_ready) return;
     setState(() => _thinking = true);
     _controller.updatePosition(_gameData());
     // Süreli oyunda bilgisayar kalan süresinin küçük bir payını kullanır.
     final clock = _clock;
     final budget = clock == null ? null : clock.remaining(_botSide).inMilliseconds ~/ 20;
     final seq = _gameSeq;
-    final move = await bot.bestMove(_position, maxTimeMs: budget);
+    final move = await _opponent.nextMove(_position, maxTimeMs: budget);
     // Beklerken oyun bittiyse ya da yeniden başladıysa bu hamle artık geçersiz.
-    if (!mounted || _finished || seq != _gameSeq) return;
+    if (!mounted || _finished || seq != _gameSeq || move == null) return;
     _thinking = false;
     _apply(move);
   }
@@ -247,6 +286,7 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
       ),
     );
     if (ok != true || !mounted || !_inProgress) return false;
+    _opponent.resign();
     _finish(winner: _botSide, endedBy: 'resign');
     _controller.updatePosition(_gameData());
     setState(() {});
@@ -277,12 +317,17 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
 
   /// İlk üç oyunda, bilgisayarın ilk iki hamlesinden sonra son hamle vurgusunu anlatır.
   bool get _showLastMoveHint =>
-      _lastMove != null && _sanMoves.length <= 4 && ProgressStore.instance.gamesPlayed < 3;
+      !_remote && _lastMove != null && _sanMoves.length <= 4 && ProgressStore.instance.gamesPlayed < 3;
 
   (String, BannerTone, IconData?) _status(AppLocalizations t) {
     if (_finished) {
       final winner = _record?.result;
-      if (_endedBy == 'resign') return (t.resultResigned, BannerTone.error, Icons.flag_rounded);
+      if (_endedBy == 'disconnect') return (t.lanConnectionLost, BannerTone.error, Icons.wifi_off_rounded);
+      if (_endedBy == 'resign') {
+        return winner == 'win'
+            ? (t.lanFriendResigned, BannerTone.success, null)
+            : (t.resultResigned, BannerTone.error, Icons.flag_rounded);
+      }
       if (_endedBy == 'timeout') {
         return switch (winner) {
           'win' => (t.resultWinTimeout, BannerTone.success, null),
@@ -292,12 +337,16 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
       }
       return switch (winner) {
         'win' => (t.resultWin, BannerTone.success, null),
-        'loss' => (t.resultLose, BannerTone.error, Icons.sentiment_neutral_rounded),
+        'loss' => (_remote ? t.lanFriendWon : t.resultLose, BannerTone.error, Icons.sentiment_neutral_rounded),
         _ => (t.resultDraw, BannerTone.info, Icons.handshake_rounded),
       };
     }
-    if (_bot == null) return (t.opponentPreparing, BannerTone.info, null);
-    if (_thinking) return (t.computerThinking, BannerTone.info, Icons.psychology_rounded);
+    if (!_ready) return (t.opponentPreparing, BannerTone.info, null);
+    if (_thinking) {
+      return _remote
+          ? (t.lanFriendThinking, BannerTone.info, Icons.hourglass_top_rounded)
+          : (t.computerThinking, BannerTone.info, Icons.psychology_rounded);
+    }
     return _position.isCheck
         ? (t.checkYourTurn, BannerTone.neutral, Icons.warning_amber_rounded)
         : (_showLastMoveHint ? t.yourTurnLastMoveHint : t.yourTurn, BannerTone.neutral, null);
@@ -317,11 +366,12 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(t.levelTitle(widget.level, levelName(t, widget.level))),
+          title: Text(_remote ? t.lanPlayWithFriend : t.levelTitle(widget.level, levelName(t, widget.level))),
           actions: [
             if (_inProgress)
               IconButton(tooltip: t.resign, onPressed: _confirmResign, icon: const Icon(Icons.flag_outlined)),
-            IconButton(tooltip: t.restart, onPressed: _onRestartPressed, icon: const Icon(Icons.refresh_rounded)),
+            if (!_remote)
+              IconButton(tooltip: t.restart, onPressed: _onRestartPressed, icon: const Icon(Icons.refresh_rounded)),
           ],
         ),
         body: SafeArea(
@@ -333,7 +383,12 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 6, 20, 0),
-                child: _PlayerRow(clock: clock, side: _botSide, label: t.clockComputer, material: material),
+                child: _PlayerRow(
+                  clock: clock,
+                  side: _botSide,
+                  label: _remote ? t.lanFriendShort : t.clockComputer,
+                  material: material,
+                ),
               ),
               Expanded(
                 child: Center(
@@ -397,11 +452,18 @@ class _PlayScreenState extends State<PlayScreen> with WidgetsBindingObserver {
                           ),
                           const SizedBox(width: 10),
                           Expanded(
-                            child: FilledButton.icon(
-                              onPressed: _restart,
-                              icon: const Icon(Icons.replay_rounded),
-                              label: Text(t.playAgain),
-                            ),
+                            // Wi‑Fi oyununda yeniden başlatma yok: lobiye dönülür.
+                            child: _remote
+                                ? FilledButton.icon(
+                                    onPressed: () => Navigator.of(context).pop(),
+                                    icon: const Icon(Icons.arrow_back_rounded),
+                                    label: Text(t.lanNewGame),
+                                  )
+                                : FilledButton.icon(
+                                    onPressed: _restart,
+                                    icon: const Icon(Icons.replay_rounded),
+                                    label: Text(t.playAgain),
+                                  ),
                           ),
                         ],
                       )
@@ -564,6 +626,22 @@ class _PlaySetupScreenState extends State<PlaySetupScreen> {
             icon: const Icon(Icons.play_arrow_rounded),
             label: Text(t.startGame),
           ),
+          const SizedBox(height: 16),
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: AppColors.play.withValues(alpha: 0.15),
+                child: Icon(Icons.wifi_rounded, color: AppColors.play),
+              ),
+              title: Text(t.lanPlayWithFriend, style: const TextStyle(fontWeight: FontWeight.w700)),
+              subtitle: Text(t.lanPlayWithFriendHint),
+              trailing: Icon(Icons.chevron_right_rounded, color: AppColors.navy),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const LanLobbyScreen()),
+              ),
+            ),
+          ),
           const SizedBox(height: 28),
           ListenableBuilder(
             listenable: GameStore.instance,
@@ -596,7 +674,6 @@ class _GameTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final label = resultLabel(t, game);
     final (color, icon) = switch (game.result) {
       'win' => (AppColors.success, Icons.emoji_events_rounded),
       'loss' => (AppColors.error, Icons.sentiment_neutral_rounded),
@@ -608,7 +685,7 @@ class _GameTile extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: CircleAvatar(backgroundColor: color.withValues(alpha: 0.15), child: Icon(icon, color: color)),
-        title: Text(t.gameSummary(game.level, label), style: const TextStyle(fontWeight: FontWeight.w700)),
+        title: Text(gameSummaryLabel(t, game), style: const TextStyle(fontWeight: FontWeight.w700)),
         subtitle: Text('${t.movesCount(game.sanMoves.length)}$tc · $date'),
         trailing: Icon(Icons.chevron_right_rounded, color: AppColors.navy),
         onTap: () => Navigator.of(context).push(

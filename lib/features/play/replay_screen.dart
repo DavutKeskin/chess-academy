@@ -196,7 +196,6 @@ class _ReplayScreenState extends State<ReplayScreen> {
   Widget build(BuildContext context) {
     final t = context.t;
     final g = _game;
-    final resultText = resultLabel(t, g);
     final current = _current;
     final sim = _simPositions;
     final boardPos = sim != null ? sim[_simIndex] : _positions[_ply];
@@ -254,7 +253,7 @@ class _ReplayScreenState extends State<ReplayScreen> {
                       children: [
                         Expanded(
                           child: Text(
-                            '${t.gameSummary(g.level, resultText)} · ${t.movesCount(g.sanMoves.length)}',
+                            '${gameSummaryLabel(t, g)} · ${t.movesCount(g.sanMoves.length)}',
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                         ),
@@ -309,7 +308,7 @@ class _ReplayScreenState extends State<ReplayScreen> {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        playerRow(playerSide.opposite, t.clockComputer),
+                        playerRow(playerSide.opposite, opponentLabel(t, g)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

@@ -679,5 +679,43 @@
         "type": "String"
       }
     }
-  }
+  },
+  "lanPlayWithFriend": "Arkadaşla oyna",
+  "lanPlayWithFriendHint": "İki telefon, aynı Wi‑Fi ağı.",
+  "lanFriend": "Arkadaş (Wi‑Fi)",
+  "lanFriendShort": "Arkadaşın",
+  "lanCreateRoom": "Oda kur",
+  "lanCreateRoomHint": "Arkadaşın senin odana katılır.",
+  "lanJoinRoom": "Odaya katıl",
+  "lanJoinRoomHint": "Arkadaşının kurduğu odayı seç.",
+  "lanSameWifiHelp": "İki cihaz aynı Wi‑Fi ağında olmalı. Okul ya da misafir ağlarında çalışmayabilir.",
+  "lanRandomColor": "Rastgele",
+  "lanRandomHint": "Uygulama seçsin",
+  "lanFriendStarts": "Arkadaşın başlar",
+  "lanRoomSign": "Odanın işareti",
+  "lanRoomSignHint": "Arkadaşın listede bu üç emojiyi seçsin.",
+  "lanWaitingForFriend": "Arkadaşın bekleniyor…",
+  "lanRoomsFound": "Bulunan odalar",
+  "lanSearching": "Odalar aranıyor…",
+  "lanNoRooms": "Henüz oda yok. Arkadaşın \"Oda kur\" desin.",
+  "lanHostSide": "Arkadaşın: {color}",
+  "@lanHostSide": {
+    "placeholders": {
+      "color": {
+        "type": "String"
+      }
+    }
+  },
+  "lanConnecting": "Bağlanılıyor…",
+  "lanJoinFailed": "Bağlanılamadı. Oda dolmuş ya da kapanmış olabilir.",
+  "lanVersionMismatch": "Uygulama sürümleri farklı. İki telefonda da uygulamayı güncelleyin.",
+  "lanStartFailed": "Oda kurulamadı. Wi‑Fi açık mı?",
+  "lanUnsupported": "Bu cihazda Wi‑Fi oyunu desteklenmiyor.",
+  "lanConnectionLost": "Bağlantı koptu. Oyun sona erdi.",
+  "lanFriendThinking": "Arkadaşın düşünüyor…",
+  "lanFriendResigned": "Arkadaşın oyunu bıraktı. Kazandın! 🎉",
+  "lanFriendWon": "Arkadaşın kazandı. Tekrar dene!",
+  "lanNewGame": "Yeni oyun",
+  "lanDisconnectedSuffix": "bağlantı koptu",
+  "cancel": "Vazgeç"
 }
