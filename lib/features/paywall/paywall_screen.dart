@@ -6,10 +6,13 @@ import '../../core/theme.dart';
 import '../../l10n/l10n.dart';
 import '../lessons/lessons.dart';
 
+/// App Store'da Google Play'den söz edilemez; mağaza metinleri platforma göre seçilir.
+bool get _isIOS => defaultTargetPlatform == TargetPlatform.iOS;
+
 /// Satın alma hatasını dile göre metne çevirir.
 String? purchaseErrorText(AppLocalizations t, PurchaseStore store) => switch (store.error) {
       null => null,
-      PurchaseError.storeUnavailable => t.storeUnavailable,
+      PurchaseError.storeUnavailable => _isIOS ? t.storeUnavailableIos : t.storeUnavailable,
       PurchaseError.storeUnavailableShort => t.storeUnavailableShort,
       PurchaseError.notStarted => t.purchaseNotStarted(store.errorDetail ?? ''),
       PurchaseError.failed => store.errorDetail ?? t.purchaseFailed,
@@ -77,7 +80,7 @@ class PaywallScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              _Benefit(icon: Icons.family_restroom_rounded, text: t.benefitFamily),
+              _Benefit(icon: Icons.family_restroom_rounded, text: _isIOS ? t.benefitFamilyIos : t.benefitFamily),
               _Benefit(icon: Icons.block_rounded, text: t.benefitNoAds),
               _Benefit(icon: Icons.update_rounded, text: t.benefitUpdates),
               const SizedBox(height: 20),
@@ -96,7 +99,7 @@ class PaywallScreen extends StatelessWidget {
               TextButton(onPressed: store.busy ? null : store.restore, child: Text(t.restorePurchase)),
               if (kDebugMode) TextButton(onPressed: store.debugGrant, child: Text(t.devUnlock)),
               const SizedBox(height: 8),
-              Text(t.storeNote, style: Theme.of(context).textTheme.bodyMedium),
+              Text(_isIOS ? t.storeNoteIos : t.storeNote, style: Theme.of(context).textTheme.bodyMedium),
             ],
           );
         },

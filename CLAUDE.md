@@ -88,6 +88,18 @@ Android için JDK 17 gerekir (`flutter config --jdk-dir`).
 - Android izinleri: INTERNET, CHANGE_WIFI_MULTICAST_STATE (manifest). Gizlilik metni v1.2'de anlatıldı; veri toplanmıyor.
 - nsd paketi (MIT) Linux'u desteklemez: masaüstünde `lanDiscoverySupported` false, ekran uyarı gösterir; testler etkilenmez.
 
+## iOS (2026-09-19)
+- Mac yok: derleme GitHub Actions macOS'ta (`.github/workflows/ios.yml`). Her push/PR: test (Linux) + imzasız
+  `flutter build ios --release`. Elle çalıştırma `testflight` işaretliyse imzalı IPA → TestFlight (`build_number` girdisi).
+  Kurulum ve gizli değer adları `tool/ios/README.md`; sertifika Linux'ta `tool/ios/signing.sh` (anahtarlar `~/keys/ios`, depoya girmez).
+- Takım kimliği ve imza ayarları depoda yok; CI profilden okur, Runner Release'i yalnızca CI'da elle imzaya çevirir.
+- Yalnızca iPhone (`TARGETED_DEVICE_FAMILY = 1`). iPad açılırsa sonradan kapatılamaz ve iPad ekran görüntüsü gerekir.
+- Ana ekran adı ve yerel ağ izni metni `ios/Runner/{en,tr,de,es}.lproj/InfoPlist.strings`. Dil eklerken oraya,
+  Info.plist `CFBundleLocalizations`'a ve pbxproj `knownRegions` + InfoPlist.strings grubuna ekle. Gizlilik manifesti `ios/Runner/PrivacyInfo.xcprivacy`.
+- App Store'da Google Play'den söz edilemez: mağaza metinlerinin `*Ios` eşleri var (`storeNoteIos` vb., paywall `_isIOS`). Yeni mağaza metni eklerken iki varyant yaz.
+- App Store'da Kids kategorisi seçme: Ayarlar'daki dış bağlantılar (kaynak kod, gizlilik) için ebeveyn kapısı gerekir.
+- Stockfish pod'u derleme sırasında nnue dosyalarını curl ile indirir (CI'da ağ gerekir). Gizlilik metni v1.3 App Store'u anlatır.
+
 ## Tasarım dili (2026-09-08)
 - Renk kararları `lib/core/theme.dart` başındaki yorumda: lacivert (akademi/odak), altın (başarı/vurgu),
   krem yüzey, durum renkleri yalnızca geri bildirimde. Modül kimlik renkleri `AppColors.lessons/puzzles/play/progress`.

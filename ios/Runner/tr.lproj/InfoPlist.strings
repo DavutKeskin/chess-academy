@@ -1,0 +1,3 @@
+/* Ana ekrandaki ad ve izin metinleri (tr). */
+CFBundleDisplayName = "Satranç Akademi";
+NSLocalNetworkUsageDescription = "Aynı Wi-Fi ağındaki arkadaşınla oynamak için yerel ağ erişimi gerekir.";

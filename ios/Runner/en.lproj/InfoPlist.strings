@@ -1,0 +1,3 @@
+/* Ana ekrandaki ad ve izin metinleri (en). */
+CFBundleDisplayName = "Chess Academy";
+NSLocalNetworkUsageDescription = "Local network access is needed to play with a friend on the same Wi-Fi.";

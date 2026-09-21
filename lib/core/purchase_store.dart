@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Satın alma hataları; metinleri arayüz dile göre üretir.
 enum PurchaseError { storeUnavailable, storeUnavailableShort, notStarted, failed }
 
-/// "Tüm Dersler" tek seferlik satın alımı. Google Play faturalandırması üzerinden;
+/// "Tüm Dersler" tek seferlik satın alımı. Google Play / App Store faturalandırması üzerinden;
 /// hak cihazda önbelleklenir ve her açılışta mağazadan geri yüklenerek doğrulanır.
 class PurchaseStore extends ChangeNotifier {
   PurchaseStore._();

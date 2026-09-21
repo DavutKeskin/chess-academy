@@ -1,0 +1,3 @@
+/* Ana ekrandaki ad ve izin metinleri (de). */
+CFBundleDisplayName = "Schach-Akademie";
+NSLocalNetworkUsageDescription = "Der Zugriff auf das lokale Netzwerk wird benötigt, um mit Freunden im selben WLAN zu spielen.";

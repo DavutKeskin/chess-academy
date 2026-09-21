@@ -7,15 +7,22 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
-		<string>Satranc Akademi</string>
+		<string>Chess Academy</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
 		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
+		<key>CFBundleLocalizations</key>
+		<array>
+			<string>en</string>
+			<string>tr</string>
+			<string>de</string>
+			<string>es</string>
+		</array>
 		<key>CFBundleName</key>
-		<string>Satranç Akademi</string>
+		<string>Chess Academy</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -68,11 +75,13 @@
 		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>Aynı Wi-Fi ağındaki arkadaşınızla oynamak için yerel ağ erişimi gerekir.</string>
-	<key>NSBonjourServices</key>
-	<array>
-		<string>_satranc._tcp</string>
-	</array>
+		<key>ITSAppUsesNonExemptEncryption</key>
+		<false/>
+		<key>NSLocalNetworkUsageDescription</key>
+		<string>Local network access is needed to play with a friend on the same Wi-Fi.</string>
+		<key>NSBonjourServices</key>
+		<array>
+			<string>_satranc._tcp</string>
+		</array>
 </dict>
 </plist>

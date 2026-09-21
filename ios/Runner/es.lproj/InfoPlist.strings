@@ -1,0 +1,3 @@
+/* Ana ekrandaki ad ve izin metinleri (es). */
+CFBundleDisplayName = "Academia de Ajedrez";
+NSLocalNetworkUsageDescription = "Se necesita acceso a la red local para jugar con un amigo en la misma red Wi-Fi.";
