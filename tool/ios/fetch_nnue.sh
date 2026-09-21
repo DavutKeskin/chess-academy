@@ -2,6 +2,8 @@
 # Stockfish'in sinir ağı dosyalarını iOS derlemesinden önce paketin kaynak klasörüne koyar.
 # stockfish paketinin podspec'i bunları derleme sırasında curl ile indirmeye çalışır, ama Xcode'un
 # betik korumalı alanı Pods kaynağına yazmayı engeller ve derleme "Could not find incbin file" ile düşer.
+# .incbin dosyayı -I yollarında değil derleyicinin çalışma klasöründe (ios/Pods) arar; bu yüzden dosyalar
+# oraya da kopyalanır. Önce `flutter build ios --config-only` ile Pods oluşturulmalı (paket hatası #57).
 # Dosya adı sha256 özetinin ilk 12 hanesidir; indirilen dosya buna göre doğrulanır.
 # `flutter pub get` sonrasında çalıştır. Önbellek: NNUE_CACHE (varsayılan ~/.cache/stockfish-nnue).
 set -euo pipefail
@@ -30,6 +32,7 @@ for name in $(sed -nE 's/^#define EvalFileDefaultName(Big|Small) "(.*)"$/\2/p' "
     echo "$name özeti tutmuyor ($got); siliniyor." >&2
     rm -f "$CACHE/$name"; exit 1
   fi
-  cp "$CACHE/$name" "$SRC/$name"
-  echo "Hazır: $SRC/$name"
+  for dst in "$SRC" ios/Pods; do
+    if [ -d "$dst" ]; then cp "$CACHE/$name" "$dst/$name"; echo "Hazır: $dst/$name"; fi
+  done
 done

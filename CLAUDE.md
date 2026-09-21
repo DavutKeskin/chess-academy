@@ -98,7 +98,7 @@ Android için JDK 17 gerekir (`flutter config --jdk-dir`).
   Info.plist `CFBundleLocalizations`'a ve pbxproj `knownRegions` + InfoPlist.strings grubuna ekle. Gizlilik manifesti `ios/Runner/PrivacyInfo.xcprivacy`.
 - App Store'da Google Play'den söz edilemez: mağaza metinlerinin `*Ios` eşleri var (`storeNoteIos` vb., paywall `_isIOS`). Yeni mağaza metni eklerken iki varyant yaz.
 - App Store'da Kids kategorisi seçme: Ayarlar'daki dış bağlantılar (kaynak kod, gizlilik) için ebeveyn kapısı gerekir.
-- Stockfish pod'unun nnue indirme adımı Xcode sandbox'ında çalışmaz ("Could not find incbin file"); iOS derlemesinden önce `tool/ios/fetch_nnue.sh` (CI yapıyor, önbellekli, sha256 doğrulamalı). Gizlilik metni v1.3 App Store'u anlatır.
+- Stockfish pod'unun nnue indirme adımı Xcode sandbox'ında çalışmaz ("Could not find incbin file"); `.incbin` dosyayı `ios/Pods` çalışma klasöründe arar. iOS derlemesinden önce `flutter build ios --config-only` + `tool/ios/fetch_nnue.sh` (CI yapıyor, önbellekli, sha256 doğrulamalı). Gizlilik metni v1.3 App Store'u anlatır.
 
 ## Tasarım dili (2026-09-08)
 - Renk kararları `lib/core/theme.dart` başındaki yorumda: lacivert (akademi/odak), altın (başarı/vurgu),

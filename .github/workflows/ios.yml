@@ -61,7 +61,9 @@ jobs:
           path: ~/.cache/stockfish-nnue
           key: stockfish-nnue-${{ hashFiles('pubspec.lock') }}
       - name: Stockfish ağ dosyaları
-        run: tool/ios/fetch_nnue.sh
+        run: |
+          flutter build ios --config-only --release --no-codesign
+          tool/ios/fetch_nnue.sh
       - name: İmzasız iOS derlemesi (arm64, release)
         run: flutter build ios --release --no-codesign
 
@@ -85,7 +87,9 @@ jobs:
           path: ~/.cache/stockfish-nnue
           key: stockfish-nnue-${{ hashFiles('pubspec.lock') }}
       - name: Stockfish ağ dosyaları
-        run: tool/ios/fetch_nnue.sh
+        run: |
+          flutter build ios --config-only --release --no-codesign
+          tool/ios/fetch_nnue.sh
 
       - name: Sertifika ve profil
         env:
