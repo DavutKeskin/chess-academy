@@ -13,7 +13,6 @@ import 'package:chess_academy/core/game_store.dart';
 import 'package:chess_academy/core/opponent.dart';
 import 'package:chess_academy/core/progress_store.dart';
 import 'package:chess_academy/core/settings_store.dart';
-import 'package:chess_academy/features/home/home_screen.dart';
 import 'package:chess_academy/features/lessons/lesson_screen.dart';
 import 'package:chess_academy/features/lessons/lessons.dart';
 import 'package:chess_academy/features/play/lan_lobby_screen.dart';
@@ -115,14 +114,16 @@ void main() {
     await binding.takeScreenshot('$lang/$name');
   }
 
+  // Ana sayfa üstüne ekran açılınca sahne dışı kalır ve bulunamaz; Navigator'ın kendisi hep sahnededir.
+  NavigatorState nav(WidgetTester tester) => tester.state<NavigatorState>(find.byType(Navigator).first);
+
   Future<void> push(WidgetTester tester, Widget screen) async {
-    final nav = Navigator.of(tester.element(find.byType(HomeScreen)));
-    unawaited(nav.push(MaterialPageRoute<void>(builder: (_) => screen)));
+    unawaited(nav(tester).push(MaterialPageRoute<void>(builder: (_) => screen)));
     await settle(tester, 1200);
   }
 
   Future<void> pop(WidgetTester tester) async {
-    Navigator.of(tester.element(find.byType(HomeScreen))).pop();
+    nav(tester).pop();
     await settle(tester, 600);
   }
 
@@ -189,8 +190,7 @@ void main() {
     }
     await shot(tester, '03_play');
     // Bırakma onayı çıkmasın diye ekranı doğrudan kapat.
-    Navigator.of(tester.element(find.byType(PlayScreen))).pop();
-    await settle(tester, 600);
+    await pop(tester);
 
     // Analiz: 5.Nxe5 sonrası (ok, değerlendirme çubuğu, hamle listesi).
     await push(tester, ReplayScreen(game: game));

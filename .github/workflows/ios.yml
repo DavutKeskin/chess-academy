@@ -235,7 +235,8 @@ jobs:
           done
           ls -R build/screenshots
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: store-screenshots-ios
           path: build/screenshots
-          if-no-files-found: error
+          if-no-files-found: warn
