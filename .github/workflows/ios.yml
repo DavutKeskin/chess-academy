@@ -229,9 +229,17 @@ jobs:
         run: |
           set -euo pipefail
           # Simülatör bazen uygulama başlatılırken takılıyor (sürücü hiç bağlanmıyor); dil başına süre sınırı + bir tekrar.
+          # macOS'ta GNU timeout yok; süre dolunca flutter drive öldürülür.
           drive() {
-            timeout 12m flutter drive --driver=test_driver/integration_test.dart --target=integration_test/screenshots_test.dart \
-              -d "${{ steps.sim.outputs.udid }}" --dart-define=SHOT_LANG=$1 --no-pub
+            flutter drive --driver=test_driver/integration_test.dart --target=integration_test/screenshots_test.dart \
+              -d "${{ steps.sim.outputs.udid }}" --dart-define=SHOT_LANG=$1 --no-pub &
+            local pid=$!
+            ( sleep 720; kill "$pid" 2>/dev/null && echo "== $1: süre doldu" ) &
+            local watchdog=$!
+            local rc=0
+            wait "$pid" || rc=$?
+            kill "$watchdog" 2>/dev/null || true
+            return $rc
           }
           for L in tr en de es; do
             echo "== $L"
