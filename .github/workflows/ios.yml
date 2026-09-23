@@ -29,7 +29,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: ios-${{ github.ref }}
+  # Push'lar birbirini iptal eder; elle başlatılan (TestFlight, ekran görüntüsü) işler iptal edilmez.
+  group: ios-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
   cancel-in-progress: true
 
 env:
