@@ -56,6 +56,28 @@ class LanRoom {
   /// Rastgele, RFC 6335'e uygun kısa hizmet adı.
   static String randomName([Random? rng]) => 'sa-${(rng ?? Random()).nextInt(9000) + 1000}';
 
+  /// Aynı oda mDNS'ten birden çok kez gelebilir (IPv4/IPv6 ayrı kayıt, yeniden duyuru);
+  /// hizmet adına göre tekilleştirir, adresleri birleştirir.
+  static List<LanRoom> dedupe(Iterable<LanRoom> rooms) {
+    final byName = <String, LanRoom>{};
+    for (final r in rooms) {
+      final key = r.name.isNotEmpty ? r.name : '${r.host}:${r.port}:${encodeRoomEmoji(r.emoji)}';
+      final prev = byName[key];
+      byName[key] = prev == null
+          ? r
+          : LanRoom(
+              name: prev.name,
+              emoji: prev.emoji,
+              hostSide: prev.hostSide,
+              proto: prev.proto,
+              port: prev.port,
+              host: prev.host ?? r.host,
+              addresses: [...prev.addresses, for (final a in r.addresses) if (!prev.addresses.contains(a)) a],
+            );
+    }
+    return byName.values.toList();
+  }
+
   /// TXT kaydından oda üretir; kayıt eksikse (başka bir uygulama) null.
   static LanRoom? fromService(nsd.Service s) {
     final txt = s.txt;
@@ -160,7 +182,7 @@ class NsdRoomFinder extends RoomFinder {
   void _refresh() {
     final d = _discovery;
     if (d == null) return;
-    _rooms = [for (final s in d.services) ?LanRoom.fromService(s)];
+    _rooms = LanRoom.dedupe([for (final s in d.services) ?LanRoom.fromService(s)]);
     notifyListeners();
   }
 
