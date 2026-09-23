@@ -110,6 +110,10 @@ Android için JDK 17 gerekir (`flutter config --jdk-dir`).
 - "Hilal" taş seti uygulamaya özel: `assets/pieces/hilal/` (cburnett tabanlı, şahta haç ve filde artı yerine hilal; yıldızsız, eksene ortalı, hafif eğik).
   Kaynak SVG'ler aynı klasörde (`hilal_{w,b}K.svg`, `hilal_{w,b}B.svg`); değiştirince 1x/2x/3x webp'leri `magick` ile yeniden üret (bkz. klasördeki README).
 - Ortak parçalar: `StatusBanner` (durum mesajı), `SectionHeader`.
+- Tema düğmeleri (`FilledButton`/`OutlinedButton`) tam genişlik ister: `minimumSize: Size.fromHeight(56)` = sonsuz en küçük genişlik.
+  `Row` içine koyarken `styleFrom(minimumSize: Size(0, 56))` ver ya da `Expanded` içine al; yoksa yerleşim hatası olur ve
+  sürüm derlemesinde düğmeler hiç çizilmez (iOS'ta ders ekranında yaşandı). `test/screens_layout_test.dart` tüm ekranları
+  gerçek temayla iOS/Android'de çizip yerleşim hatası olmadığını doğrular; yeni ekranı oraya ekle.
 - Geri bildirim: `lib/core/feedback.dart` (audioplayers + HapticFeedback), sesler `assets/sounds/*.wav`
   (Python ile sentezlendi). Ayarlar'dan kapatılır.
   Sesler arayüz sesi olarak çalar (Android USAGE_ASSISTANCE_SONIFICATION, ses odağı yok; iOS ambient):
