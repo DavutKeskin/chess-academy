@@ -1,6 +1,8 @@
 # iOS derlemesi. Mac olmadan App Store'a çıkmak için:
 # - Her push/PR: testler (Linux) + imzasız iOS derlemesi (macOS), Stockfish dahil derleniyor mu diye.
 # - Elle çalıştırma (Actions → iOS → Run workflow → testflight): imzalı IPA derlenir ve TestFlight'a yüklenir.
+# - Elle çalıştırma (screenshots): iPhone Pro Max simülatöründe integration_test/screenshots_test.dart 4 dilde
+#   koşar, ham PNG'ler "store-screenshots-ios" artifact'ı olarak iner; çerçeve: tool/branding/make_screenshots.py ios
 # Gizli değerler ve kurulum: tool/ios/README.md.
 name: iOS
 
@@ -18,6 +20,10 @@ on:
         description: "Derleme numarası (boşsa pubspec.yaml'daki +N)"
         type: string
         default: ""
+      screenshots:
+        description: "iOS simülatöründe mağaza ekran görüntüleri üret (4 dil)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -184,3 +190,51 @@ jobs:
         run: |
           security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true
           rm -rf ~/.appstoreconnect "$RUNNER_TEMP"/profile.* || true
+
+  screenshots:
+    needs: test
+    if: github.event_name == 'workflow_dispatch' && inputs.screenshots
+    runs-on: macos-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/stockfish-nnue
+          key: stockfish-nnue-${{ hashFiles('pubspec.lock') }}
+      - name: Stockfish ağ dosyaları
+        run: |
+          flutter build ios --config-only --simulator --debug
+          tool/ios/fetch_nnue.sh
+      - name: Simülatörü aç (6,9" iPhone)
+        id: sim
+        run: |
+          set -euo pipefail
+          UDID=$(xcrun simctl list devices available -j | jq -r '[.devices[][] | select(.name | test("^iPhone [0-9]+ Pro Max$"))] | sort_by(.name) | last | .udid')
+          NAME=$(xcrun simctl list devices available -j | jq -r --arg u "$UDID" '.devices[][] | select(.udid==$u) | .name')
+          echo "Simülatör: $NAME ($UDID)"
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          # Mağaza görüntüsü için temiz durum çubuğu (ekran görüntüsü Flutter yüzeyi olsa da zararsız).
+          xcrun simctl status_bar "$UDID" override --time 9:41 --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3 || true
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+      - name: Ekran görüntüleri (tr, en, de, es)
+        run: |
+          set -euo pipefail
+          for L in tr en de es; do
+            echo "== $L"
+            flutter drive --driver=test_driver/integration_test.dart --target=integration_test/screenshots_test.dart \
+              -d "${{ steps.sim.outputs.udid }}" --dart-define=SHOT_LANG=$L --no-pub
+          done
+          ls -R build/screenshots
+      - uses: actions/upload-artifact@v4
+        with:
+          name: store-screenshots-ios
+          path: build/screenshots
+          if-no-files-found: error

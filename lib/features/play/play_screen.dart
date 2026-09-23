@@ -71,12 +71,14 @@ String opponentLabel(AppLocalizations t, GameRecord g) => g.isVsFriend ? t.lanFr
 /// Oyun ekranı: bilgisayara karşı (varsayılan yapıcı) ya da hazır bir [Opponent] ile
 /// (örneğin Wi‑Fi üstünden arkadaş). Ekran rakibi sahiplenir ve kapanırken bırakır.
 class PlayScreen extends StatefulWidget {
+  /// [opponent] verilirse bilgisayar yerine o oynar (testler ve mağaza ekran görüntüleri için).
   const PlayScreen({
     super.key,
     required this.level,
     required this.playerSide,
     this.timeControl = TimeControl.unlimited,
-  }) : opponent = null;
+    this.opponent,
+  });
 
   /// Bağlantısı kurulmuş uzak rakiple oyun; süresiz, seviye 0.
   const PlayScreen.remote({super.key, required Opponent this.opponent, required this.playerSide})
