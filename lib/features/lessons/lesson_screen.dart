@@ -171,6 +171,9 @@ class _LessonScreenState extends State<LessonScreen> {
               child: Row(
                 children: [
                   OutlinedButton.icon(
+                    // Tema düğmeleri tam genişlik ister (sonsuz en küçük genişlik); Row içinde bu
+                    // yerleşim hatası verir ve sürümde düğmeler hiç çizilmez (iOS'ta görüldü).
+                    style: OutlinedButton.styleFrom(minimumSize: const Size(0, 56)),
                     onPressed: _stepIndex > 0 ? () => _goTo(_stepIndex - 1) : null,
                     icon: const Icon(Icons.arrow_back_rounded),
                     label: Text(context.t.backBtn),

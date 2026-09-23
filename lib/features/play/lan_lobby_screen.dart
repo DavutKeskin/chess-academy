@@ -395,7 +395,12 @@ class _LanJoinScreenState extends State<LanJoinScreen> {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    FilledButton(onPressed: _connecting ? null : _connectManual, child: const Text('Bağlan')),
+                    FilledButton(
+                      // Row içinde tam genişlik isteyen tema stili yerleşim hatası verir.
+                      style: FilledButton.styleFrom(minimumSize: const Size(0, 56)),
+                      onPressed: _connecting ? null : _connectManual,
+                      child: const Text('Bağlan'),
+                    ),
                   ],
                 ),
               ],
