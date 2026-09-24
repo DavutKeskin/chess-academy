@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/dev_flags.dart';
 import '../../core/purchase_store.dart';
 import '../../core/theme.dart';
 import '../../l10n/l10n.dart';
@@ -97,7 +98,7 @@ class PaywallScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               TextButton(onPressed: store.busy ? null : store.restore, child: Text(t.restorePurchase)),
-              if (kDebugMode) TextButton(onPressed: store.debugGrant, child: Text(t.devUnlock)),
+              if (kDevUi) TextButton(onPressed: store.debugGrant, child: Text(t.devUnlock)),
               const SizedBox(height: 8),
               Text(_isIOS ? t.storeNoteIos : t.storeNote, style: Theme.of(context).textTheme.bodyMedium),
             ],

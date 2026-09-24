@@ -226,30 +226,32 @@ jobs:
           xcrun simctl status_bar "$UDID" override --time 9:41 --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3 || true
           echo "udid=$UDID" >> "$GITHUB_OUTPUT"
       - name: Ekran görüntüleri (tr, en, de, es)
+        env:
+          UDID: ${{ steps.sim.outputs.udid }}
+          BUNDLE: com.davutkeskin.chessacademy
         run: |
           set -euo pipefail
-          # Simülatör bazen uygulama başlatılırken takılıyor (sürücü hiç bağlanmıyor); dil başına süre sınırı + bir tekrar.
-          # macOS'ta GNU timeout yok; süre dolunca flutter drive öldürülür.
-          drive() {
-            flutter drive --driver=test_driver/integration_test.dart --target=integration_test/screenshots_test.dart \
-              -d "${{ steps.sim.outputs.udid }}" --dart-define=SHOT_LANG=$1 --no-pub &
-            local pid=$!
-            ( sleep 720; kill "$pid" 2>/dev/null && echo "== $1: süre doldu" ) &
-            local watchdog=$!
-            local rc=0
-            wait "$pid" || rc=$?
-            kill "$watchdog" 2>/dev/null || true
-            return $rc
-          }
+          # Test, uygulamanın giriş noktası olarak derlenir; görüntüleri kendi içinde yazar (sürücü/VM servisi
+          # bağlantısı gerekmez; flutter drive simülatörde sık sık takılıyordu).
           for L in tr en de es; do
             echo "== $L"
-            if ! drive "$L"; then
-              echo "== $L: tekrar (uygulama kapatılıyor)"
-              xcrun simctl terminate "${{ steps.sim.outputs.udid }}" com.davutkeskin.chessacademy || true
-              drive "$L"
-            fi
+            flutter build ios --simulator --debug --no-pub --target=integration_test/screenshots_test.dart \
+              --dart-define=SHOT_LANG=$L --dart-define=SCREENSHOTS=true
+            xcrun simctl terminate "$UDID" "$BUNDLE" 2>/dev/null || true
+            xcrun simctl install "$UDID" build/ios/iphonesimulator/Runner.app
+            C=$(xcrun simctl get_app_container "$UDID" "$BUNDLE" data)
+            rm -rf "$C/Documents/screenshots/$L"
+            xcrun simctl launch "$UDID" "$BUNDLE"
+            for i in $(seq 1 72); do
+              [ -f "$C/Documents/screenshots/$L/DONE" ] && break
+              sleep 5
+            done
+            xcrun simctl terminate "$UDID" "$BUNDLE" 2>/dev/null || true
+            [ -f "$C/Documents/screenshots/$L/DONE" ] || { echo "$L: süre doldu"; xcrun simctl spawn "$UDID" log show --last 8m --predicate 'process == "Runner"' --style compact | tail -80; exit 1; }
+            mkdir -p "build/screenshots/$L"
+            cp "$C/Documents/screenshots/$L/"*.png "build/screenshots/$L/"
+            ls "build/screenshots/$L"
           done
-          ls -R build/screenshots
       - uses: actions/upload-artifact@v4
         if: always()
         with:

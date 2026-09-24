@@ -5,6 +5,7 @@ import 'package:dartchess/dartchess.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/dev_flags.dart';
 import '../../core/net/lan/lan_discovery.dart';
 import '../../core/net/lan/lan_host.dart';
 import '../../core/net/lan/lan_session.dart';
@@ -145,7 +146,7 @@ class _LanHostScreenState extends State<LanHostScreen> {
   void initState() {
     super.initState();
     _start();
-    if (kDebugMode) _loadAddresses();
+    if (kDevUi) _loadAddresses();
   }
 
   Future<void> _loadAddresses() async {
@@ -255,7 +256,7 @@ class _LanHostScreenState extends State<LanHostScreen> {
             StatusBanner(text: t.lanStartFailed, tone: BannerTone.error, icon: Icons.wifi_off_rounded)
           else
             StatusBanner(text: t.lanWaitingForFriend, tone: BannerTone.info, icon: Icons.hourglass_top_rounded),
-          if (kDebugMode && host != null) ...[
+          if (kDevUi && host != null) ...[
             const SizedBox(height: 8),
             // Yalnızca geliştirme: mDNS olmadan IP:port ile bağlanmak için.
             Text(
@@ -382,7 +383,7 @@ class _LanJoinScreenState extends State<LanJoinScreen> {
               ],
               const SizedBox(height: 20),
               Text(t.lanSameWifiHelp, style: Theme.of(context).textTheme.bodyMedium, textAlign: TextAlign.center),
-              if (kDebugMode) ...[
+              if (kDevUi) ...[
                 // Yalnızca geliştirme: mDNS olmadan doğrudan bağlanma.
                 const SizedBox(height: 24),
                 Row(
