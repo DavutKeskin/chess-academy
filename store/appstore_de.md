@@ -1,7 +1,7 @@
 # App Store Eintrag (de-DE)
 
 App Store Connect → uygulama → sürüm sayfası. Sınırlar: ad 30, alt başlık 30, tanıtım metni 170, anahtar kelimeler 100
-(virgülle, boşluksuz), açıklama 4000. Google Play'den söz edilmez. Ekran görüntüleri: store/screenshots/ios/de/.
+(virgülle, boşluksuz), açıklama 4000. Google Play'den söz edilmez; açıklamada emoji kullanılamaz ("invalid character"). Ekran görüntüleri: store/screenshots/ios/de/.
 
 ## Name (30)
 Schach-Akademie
@@ -18,28 +18,28 @@ schach,kinder,lektionen,aufgaben,matt,lernen,taktik,brett,spiel,anfänger,strate
 ## Description (4000)
 Die Schach-Akademie bringt Kindern und Anfängern Schach von Grund auf bei, Schritt für Schritt.
 
-♟ 20 INTERAKTIVE LEKTIONEN
+20 INTERAKTIVE LEKTIONEN
 Von den Zügen der Figuren bis zum Schachmatt, von Gabel und Fesselung bis zu den Eröffnungsprinzipien: Jedes Thema wird mit kurzen Erklärungen und kleinen Aufgaben auf dem Brett vermittelt. Beim richtigen Zug gibt es sofort Rückmeldung.
 
-🧩 ÜBER 700 MATTAUFGABEN
+ÜBER 700 MATTAUFGABEN
 Matt in einem und in zwei Zügen, von leicht bis schwer sortiert. Jeden Tag eine neue „Aufgabe des Tages“; Serien machen aus dem Lernen eine Gewohnheit.
 
-🤖 COMPUTERGEGNER MIT 5 STUFEN
+COMPUTERGEGNER MIT 5 STUFEN
 Vom zufällig ziehenden Anfänger bis zum starken Großmeister. Der Gegner läuft mit Stockfish, der stärksten Schach-Engine der Welt, komplett offline. Auf Wunsch mit Bedenkzeit.
 
-🔍 PARTIEANALYSE
+PARTIEANALYSE
 Nach jeder Partie werden deine Züge einzeln bewertet: Fehler, verpasste Matts und der bessere Zug werden auf dem Brett gezeigt.
 
-👥 MIT FREUNDEN SPIELEN
+MIT FREUNDEN SPIELEN
 Zwei iPhones im selben WLAN verbinden sich direkt miteinander. Kein Konto, kein Server, kein Internet nötig; Räume werden über drei Emojis gefunden.
 
-🎨 GANZ NACH DEINEM GESCHMACK
+GANZ NACH DEINEM GESCHMACK
 10 Brett-Designs und 8 Figurensätze, heller und dunkler Modus, darunter der app-eigene Satz „Halbmond“.
 
-🏆 FORTSCHRITT UND ABZEICHEN
+FORTSCHRITT UND ABZEICHEN
 Abgeschlossene Lektionen, gelöste Aufgaben, tägliche Serien und gewonnene Partien bringen Abzeichen.
 
-🔒 SICHER FÜR KINDER
+SICHER FÜR KINDER
 Keine Konten, keine Werbung, keine Datensammlung. Alles bleibt auf dem Gerät und funktioniert ohne Internet.
 
 Die ersten 8 Lektionen sind kostenlos. Alle Taktik- und Mattlektionen werden mit dem einmaligen Kauf „Alle Lektionen“ freigeschaltet; es gibt kein Abo.
