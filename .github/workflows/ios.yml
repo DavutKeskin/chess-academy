@@ -240,16 +240,19 @@ jobs:
             xcrun simctl terminate "$UDID" "$BUNDLE" 2>/dev/null || true
             xcrun simctl install "$UDID" build/ios/iphonesimulator/Runner.app
             C=$(xcrun simctl get_app_container "$UDID" "$BUNDLE" data)
-            rm -rf "$C/Documents/screenshots/$L"
+            # iOS'ta HOME yok; test dosyaları kabın tmp klasörüne yazar. Kabın tamamında DONE aranır.
+            find "$C" -type d -path "*/screenshots/$L" -prune -exec rm -rf {} + 2>/dev/null || true
             xcrun simctl launch "$UDID" "$BUNDLE"
+            DIR=""
             for i in $(seq 1 72); do
-              [ -f "$C/Documents/screenshots/$L/DONE" ] && break
+              F=$(find "$C" -type f -path "*/screenshots/$L/DONE" -print -quit 2>/dev/null || true)
+              if [ -n "$F" ]; then DIR=$(dirname "$F"); break; fi
               sleep 5
             done
             xcrun simctl terminate "$UDID" "$BUNDLE" 2>/dev/null || true
-            [ -f "$C/Documents/screenshots/$L/DONE" ] || { echo "$L: süre doldu"; xcrun simctl spawn "$UDID" log show --last 8m --predicate 'process == "Runner"' --style compact | tail -80; exit 1; }
+            [ -n "$DIR" ] || { echo "$L: süre doldu"; xcrun simctl spawn "$UDID" log show --last 8m --predicate 'process == "Runner"' --style compact | tail -80; exit 1; }
             mkdir -p "build/screenshots/$L"
-            cp "$C/Documents/screenshots/$L/"*.png "build/screenshots/$L/"
+            cp "$DIR/"*.png "build/screenshots/$L/"
             ls "build/screenshots/$L"
           done
       - uses: actions/upload-artifact@v4
