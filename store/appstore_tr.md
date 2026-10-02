@@ -7,16 +7,16 @@ App Store Connect → uygulama → sürüm sayfası. Sınırlar: ad 30, alt baş
 Satranç Akademi
 
 ## Subtitle (30)
-Çocuklar için satranç okulu
+Satrancı adım adım öğren
 
 ## Promotional Text (170)
 Yeni: Aynı Wi-Fi ağındaki bir arkadaşınla oyna. Hesap yok, sunucu yok.
 
 ## Keywords (100)
-satranç,çocuk,ders,bulmaca,mat,öğren,taktik,oyun,tahta,eğitim,akıl,strateji,çocuklar,başlangıç
+satranç,ders,bulmaca,mat,öğren,taktik,oyun,tahta,eğitim,akıl,strateji,başlangıç,okul,antrenör
 
 ## Description (4000)
-Satranç Akademi, çocukların ve yeni başlayanların satrancı sıfırdan, adım adım öğrenmesi için hazırlandı.
+Satranç Akademi, her yaştan yeni başlayanın satrancı sıfırdan, adım adım öğrenmesi için hazırlandı.
 
 20 ETKİLEŞİMLİ DERS
 Taşların hareketinden şah matına, çatal ve çivileme gibi taktiklerden açılış ilkelerine kadar her konu kısa açıklamalar ve tahtada yapılan küçük görevlerle öğretilir. Doğru hamleyi bulunca anında geri bildirim alırsın.
@@ -39,7 +39,7 @@ SANA ÖZEL GÖRÜNÜM
 İLERLEME VE ROZETLER
 Biten dersler, çözülen bulmacalar, günlük seri ve kazanılan oyunlar rozetlerle ödüllendirilir.
 
-ÇOCUKLAR İÇİN GÜVENLİ
+GİZLİ VE ÇEVRİMDIŞI
 Hesap yok, reklam yok, veri toplama yok. Her şey cihazda kalır ve internet gerektirmez.
 
 İlk 8 ders ücretsizdir. Taktik ve mat teknikleri derslerinin tamamı tek seferlik "Tüm Dersler" satın alımıyla açılır; abonelik yoktur.

@@ -7,16 +7,16 @@ App Store Connect → uygulama → sürüm sayfası. Sınırlar: ad 30, alt baş
 Academia de Ajedrez
 
 ## Subtitle (30)
-Escuela de ajedrez para niños
+Aprende ajedrez paso a paso
 
 ## Promotional Text (170)
 Nuevo: juega con un amigo en la misma red Wi-Fi. Sin cuenta, sin servidor.
 
 ## Keywords (100)
-ajedrez,niños,lecciones,problemas,mate,aprender,táctica,tablero,juego,principiante,estrategia
+ajedrez,escuela,lecciones,problemas,mate,aprender,táctica,tablero,juego,principiante,estrategia
 
 ## Description (4000)
-Academia de Ajedrez enseña ajedrez desde cero a niños y principiantes, paso a paso.
+Academia de Ajedrez enseña ajedrez desde cero a principiantes de todas las edades, paso a paso.
 
 20 LECCIONES INTERACTIVAS
 Desde el movimiento de las piezas hasta el jaque mate, desde la horquilla y la clavada hasta los principios de la apertura: cada tema se enseña con explicaciones cortas y pequeñas tareas en el tablero. Recibes respuesta al instante cuando encuentras la jugada correcta.
@@ -39,7 +39,7 @@ A TU GUSTO
 PROGRESO E INSIGNIAS
 Las lecciones terminadas, los problemas resueltos, las rachas diarias y las partidas ganadas dan insignias.
 
-SEGURA PARA NIÑOS
+PRIVADA Y SIN CONEXIÓN
 Sin cuentas, sin anuncios, sin recopilación de datos. Todo se queda en el dispositivo y funciona sin internet.
 
 Las primeras 8 lecciones son gratis. Todas las lecciones de táctica y mate se desbloquean con la compra única "Todas las lecciones"; no hay suscripción.

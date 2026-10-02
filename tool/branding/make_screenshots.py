@@ -59,7 +59,7 @@ TEXT = {
 
 TEXT_IOS = {
     'tr': {
-        '01_home': ('Çocuklar için\nsatranç okulu', 'Dersler, bulmacalar, akıllı rakip'),
+        '01_home': ('Satrancı adım\nadım öğren', 'Dersler, bulmacalar, akıllı rakip'),
         '02_lesson': ('20 etkileşimli ders', 'Tahtada görev yap, anında geri bildirim al'),
         '03_play': ('5 seviyeli rakip', 'Stockfish motoru, tamamen çevrimdışı'),
         '04_analysis': ('Hatalarını gör,\ndaha iyisini öğren', 'Oyun sonunda hamle hamle analiz'),
@@ -69,7 +69,7 @@ TEXT_IOS = {
         '08_setup': ('Seviyeni seç', 'Çaylaktan büyük ustaya'),
     },
     'en': {
-        '01_home': ('Chess school\nfor kids', 'Lessons, puzzles, smart opponent'),
+        '01_home': ('Learn chess\nstep by step', 'Lessons, puzzles, smart opponent'),
         '02_lesson': ('20 interactive lessons', 'Do tasks on the board, get instant feedback'),
         '03_play': ('Opponent with 5 levels', 'Stockfish engine, fully offline'),
         '04_analysis': ('See your mistakes,\nlearn the better move', 'Move-by-move analysis after every game'),
@@ -79,7 +79,7 @@ TEXT_IOS = {
         '08_setup': ('Pick your level', 'From rookie to grandmaster'),
     },
     'de': {
-        '01_home': ('Schachschule\nfür Kinder', 'Lektionen, Aufgaben, kluger Gegner'),
+        '01_home': ('Schach Schritt\nfür Schritt', 'Lektionen, Aufgaben, kluger Gegner'),
         '02_lesson': ('20 interaktive Lektionen', 'Aufgaben am Brett, sofortiges Feedback'),
         '03_play': ('Gegner mit 5 Stufen', 'Stockfish-Engine, komplett offline'),
         '04_analysis': ('Fehler erkennen,\nbesser spielen', 'Zug-für-Zug-Analyse nach jeder Partie'),
@@ -89,7 +89,7 @@ TEXT_IOS = {
         '08_setup': ('Wähle deine Stufe', 'Vom Anfänger zum Großmeister'),
     },
     'es': {
-        '01_home': ('Escuela de ajedrez\npara niños', 'Lecciones, problemas, rival inteligente'),
+        '01_home': ('Aprende ajedrez\npaso a paso', 'Lecciones, problemas, rival inteligente'),
         '02_lesson': ('20 lecciones interactivas', 'Tareas en el tablero, respuesta al instante'),
         '03_play': ('Rival con 5 niveles', 'Motor Stockfish, sin conexión'),
         '04_analysis': ('Ve tus errores,\naprende la mejor jugada', 'Análisis jugada a jugada tras cada partida'),

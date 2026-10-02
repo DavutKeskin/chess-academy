@@ -7,16 +7,16 @@ App Store Connect → uygulama → sürüm sayfası. Sınırlar: ad 30, alt baş
 Schach-Akademie
 
 ## Subtitle (30)
-Schachschule für Kinder
+Schach Schritt für Schritt
 
 ## Promotional Text (170)
 Neu: Spiele gegen Freunde im selben WLAN. Kein Konto, kein Server.
 
 ## Keywords (100)
-schach,kinder,lektionen,aufgaben,matt,lernen,taktik,brett,spiel,anfänger,strategie,trainer,üben
+schach,schule,lektionen,aufgaben,matt,lernen,taktik,brett,spiel,anfänger,strategie,trainer,üben
 
 ## Description (4000)
-Die Schach-Akademie bringt Kindern und Anfängern Schach von Grund auf bei, Schritt für Schritt.
+Die Schach-Akademie bringt Anfängern jeden Alters Schach von Grund auf bei, Schritt für Schritt.
 
 20 INTERAKTIVE LEKTIONEN
 Von den Zügen der Figuren bis zum Schachmatt, von Gabel und Fesselung bis zu den Eröffnungsprinzipien: Jedes Thema wird mit kurzen Erklärungen und kleinen Aufgaben auf dem Brett vermittelt. Beim richtigen Zug gibt es sofort Rückmeldung.
@@ -39,7 +39,7 @@ GANZ NACH DEINEM GESCHMACK
 FORTSCHRITT UND ABZEICHEN
 Abgeschlossene Lektionen, gelöste Aufgaben, tägliche Serien und gewonnene Partien bringen Abzeichen.
 
-SICHER FÜR KINDER
+PRIVAT UND OFFLINE
 Keine Konten, keine Werbung, keine Datensammlung. Alles bleibt auf dem Gerät und funktioniert ohne Internet.
 
 Die ersten 8 Lektionen sind kostenlos. Alle Taktik- und Mattlektionen werden mit dem einmaligen Kauf „Alle Lektionen“ freigeschaltet; es gibt kein Abo.

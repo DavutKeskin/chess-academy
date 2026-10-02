@@ -7,16 +7,16 @@ App Store Connect → uygulama → sürüm sayfası. Sınırlar: ad 30, alt baş
 Chess Academy
 
 ## Subtitle (30)
-Chess school for kids
+Learn chess step by step
 
 ## Promotional Text (170)
 New: play a friend on the same Wi-Fi network. No account, no server.
 
 ## Keywords (100)
-chess,kids,lessons,puzzles,checkmate,learn,tactics,board,game,beginner,children,strategy,trainer
+chess,lessons,puzzles,checkmate,learn,tactics,board,game,beginner,strategy,trainer,school,mate,coach
 
 ## Description (4000)
-Chess Academy teaches children and beginners chess from scratch, step by step.
+Chess Academy teaches chess to beginners of all ages from scratch, step by step.
 
 20 INTERACTIVE LESSONS
 From how the pieces move to checkmate, from forks and pins to opening principles: every topic is taught with short explanations and small tasks on the board. You get instant feedback when you find the right move.
@@ -39,7 +39,7 @@ MAKE IT YOURS
 PROGRESS AND BADGES
 Finished lessons, solved puzzles, daily streaks and won games earn badges.
 
-SAFE FOR KIDS
+PRIVATE AND OFFLINE
 No accounts, no ads, no data collection. Everything stays on the device and works without internet.
 
 The first 8 lessons are free. The full set of tactics and checkmate lessons unlocks with a one-time "All Lessons" purchase; there is no subscription.
