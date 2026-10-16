@@ -4,19 +4,19 @@ App Store Connect → uygulama → sürüm sayfası. Sınırlar: ad 30, alt baş
 (virgülle, boşluksuz), açıklama 4000. Google Play'den söz edilmez; açıklamada emoji kullanılamaz ("invalid character"). Ekran görüntüleri: store/screenshots/ios/de/.
 
 ## Name (30)
-Schach-Akademie
+Crescent Chess Academy
 
 ## Subtitle (30)
-Schach Schritt für Schritt
+Eine Partie, ein Gedanke
 
 ## Promotional Text (170)
 Neu: Spiele gegen Freunde im selben WLAN. Kein Konto, kein Server.
 
 ## Keywords (100)
-schach,schule,lektionen,aufgaben,matt,lernen,taktik,brett,spiel,anfänger,strategie,trainer,üben
+schach,schule,lektionen,aufgaben,matt,lernen,taktik,brett,spiel,anfänger,strategie,trainer,halbmond
 
 ## Description (4000)
-Die Schach-Akademie bringt Anfängern jeden Alters Schach von Grund auf bei, Schritt für Schritt.
+Crescent Chess Academy ist ein kompletter Schachkurs für Anfänger jeden Alters: 20 interaktive Lektionen, über 700 Aufgaben, ein Gegner mit 5 Stufen und Zug-für-Zug-Analyse, alles offline und ohne Werbung. Erst denken, dann ziehen, dann verstehen.
 
 20 INTERAKTIVE LEKTIONEN
 Von den Zügen der Figuren bis zum Schachmatt, von Gabel und Fesselung bis zu den Eröffnungsprinzipien: Jedes Thema wird mit kurzen Erklärungen und kleinen Aufgaben auf dem Brett vermittelt. Beim richtigen Zug gibt es sofort Rückmeldung.
@@ -34,7 +34,7 @@ MIT FREUNDEN SPIELEN
 Zwei iPhones im selben WLAN verbinden sich direkt miteinander. Kein Konto, kein Server, kein Internet nötig; Räume werden über drei Emojis gefunden.
 
 GANZ NACH DEINEM GESCHMACK
-10 Brett-Designs und 8 Figurensätze, heller und dunkler Modus, darunter der app-eigene Satz „Halbmond“.
+11 Brett-Designs und 8 Figurensätze, heller und dunkler Modus, darunter der app-eigene Satz „Halbmond“.
 
 FORTSCHRITT UND ABZEICHEN
 Abgeschlossene Lektionen, gelöste Aufgaben, tägliche Serien und gewonnene Partien bringen Abzeichen.

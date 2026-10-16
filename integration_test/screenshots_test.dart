@@ -227,14 +227,14 @@ void main() {
     );
     await settle(tester, 1500);
     try {
-      await shot(tester, '01_home');
+      await shot(tester, '02_home');
 
       // Ders: Kale, görev adımı (ok ve hedef kare).
       final lessons = buildLessons(t);
       await push(tester, LessonScreen(lesson: lessons[1]));
       await tester.tap(find.text(t.continueBtn));
       await settle(tester, 600);
-      await shot(tester, '02_lesson');
+      await shot(tester, '03_lesson');
       await pop(tester);
 
       // Bilgisayara karşı oyun ortası (İtalyan açılışı), rakip hamleleri betikten.
@@ -253,7 +253,7 @@ void main() {
         await tapSquare(tester, mv.substring(2, 4));
         await settle(tester, 900); // rakip cevabı ve animasyon
       }
-      await shot(tester, '03_play');
+      await shot(tester, '06_play');
       // Bırakma onayı çıkmasın diye ekranı doğrudan kapat.
       await pop(tester);
 
@@ -268,21 +268,21 @@ void main() {
 
       // Bulmaca: Çoban matı konumu.
       await push(tester, const PuzzleScreen(puzzles: starterPuzzles, index: 1));
-      await shot(tester, '05_puzzle');
+      await shot(tester, '07_puzzle');
       await pop(tester);
 
       // Arkadaşla oyna: oda kurma (emoji kartı).
       await push(tester, const LanHostScreen());
       await settle(tester, 2500);
-      await shot(tester, '06_lan');
+      await shot(tester, '05_lan');
       await pop(tester);
 
       await push(tester, const ProgressScreen());
-      await shot(tester, '07_progress');
+      await shot(tester, '08_progress');
       await pop(tester);
 
       await push(tester, const PlaySetupScreen());
-      await shot(tester, '08_setup');
+      await shot(tester, '01_setup');
       await pop(tester);
     } finally {
       // CI bu dosyayı bekler; hata olsa da o ana kadar çekilenler toplanır.

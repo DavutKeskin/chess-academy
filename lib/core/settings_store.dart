@@ -5,8 +5,27 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n/l10n.dart';
 
+/// Uygulamanın kendi tahtası: krem ve kayrak mavisi (lacivert paletin açık tonu). Varsayılan tema;
+/// lichess renkleriyle karışmasın diye kendi şeması var. Son hamle altın: iki karede de okunur.
+const _akademiLight = Color(0xFFF0E8D8);
+const _akademiDark = Color(0xFF5C7A9E);
+const akademiBoard = ChessboardColorScheme(
+  lightSquare: _akademiLight,
+  darkSquare: _akademiDark,
+  background: SolidColorChessboardBackground(lightSquare: _akademiLight, darkSquare: _akademiDark),
+  whiteCoordBackground: SolidColorChessboardBackground(
+      lightSquare: _akademiLight, darkSquare: _akademiDark, coordinates: true),
+  blackCoordBackground: SolidColorChessboardBackground(
+      lightSquare: _akademiLight, darkSquare: _akademiDark, coordinates: true, orientation: Side.black),
+  lastMove: HighlightDetails(solidColor: Color(0xA6E9A825)),
+  selected: HighlightDetails(solidColor: Color(0x801F3A5F)),
+  validMoves: Color(0x501F3A5F),
+  validPremoves: Color(0x40203085),
+);
+
 /// Kullanıcının seçebildiği tahta temaları. Ad, çocuk için anlaşılır Türkçe.
 enum BoardTheme {
+  akademi(akademiBoard),
   klasik(ChessboardColorScheme.brown),
   turnuva(ChessboardColorScheme.green),
   okyanus(ChessboardColorScheme.blue),
@@ -28,6 +47,7 @@ enum BoardTheme {
       : _colors;
 
   String label(AppLocalizations t) => switch (this) {
+        BoardTheme.akademi => t.boardAkademi,
         BoardTheme.klasik => t.boardKlasik,
         BoardTheme.turnuva => t.boardTurnuva,
         BoardTheme.okyanus => t.boardOkyanus,
@@ -146,7 +166,7 @@ class SettingsStore extends ChangeNotifier {
   static const _kThemeMode = 'theme_mode';
 
   late SharedPreferences _prefs;
-  BoardTheme _board = BoardTheme.turnuva;
+  BoardTheme _board = BoardTheme.akademi;
   PieceStyle _pieces = PieceStyle.hilal;
 
   bool _sound = true;

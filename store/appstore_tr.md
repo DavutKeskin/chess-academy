@@ -4,19 +4,19 @@ App Store Connect → uygulama → sürüm sayfası. Sınırlar: ad 30, alt baş
 (virgülle, boşluksuz), açıklama 4000. Google Play'den söz edilmez; açıklamada emoji kullanılamaz ("invalid character"). Ekran görüntüleri: store/screenshots/ios/tr/.
 
 ## Name (30)
-Satranç Akademi
+Crescent Chess Academy
 
 ## Subtitle (30)
-Satrancı adım adım öğren
+Bir oyun, bir düşünce
 
 ## Promotional Text (170)
 Yeni: Aynı Wi-Fi ağındaki bir arkadaşınla oyna. Hesap yok, sunucu yok.
 
 ## Keywords (100)
-satranç,ders,bulmaca,mat,öğren,taktik,oyun,tahta,eğitim,akıl,strateji,başlangıç,okul,antrenör
+satranç,ders,bulmaca,mat,öğren,taktik,oyun,tahta,eğitim,akıl,strateji,başlangıç,okul,antrenör,hilal
 
 ## Description (4000)
-Satranç Akademi, her yaştan yeni başlayanın satrancı sıfırdan, adım adım öğrenmesi için hazırlandı.
+Crescent Chess Academy, her yaştan yeni başlayan için eksiksiz bir satranç kursu: 20 etkileşimli ders, 700'den fazla bulmaca, 5 seviyeli rakip ve hamle hamle analiz; tamamen çevrimdışı ve reklamsız. Önce düşün, sonra nedenini gör.
 
 20 ETKİLEŞİMLİ DERS
 Taşların hareketinden şah matına, çatal ve çivileme gibi taktiklerden açılış ilkelerine kadar her konu kısa açıklamalar ve tahtada yapılan küçük görevlerle öğretilir. Doğru hamleyi bulunca anında geri bildirim alırsın.
@@ -34,7 +34,7 @@ ARKADAŞINLA OYNA
 Aynı Wi-Fi ağındaki iki iPhone doğrudan birbirine bağlanır. Hesap, sunucu ya da internet gerekmez; oda üç emojiyle bulunur.
 
 SANA ÖZEL GÖRÜNÜM
-10 tahta teması ve 8 taş seti; açık ve koyu tema. Uygulamaya özel "Hilal" taş seti.
+11 tahta teması ve 8 taş seti; açık ve koyu tema. Uygulamaya özel "Hilal" taş seti.
 
 İLERLEME VE ROZETLER
 Biten dersler, çözülen bulmacalar, günlük seri ve kazanılan oyunlar rozetlerle ödüllendirilir.

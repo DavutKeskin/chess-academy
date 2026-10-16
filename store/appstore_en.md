@@ -4,19 +4,19 @@ App Store Connect → uygulama → sürüm sayfası. Sınırlar: ad 30, alt baş
 (virgülle, boşluksuz), açıklama 4000. Google Play'den söz edilmez; açıklamada emoji kullanılamaz ("invalid character"). Ekran görüntüleri: store/screenshots/ios/en/.
 
 ## Name (30)
-Chess Academy
+Crescent Chess Academy
 
 ## Subtitle (30)
-Learn chess step by step
+A game of chess, a thought
 
 ## Promotional Text (170)
 New: play a friend on the same Wi-Fi network. No account, no server.
 
 ## Keywords (100)
-chess,lessons,puzzles,checkmate,learn,tactics,board,game,beginner,strategy,trainer,school,mate,coach
+chess,lessons,puzzles,checkmate,learn,tactics,board,beginner,strategy,trainer,school,coach,crescent
 
 ## Description (4000)
-Chess Academy teaches chess to beginners of all ages from scratch, step by step.
+Crescent Chess Academy is a complete chess course for beginners of all ages: 20 interactive lessons, 700+ puzzles, a 5-level opponent and move-by-move analysis, all offline and ad-free. Think before you move, then see why.
 
 20 INTERACTIVE LESSONS
 From how the pieces move to checkmate, from forks and pins to opening principles: every topic is taught with short explanations and small tasks on the board. You get instant feedback when you find the right move.
@@ -34,7 +34,7 @@ PLAY WITH A FRIEND
 Two iPhones on the same Wi-Fi connect directly to each other. No account, no server, no internet needed; rooms are found by three emoji.
 
 MAKE IT YOURS
-10 board themes and 8 piece sets, light and dark mode, including the app's own "Crescent" set.
+11 board themes and 8 piece sets, light and dark mode, including the app's own "Crescent" set.
 
 PROGRESS AND BADGES
 Finished lessons, solved puzzles, daily streaks and won games earn badges.
