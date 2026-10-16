@@ -1,6 +1,6 @@
 {
   "@@locale": "tr",
-  "appName": "Crescent Chess Academy",
+  "appName": "Satranç Akademi",
   "continueBtn": "Devam",
   "startBtn": "Başla",
   "nextBtn": "Sonraki",
@@ -366,7 +366,7 @@
   "skillKnowsRulesHint": "Dersler açık, bulmacalara geç",
   "skillPlays": "Oynuyorum",
   "skillPlaysHint": "Taktikler ve güçlü rakip",
-  "welcomeTitle": "Crescent Chess Academy'ye hoş geldin",
+  "welcomeTitle": "Satranç Akademi'ye hoş geldin",
   "welcomeSub": "İki kısa soru; buna göre nereden başlayacağını ayarlayalım. Sonradan Ayarlar'dan değiştirebilirsin.",
   "whoPlays": "Kim oynayacak?",
   "howMuchChess": "Satrancı ne kadar biliyorsun?",
@@ -679,7 +679,7 @@
   "copyLink": "Bağlantıyı kopyala",
   "linkCopied": "Bağlantı kopyalandı",
   "closeBtn": "Kapat",
-  "licenseLegalese": "Crescent Chess Academy özgür yazılımdır: GNU Genel Kamu Lisansı sürüm 3 ya da (istersen) sonraki bir sürümün koşullarıyla dağıtabilir ve değiştirebilirsin. Hiçbir garanti verilmez.\n\nKaynak kodu: {url}\n\nTahta ve kurallar lichess'in chessground ve dartchess paketleri, rakip ve analiz Stockfish (GPL-3.0). Bulmacalar lichess.org açık veritabanından (CC0).",
+  "licenseLegalese": "Satranç Akademi özgür yazılımdır: GNU Genel Kamu Lisansı sürüm 3 ya da (istersen) sonraki bir sürümün koşullarıyla dağıtabilir ve değiştirebilirsin. Hiçbir garanti verilmez.\n\nKaynak kodu: {url}\n\nTahta ve kurallar lichess'in chessground ve dartchess paketleri, rakip ve analiz Stockfish (GPL-3.0). Bulmacalar lichess.org açık veritabanından (CC0).",
   "@licenseLegalese": {
     "placeholders": {
       "url": {
